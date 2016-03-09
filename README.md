@@ -32,7 +32,7 @@ models on the PAN 2016 dataset.
 
 ## Example usage:
 
-- python tesst.py -i pan16-author-profiling-training-dataset/pan16-author-profiling-training-dataset-english/
+- python tesst.py -i pan16-author-profiling-training-dataset/pan16-author-profiling-training-dataset-english/ -s 0.2 # for train/test splitting
 - python cross.py -i pan16-author-profiling-training-dataset/pan16-author-profiling-training-dataset-english/
 
 

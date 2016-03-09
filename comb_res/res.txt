@@ -1,0 +1,79 @@
+Results: en - age, params: {"svm__C": 10} ,Accuracy_Mean: 0.411504424779
+Results: en - gender, params: {"svm__C": 0.01} ,Accuracy_Mean: 0.694690265487
+Time: 1862.2744031 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.362831858407
+Results: en - gender, params: {} ,Accuracy_Mean: 0.606194690265
+Time: 353.24529314 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.41814159292
+Results: en - gender, params: {} ,Accuracy_Mean: 0.756637168142
+Time: 225.644799948 seconds.
+Results: en - age, params: {"mvb__fit_prior": true} ,Accuracy_Mean: 0.411504424779
+Results: en - gender, params: {} ,Accuracy_Mean: 0.756637168142
+Time: 263.370145082 seconds.
+Results: en - age, params: {"mvb__fit_prior": true} ,Accuracy_Mean: 0.411504424779
+Results: en - gender, params: {} ,Accuracy_Mean: 0.756637168142
+Time: 270.132707119 seconds.
+Results: en - age, params: {"mvb__fit_prior": true} ,Accuracy_Mean: 0.411504424779
+Results: en - gender, params: {} ,Accuracy_Mean: 0.586283185841
+Time: 256.047147989 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.384955752212
+Results: en - age, params: {} ,Accuracy_Mean: 0.365044247788
+Results: en - gender, params: {} ,Accuracy_Mean: 0.561946902655
+Time: 196.293505907 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.387168141593
+Results: en - gender, params: {} ,Accuracy_Mean: 0.619469026549
+Time: 175.422010899 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.393805309735
+Results: en - gender, params: {} ,Accuracy_Mean: 0.579646017699
+Time: 174.569829226 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.393805309735
+Results: en - age, params: {} ,Accuracy_Mean: 0.362831858407
+Results: en - gender, params: {} ,Accuracy_Mean: 0.535398230088
+Time: 168.177855968 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.389380530973
+Results: en - gender, params: {} ,Accuracy_Mean: 0.610619469027
+Time: 413.427350044 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.389380530973
+Results: en - gender, params: {} ,Accuracy_Mean: 0.619469026549
+Time: 426.609767914 seconds.
+Results: es - age, params: {} ,Accuracy_Mean: 0.4453125
+Results: es - gender, params: {} ,Accuracy_Mean: 0.65234375
+Time: 158.852973938 seconds.
+Results: es - age, params: {} ,Accuracy_Mean: 0.4453125
+Results: es - gender, params: {} ,Accuracy_Mean: 0.67578125
+Time: 133.006788015 seconds.
+Results: en - age, params: {"svm__gamma": 10} ,Accuracy_Mean: 0.424778761062
+Results: en - gender, params: {} ,Accuracy_Mean: 0.758849557522
+Time: 406.8471241 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.391592920354
+Results: en - gender, params: {} ,Accuracy_Mean: 0.756637168142
+Time: 231.327582121 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.409292035398
+Results: en - gender, params: {} ,Accuracy_Mean: 0.758849557522
+Time: 198.085682154 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.398230088496
+Results: en - gender, params: {} ,Accuracy_Mean: 0.747787610619
+Time: 216.039886951 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.413716814159
+Results: en - gender, params: {} ,Accuracy_Mean: 0.758849557522
+Time: 192.984192133 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.400442477876
+Results: en - age, params: {} ,Accuracy_Mean: 0.391592920354
+Results: en - gender, params: {} ,Accuracy_Mean: 0.701327433628
+Time: 216.586110115 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.380530973451
+Results: en - gender, params: {} ,Accuracy_Mean: 0.758849557522
+Time: 193.307980061 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.413716814159
+Results: en - gender, params: {} ,Accuracy_Mean: 0.758849557522
+Time: 193.471788883 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.422566371681
+Results: en - gender, params: {} ,Accuracy_Mean: 0.745575221239
+Time: 384.080210209 seconds.
+Results: en - age, params: {"svm__C": 10, "features__lsi_model__num_topics": 100} ,Accuracy_Mean: 0.411504424779
+Results: en - age, params: {} ,Accuracy_Mean: 0.411504424779
+Results: es - age, params: {} ,Accuracy_Mean: 0.46484375
+Results: es - gender, params: {} ,Accuracy_Mean: 0.6484375
+Time: 177.081253052 seconds.
+Results: nl - gender, params: {} ,Accuracy_Mean: 0.752604166667
+Time: 37.7906811237 seconds.

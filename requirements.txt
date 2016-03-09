@@ -1,0 +1,13 @@
+gensim == 0.12.2
+matplotlib == 1.4.3
+nltk == 3.0.2
+numpy == 1.10.4
+pandas == 0.16.2
+regex == 2015.5.7
+setuptools == 20.2.2
+textblob == 0.9.0
+tictacs == 0.0.3
+BeautifulSoup == 3.2.1
+lda == 1.0.3
+scikit_learn == 0.17.1
+PyYAML == 3.11

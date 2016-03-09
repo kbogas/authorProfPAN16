@@ -1,0 +1,194 @@
+Traceback (most recent call last):
+  File "cross.py", line 81, in <module>
+    cross_val(dataset, task, tictac, num_folds)
+  File "cross.py", line 42, in cross_val
+    grid_cv.fit(X, y)
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/grid_search.py", line 804, in fit
+    return self._fit(X, y, ParameterGrid(self.param_grid))
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/grid_search.py", line 553, in _fit
+    for parameters in parameter_iterable
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/externals/joblib/parallel.py", line 810, in __call__
+    self.retrieve()
+  File "/usr/local/lib/python2.7/dist-packages/sklearn/externals/joblib/parallel.py", line 757, in retrieve
+    raise exception
+sklearn.externals.joblib.my_exceptions.JoblibKeyError: JoblibKeyError
+___________________________________________________________________________
+Multiprocessing exception:
+...........................................................................
+/media/kostas/My Passport/work/workspace/PAN16/pangram-master/cross.py in <module>()
+     76     config = dataset.config
+     77     tasks = config.tasks
+     78     print('\n--------------- Thy time of Running ---------------')
+     79     for task in tasks:
+     80         tictac = from_recipe(config.recipes[task])
+---> 81         cross_val(dataset, task, tictac, num_folds)
+     82     # print results at end
+     83     print('\n--------------- Thy time of Judgement ---------------')
+     84     print ('Time: {} seconds.\n'.format(str(time.time()-time_start)))
+     85     for message in log:
+
+...........................................................................
+/media/kostas/My Passport/work/workspace/PAN16/pangram-master/cross.py in cross_val(dataset=
+                  lang : en 
+
+                 ... href="/santimalasombra" class="twitter-at 
+ ...
+, task='age', model=<class 'tictacs.parse.Tictac'> instance, num_folds=4)
+     37     log.append('\nResults for %s - %s with classifier %s' %
+     38                (dataset.lang, task, model.__class__.__name__))
+     39     if task in dataset.config.classifier_list:
+     40         grid_cv = GridSearchCV(model, params, cv=num_folds, verbose=1,
+     41                                n_jobs=-1)
+---> 42         grid_cv.fit(X, y)
+        grid_cv.fit = 'fit'
+        X = [u'Come to &quot;Algo M\xe1s Inesperado Que La Mu...josefajram</b></a> there are no limits my friend', u'.<a href="/mtascon" class="twitter-atreply pre...user-id="224653586" ><s>@</s><b>medjawii</b></a>', u'Sundays in <a href="/hashtag/Cork?src=hash" da...js-nav" dir="ltr" ><s>#</s><b>MarkAsRead</b></a>', u'Hi back to you, @giselahausmann. Thx for the t..."true" dir="ltr" >pic.twitter.com/bUgYHE3x2w</a>', u'fabrik 2.0b3 out - role on the next release ca...s>@</s><b>testthetweeture</b></a>  tes6 from rob', u'A year on since the 2011 Brisbane floods <a hr...ty-link js-nav" dir="ltr" ><s>#</s><b>lp</b></a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Wonder how this approach compares to what Chen...<span class="invisible">&nbsp;</span></span></a>', u'Jason Fried: Porque el trabajo no sucede en el...d-user-id="10228272" ><s>@</s><b>YouTube</b></a>', u'<a href="/CIKM2011" class="twitter-atreply pre... Paper Submission was extended: 21 December 2012', u'Ingles Intensivo (40hs) en Torrent (VLC) - <a ...nado en Viadeo un mes gratis Premium por invitar', u'<a href="/joncoffey" class="twitter-atreply pr...ltr" ><s>#</s><b>socialmedia</b></a> and privacy', u'Fuck it, I\u2019m going to Taco Bell.\n<a href...y-link js-nav" dir="ltr" ><s>#</s><b>PAX</b></a>', u'You (YOU!) Can Take Stanford&#39;s &#39;Intro ...D) totally worth watching http://on.ted.com/9XIZ', u'Watched &quot;little miss sunshine&quot; again..."true" dir="ltr" >pic.twitter.com/Fd9O7R7Hr1</a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Floor lamp recall: We have a Contact 13 consum...<span class="invisible">&nbsp;</span></span></a>', u'The Bonnie Books are available for the holiday...Farm on Sun, Mar 14 http://zvents.com/e/70zVl/1W', u'Come join us on Whidbey for &quot;Spirited Wor...<span class="invisible">&nbsp;</span></span></a>', u'Mini Sal-Tun Burgers! http://fb.me/Al2DZjZF\nS...n cuisine is similar to Greek... very delicious.', ...]
+        y = ['50-64', '50-64', '18-24', '35-49', '35-49', '35-49', '50-64', '35-49', '25-34', '25-34', '50-64', '25-34', '35-49', '35-49', '25-34', '25-34', '35-49', '50-64', '65-xx', '25-34', ...]
+     43         # y_pred = grid_cv.best_estimator_.predict(X)
+     44         # pprint.pprint(y_pred)
+     45         # pprint.pprint(y)
+     46         # conf = confusion_matrix(y, y_pred, labels=list(set(y)))
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/grid_search.py in fit(self=<class 'sklearn.grid_search.GridSearchCV'> instance, X=[u'Come to &quot;Algo M\xe1s Inesperado Que La Mu...josefajram</b></a> there are no limits my friend', u'.<a href="/mtascon" class="twitter-atreply pre...user-id="224653586" ><s>@</s><b>medjawii</b></a>', u'Sundays in <a href="/hashtag/Cork?src=hash" da...js-nav" dir="ltr" ><s>#</s><b>MarkAsRead</b></a>', u'Hi back to you, @giselahausmann. Thx for the t..."true" dir="ltr" >pic.twitter.com/bUgYHE3x2w</a>', u'fabrik 2.0b3 out - role on the next release ca...s>@</s><b>testthetweeture</b></a>  tes6 from rob', u'A year on since the 2011 Brisbane floods <a hr...ty-link js-nav" dir="ltr" ><s>#</s><b>lp</b></a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Wonder how this approach compares to what Chen...<span class="invisible">&nbsp;</span></span></a>', u'Jason Fried: Porque el trabajo no sucede en el...d-user-id="10228272" ><s>@</s><b>YouTube</b></a>', u'<a href="/CIKM2011" class="twitter-atreply pre... Paper Submission was extended: 21 December 2012', u'Ingles Intensivo (40hs) en Torrent (VLC) - <a ...nado en Viadeo un mes gratis Premium por invitar', u'<a href="/joncoffey" class="twitter-atreply pr...ltr" ><s>#</s><b>socialmedia</b></a> and privacy', u'Fuck it, I\u2019m going to Taco Bell.\n<a href...y-link js-nav" dir="ltr" ><s>#</s><b>PAX</b></a>', u'You (YOU!) Can Take Stanford&#39;s &#39;Intro ...D) totally worth watching http://on.ted.com/9XIZ', u'Watched &quot;little miss sunshine&quot; again..."true" dir="ltr" >pic.twitter.com/Fd9O7R7Hr1</a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Floor lamp recall: We have a Contact 13 consum...<span class="invisible">&nbsp;</span></span></a>', u'The Bonnie Books are available for the holiday...Farm on Sun, Mar 14 http://zvents.com/e/70zVl/1W', u'Come join us on Whidbey for &quot;Spirited Wor...<span class="invisible">&nbsp;</span></span></a>', u'Mini Sal-Tun Burgers! http://fb.me/Al2DZjZF\nS...n cuisine is similar to Greek... very delicious.', ...], y=['50-64', '50-64', '18-24', '35-49', '35-49', '35-49', '50-64', '35-49', '25-34', '25-34', '50-64', '25-34', '35-49', '35-49', '25-34', '25-34', '35-49', '50-64', '65-xx', '25-34', ...])
+    799         y : array-like, shape = [n_samples] or [n_samples, n_output], optional
+    800             Target relative to X for classification or regression;
+    801             None for unsupervised learning.
+    802 
+    803         """
+--> 804         return self._fit(X, y, ParameterGrid(self.param_grid))
+        self._fit = '_fit'
+        X = [u'Come to &quot;Algo M\xe1s Inesperado Que La Mu...josefajram</b></a> there are no limits my friend', u'.<a href="/mtascon" class="twitter-atreply pre...user-id="224653586" ><s>@</s><b>medjawii</b></a>', u'Sundays in <a href="/hashtag/Cork?src=hash" da...js-nav" dir="ltr" ><s>#</s><b>MarkAsRead</b></a>', u'Hi back to you, @giselahausmann. Thx for the t..."true" dir="ltr" >pic.twitter.com/bUgYHE3x2w</a>', u'fabrik 2.0b3 out - role on the next release ca...s>@</s><b>testthetweeture</b></a>  tes6 from rob', u'A year on since the 2011 Brisbane floods <a hr...ty-link js-nav" dir="ltr" ><s>#</s><b>lp</b></a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Wonder how this approach compares to what Chen...<span class="invisible">&nbsp;</span></span></a>', u'Jason Fried: Porque el trabajo no sucede en el...d-user-id="10228272" ><s>@</s><b>YouTube</b></a>', u'<a href="/CIKM2011" class="twitter-atreply pre... Paper Submission was extended: 21 December 2012', u'Ingles Intensivo (40hs) en Torrent (VLC) - <a ...nado en Viadeo un mes gratis Premium por invitar', u'<a href="/joncoffey" class="twitter-atreply pr...ltr" ><s>#</s><b>socialmedia</b></a> and privacy', u'Fuck it, I\u2019m going to Taco Bell.\n<a href...y-link js-nav" dir="ltr" ><s>#</s><b>PAX</b></a>', u'You (YOU!) Can Take Stanford&#39;s &#39;Intro ...D) totally worth watching http://on.ted.com/9XIZ', u'Watched &quot;little miss sunshine&quot; again..."true" dir="ltr" >pic.twitter.com/Fd9O7R7Hr1</a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Floor lamp recall: We have a Contact 13 consum...<span class="invisible">&nbsp;</span></span></a>', u'The Bonnie Books are available for the holiday...Farm on Sun, Mar 14 http://zvents.com/e/70zVl/1W', u'Come join us on Whidbey for &quot;Spirited Wor...<span class="invisible">&nbsp;</span></span></a>', u'Mini Sal-Tun Burgers! http://fb.me/Al2DZjZF\nS...n cuisine is similar to Greek... very delicious.', ...]
+        y = ['50-64', '50-64', '18-24', '35-49', '35-49', '35-49', '50-64', '35-49', '25-34', '25-34', '50-64', '25-34', '35-49', '35-49', '25-34', '25-34', '35-49', '50-64', '65-xx', '25-34', ...]
+        self.param_grid = [{'3grams__max_features': [1000, 3000, 5000, 7500, 10000, None], 'svm__C': [0.01, 0.1, 1, 10, 100]}]
+    805 
+    806 
+    807 class RandomizedSearchCV(BaseSearchCV):
+    808     """Randomized search on hyper parameters.
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/grid_search.py in _fit(self=<class 'sklearn.grid_search.GridSearchCV'> instance, X=[u'Come to &quot;Algo M\xe1s Inesperado Que La Mu...josefajram</b></a> there are no limits my friend', u'.<a href="/mtascon" class="twitter-atreply pre...user-id="224653586" ><s>@</s><b>medjawii</b></a>', u'Sundays in <a href="/hashtag/Cork?src=hash" da...js-nav" dir="ltr" ><s>#</s><b>MarkAsRead</b></a>', u'Hi back to you, @giselahausmann. Thx for the t..."true" dir="ltr" >pic.twitter.com/bUgYHE3x2w</a>', u'fabrik 2.0b3 out - role on the next release ca...s>@</s><b>testthetweeture</b></a>  tes6 from rob', u'A year on since the 2011 Brisbane floods <a hr...ty-link js-nav" dir="ltr" ><s>#</s><b>lp</b></a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Wonder how this approach compares to what Chen...<span class="invisible">&nbsp;</span></span></a>', u'Jason Fried: Porque el trabajo no sucede en el...d-user-id="10228272" ><s>@</s><b>YouTube</b></a>', u'<a href="/CIKM2011" class="twitter-atreply pre... Paper Submission was extended: 21 December 2012', u'Ingles Intensivo (40hs) en Torrent (VLC) - <a ...nado en Viadeo un mes gratis Premium por invitar', u'<a href="/joncoffey" class="twitter-atreply pr...ltr" ><s>#</s><b>socialmedia</b></a> and privacy', u'Fuck it, I\u2019m going to Taco Bell.\n<a href...y-link js-nav" dir="ltr" ><s>#</s><b>PAX</b></a>', u'You (YOU!) Can Take Stanford&#39;s &#39;Intro ...D) totally worth watching http://on.ted.com/9XIZ', u'Watched &quot;little miss sunshine&quot; again..."true" dir="ltr" >pic.twitter.com/Fd9O7R7Hr1</a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Floor lamp recall: We have a Contact 13 consum...<span class="invisible">&nbsp;</span></span></a>', u'The Bonnie Books are available for the holiday...Farm on Sun, Mar 14 http://zvents.com/e/70zVl/1W', u'Come join us on Whidbey for &quot;Spirited Wor...<span class="invisible">&nbsp;</span></span></a>', u'Mini Sal-Tun Burgers! http://fb.me/Al2DZjZF\nS...n cuisine is similar to Greek... very delicious.', ...], y=['50-64', '50-64', '18-24', '35-49', '35-49', '35-49', '50-64', '35-49', '25-34', '25-34', '50-64', '25-34', '35-49', '35-49', '25-34', '25-34', '35-49', '50-64', '65-xx', '25-34', ...], parameter_iterable=<sklearn.grid_search.ParameterGrid object>)
+    548         )(
+    549             delayed(_fit_and_score)(clone(base_estimator), X, y, self.scorer_,
+    550                                     train, test, self.verbose, parameters,
+    551                                     self.fit_params, return_parameters=True,
+    552                                     error_score=self.error_score)
+--> 553                 for parameters in parameter_iterable
+        parameters = undefined
+        parameter_iterable = <sklearn.grid_search.ParameterGrid object>
+    554                 for train, test in cv)
+    555 
+    556         # Out is a list of triplet: score, estimator, n_test_samples
+    557         n_fits = len(out)
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/externals/joblib/parallel.py in __call__(self=Parallel(n_jobs=-1), iterable=<generator object <genexpr>>)
+    805             if pre_dispatch == "all" or n_jobs == 1:
+    806                 # The iterable was consumed all at once by the above for loop.
+    807                 # No need to wait for async callbacks to trigger to
+    808                 # consumption.
+    809                 self._iterating = False
+--> 810             self.retrieve()
+        self.retrieve = <bound method Parallel.retrieve of Parallel(n_jobs=-1)>
+    811             # Make sure that we get a last message telling us we are done
+    812             elapsed_time = time.time() - self._start_time
+    813             self._print('Done %3i out of %3i | elapsed: %s finished',
+    814                         (len(self._output), len(self._output),
+
+---------------------------------------------------------------------------
+Sub-process traceback:
+---------------------------------------------------------------------------
+KeyError                                           Wed Mar  2 12:58:07 2016
+PID: 9637                                     Python 2.7.6: /usr/bin/python
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/externals/joblib/parallel.py in __call__(self=<sklearn.externals.joblib.parallel.BatchedCalls object>)
+     67     def __init__(self, iterator_slice):
+     68         self.items = list(iterator_slice)
+     69         self._size = len(self.items)
+     70 
+     71     def __call__(self):
+---> 72         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        func = <function _fit_and_score>
+        args = <type 'tuple'> instance
+        kwargs = {'error_score': 'raise', 'return_parameters': True}
+        self.items = <type 'list'> instance
+     73 
+     74     def __len__(self):
+     75         return self._size
+     76 
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/cross_validation.py in _fit_and_score(estimator=<class 'sklearn.pipeline.Pipeline'> instance, X=[u'Come to &quot;Algo M\xe1s Inesperado Que La Mu...josefajram</b></a> there are no limits my friend', u'.<a href="/mtascon" class="twitter-atreply pre...user-id="224653586" ><s>@</s><b>medjawii</b></a>', u'Sundays in <a href="/hashtag/Cork?src=hash" da...js-nav" dir="ltr" ><s>#</s><b>MarkAsRead</b></a>', u'Hi back to you, @giselahausmann. Thx for the t..."true" dir="ltr" >pic.twitter.com/bUgYHE3x2w</a>', u'fabrik 2.0b3 out - role on the next release ca...s>@</s><b>testthetweeture</b></a>  tes6 from rob', u'A year on since the 2011 Brisbane floods <a hr...ty-link js-nav" dir="ltr" ><s>#</s><b>lp</b></a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Wonder how this approach compares to what Chen...<span class="invisible">&nbsp;</span></span></a>', u'Jason Fried: Porque el trabajo no sucede en el...d-user-id="10228272" ><s>@</s><b>YouTube</b></a>', u'<a href="/CIKM2011" class="twitter-atreply pre... Paper Submission was extended: 21 December 2012', u'Ingles Intensivo (40hs) en Torrent (VLC) - <a ...nado en Viadeo un mes gratis Premium por invitar', u'<a href="/joncoffey" class="twitter-atreply pr...ltr" ><s>#</s><b>socialmedia</b></a> and privacy', u'Fuck it, I\u2019m going to Taco Bell.\n<a href...y-link js-nav" dir="ltr" ><s>#</s><b>PAX</b></a>', u'You (YOU!) Can Take Stanford&#39;s &#39;Intro ...D) totally worth watching http://on.ted.com/9XIZ', u'Watched &quot;little miss sunshine&quot; again..."true" dir="ltr" >pic.twitter.com/Fd9O7R7Hr1</a>', u'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', u'Floor lamp recall: We have a Contact 13 consum...<span class="invisible">&nbsp;</span></span></a>', u'The Bonnie Books are available for the holiday...Farm on Sun, Mar 14 http://zvents.com/e/70zVl/1W', u'Come join us on Whidbey for &quot;Spirited Wor...<span class="invisible">&nbsp;</span></span></a>', u'Mini Sal-Tun Burgers! http://fb.me/Al2DZjZF\nS...n cuisine is similar to Greek... very delicious.', ...], y=['50-64', '50-64', '18-24', '35-49', '35-49', '35-49', '50-64', '35-49', '25-34', '25-34', '50-64', '25-34', '35-49', '35-49', '25-34', '25-34', '35-49', '50-64', '65-xx', '25-34', ...], scorer=<function _passthrough_scorer>, train=array([103, 104, ..., 450, 451]), test=array([  0,   1, ..., 125, 137]), verbose=1, parameters={'3grams__max_features': 1000, 'svm__C': 0.01}, fit_params={}, return_train_score=False, return_parameters=True, error_score='raise')
+   1515     fit_params = fit_params if fit_params is not None else {}
+   1516     fit_params = dict([(k, _index_param_value(X, v, train))
+   1517                       for k, v in fit_params.items()])
+   1518 
+   1519     if parameters is not None:
+-> 1520         estimator.set_params(**parameters)
+        estimator.set_params = 'set_params'
+        parameters = {'3grams__max_features': 1000, 'svm__C': 0.01}
+   1521 
+   1522     start_time = time.time()
+   1523 
+   1524     X_train, y_train = _safe_split(estimator, X, y, train)
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/base.py in set_params(self=<class 'sklearn.pipeline.Pipeline'> instance, **params={'3grams__max_features': 1000, 'svm__C': 0.01})
+    256                 name, sub_name = split
+    257                 if name not in valid_params:
+    258                     raise ValueError('Invalid parameter %s for estimator %s. '
+    259                                      'Check the list of available parameters '
+    260                                      'with `estimator.get_params().keys()`.' %
+--> 261                                      (name, self))
+        name = '3grams'
+        self = <class 'sklearn.pipeline.Pipeline'> instance
+    262                 sub_object = valid_params[name]
+    263                 sub_object.set_params(**{sub_name: value})
+    264             else:
+    265                 # simple objects case
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/base.py in __repr__(self=<class 'sklearn.pipeline.Pipeline'> instance)
+    272         return self
+    273 
+    274     def __repr__(self):
+    275         class_name = self.__class__.__name__
+    276         return '%s(%s)' % (class_name, _pprint(self.get_params(deep=False),
+--> 277                                                offset=len(class_name),),)
+        class_name = 'Pipeline'
+    278 
+    279 
+    280 ###############################################################################
+    281 class ClassifierMixin(object):
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/sklearn/base.py in _pprint(params=<type 'dict'> instance, offset=8, printer=<built-in function repr>)
+    136             # this way we get consistent representation across
+    137             # architectures and versions.
+    138             this_repr = '%s=%s' % (k, str(v))
+    139         else:
+    140             # use repr of the rest
+--> 141             this_repr = '%s=%s' % (k, printer(v))
+        this_repr = undefined
+        k = 'steps'
+        printer = <built-in function repr>
+        v = <type 'list'> instance
+    142         if len(this_repr) > 500:
+    143             this_repr = this_repr[:300] + '...' + this_repr[-100:]
+    144         if i > 0:
+    145             if (this_line_length + len(this_repr) >= 75 or '\n' in this_repr):
+
+...........................................................................
+/usr/local/lib/python2.7/dist-packages/tictacs/wrappers.py in __repr__(self=<class 'tictacs.wrappers.FunctionWrapper'> instance)
+     18     def __repr__(self):
+     19         """ User friendly string version
+     20         :returns: str representation
+     21 
+     22         """
+---> 23         return '%(__class__)s wrapping function %(function)s\n' % self.__dict__
+        self.__dict__ = {'args': (), 'function': <function clean_html>, 'kwargs': {}}
+     24 
+     25     def fit(self, X, y=None):
+     26         return self
+     27 
+
+KeyError: '__class__'

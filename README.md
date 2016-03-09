@@ -68,6 +68,7 @@ Similarly, the above methods are expected to be defined in pan/preprocess.py and
 
 ## License
 Pangram - NCSR Demokritos submission for Pan 2016
+Copyright 2016 Konstantinos Bougiatiotis
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

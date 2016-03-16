@@ -212,7 +212,8 @@ class CountWordLength(BaseEstimator, TransformerMixin):
         # temp = nonan.sub('', po_re.sub('', text)).lower().split()
         # print temp
         # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
-        return temp2       
+        return temp2
+
 
 class CountTokens(BaseEstimator, TransformerMixin):
 
@@ -240,10 +241,9 @@ class CountTokens(BaseEstimator, TransformerMixin):
 
 # class SOA_Model2(object):
 
+
 class SOA_Model2(BaseEstimator, TransformerMixin):
 
-
-#class SOA_Model2(object):
     """ Models that extracts Second Order Attributes
      (SOA) base on PAN 2013-2015 Winners"""
 
@@ -268,8 +268,6 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
 
         import numpy
-        from math import log
-        from gensim import corpora, models
 
         print "We are fitting!"
         if y is None:
@@ -433,6 +431,200 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
         emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
 
         return [token if emoticon_re.search(token) else token.lower() for token in tokens_re.findall(text)]
+
+
+class TWCNB(BaseEstimator, TransformerMixin):
+
+    """ Models that extracts Second Order Attributes
+     based on Rennie, Shih, Teevan and Karger Paper"""
+
+    def __init__(self, max_df=1.0, min_df=5, max_features=None):
+        from sklearn.feature_extraction.text import CountVectorizer
+
+        # stop_list = []
+        # with open(stopwords_path, 'r') as stop_inp:
+        # for w in stop_inp:
+        # stop_list.append(w.replace("\n", ""))
+        self.max_df = max_df
+        self.min_df = min_df
+        self.max_features = max_features
+        self.term_table = None
+        self.labels = None
+        # self.lsi = None
+        # self.dictionary = None
+        # self.num_topics = 100
+        # self.counter = CountVectorizer()
+        self.counter = CountVectorizer()
+
+    def fit(self, X, y=None):
+
+        import numpy
+
+        print "We are fitting!"
+        if y is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            # texts = [self.tokenization(text) for text in X]
+            # self.dictionary = corpora.Dictionary(texts)
+            # corpus = [self.dictionary.doc2bow(text) for text in texts]
+            # self.lsi = models.LsiModel(corpus, id2word=self.dictionary, num_topics=self.num_topics)
+            # for token in tokens:
+            #    voc = voc.union(token)
+            # print len(voc)
+            # print list(voc)[:100]
+            parameters = {
+                'input': 'content',
+                'encoding': 'utf-8',
+                'decode_error': 'ignore',
+                # 'vocabulary':list(voc),
+                'tokenizer': self.tokenization,
+                #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
+                #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
+                'max_df': self.max_df,
+                'min_df': self.min_df,
+                'max_features': self.max_features
+            }
+            self.counter.set_params(**parameters)
+            # print len(target_profiles)
+            doc_term = self.counter.fit_transform(X)
+            print "Doc_Terms"
+            print doc_term.shape
+            target_profiles = sorted(list(set(y)))
+            self.labels = target_profiles
+            doc_prof = numpy.zeros([doc_term.shape[0], len(target_profiles)])
+            for i in range(0, doc_term.shape[0]):
+                # tmp = numpy.zeros([1, len(target_profiles)])
+                tmp = numpy.ones([1, len(target_profiles)])
+                tmp[0, target_profiles.index(y[i])] = 0
+                doc_prof[i, :] = tmp
+            print "Doc_Prof"
+            print doc_prof.shape, type(doc_prof)
+            doc_term.data = numpy.log2(doc_term.data + 1)
+            #doc_term.transpose
+            print "Doc_Term"
+            print doc_term.shape, type(doc_term)
+            term_prof = doc_term.transpose().dot(doc_prof)
+            #term_prof = numpy.zeros([doc_term.shape[1], len(target_profiles)])
+            #term_prof = numpy.log2(doc_term.transpose.data
+            #term_prof = numpy.dot(
+            #    numpy.log2(doc_term.toarray().astype('float', casting='unsafe').T + 1), doc_prof)
+            print "Term_Prof"
+            print term_prof.shape, type(term_prof)
+            # normalize against words
+            # term_prof = term_prof / term_prof.sum(axis=0)
+            # normalize across profiles
+            term_prof = term_prof / \
+                numpy.reshape(
+                   term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
+            print "Random Term_Prof"
+            # print self.counter.vocabulary_
+            print term_prof[0,:]
+            # term_prof = term_prof / \
+            #    numpy.reshape(
+            #        term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
+            # term_prof = term_prof / term_prof.sum(axis=0)
+            self.term_table = term_prof
+            print "SOA Model Fitted!"
+            return self
+
+    def transform(self, X, y=None):
+
+        import numpy
+
+        print "We are transforming!"
+        if self.labels is None:
+            raise AttributeError('term_table was no found! \
+             Probably model was not fitted first. Run model.fit(X,y)!')
+        else:
+            #doc_term = numpy.zeros(
+            #    [len(X), self.term_table.shape[0]])
+            doc_term = self.counter.transform(X)
+            print "Doc_Terms"
+            print doc_term.shape, type(doc_term)
+            doc_prof = numpy.zeros(
+                [doc_term.shape[0], self.term_table.shape[1]])
+            # print "Term_Prof"
+            # print self.term_table.shape
+            doc_prof = doc_term.dot(self.term_table)
+            # doc_prof = numpy.dot(
+            #    doc_term.toarray().astype('float', casting='unsafe'),
+            #    self.term_table)
+            print "SOA Transform:"
+            # print type(doc_prof)
+            print 'Doc_prof'
+            print doc_prof.shape, type(doc_prof)
+            print "Len Voc: %s" % (str(len(self.counter.vocabulary_)))
+            # import pprint
+            # pprint.pprint(self.counter.vocabulary_)
+            # LSI
+            # texts = [self.tokenization(text) for text in X]
+            # corpus = [self.dictionary.doc2bow(text) for text in texts]
+            # transform_lsi = self.lsi[corpus]
+            # lsi_list = []
+            # dummy_empty_list = [0 for i in range(0, self.num_topics)]
+            # #c = 0
+            # for i, doc in enumerate(transform_lsi):
+            #     if not doc:  # list is empty
+            #         lsi_list.append(dummy_empty_list)
+            #     else:
+            #         lsi_list.append(list(zip(*doc)[1]))
+            #         if len(lsi_list[-1]) != self.num_topics:
+            #             # c += 1
+            #             # print c
+            #             # print texts[i]
+            #             # print len(lsi_list[-1])
+            #             # print lsi_list[-1]
+            #            lsi_list[-1] = dummy_empty_list
+            # lsi_list = [list(zip(*doc)[1]) for doc in transform_lsi]
+            # print numpy.array(lsi_list).shape
+            # print len(lsi_list)
+            # print len(lsi_list[0])
+            # c = numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))
+            # print c.shape
+            # return numpy.hstack((doc_prof, numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))))
+            return doc_prof
+
+    def tokenization(self, text):
+
+        import re
+        # from nltk.stem import WordNetLemmatizer
+
+        # Create reg expressions removals
+        nonan = re.compile(r'[^a-zA-Z ]')  # basically numbers
+        # po_re = re.compile(r'\.|\!|\?|\,|\:|\(|\)')  # punct point and others
+        temp2 = nonan.sub('', text).lower().split()
+        # temp = nonan.sub('', po_re.sub('', text)).lower().split()
+        # print temp
+        # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
+        return temp2
+
+    def tokenization2(self, text):
+
+        import re
+
+        emoticons_str = r"""
+        (?:
+          [:=;] # Eyes
+          [oO\-]? # Nose (optional)
+          [D\)\]\(\]/\\OpP] # Mouth
+        )"""
+
+        regex_str = [
+            emoticons_str,
+            r'<[^>]+>',  # HTML tags
+            r'(?:@[\w_]+)',  # @-mentions
+            r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)",  # hash-tags
+            r'http[s]?://(?:[a-z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-f][0-9a-f]))+',  # URLs
+            r'(?:(?:\d+,?)+(?:\.?\d+)?)',  # numbers
+            r"(?:[a-z][a-z'\-_]+[a-z])",  # words with - and '
+            r'(?:[\w_]+)',  # other words
+            r'(?:\S)'  # anything else
+        ]
+        tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
+        emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
+
+        return [token if emoticon_re.search(token) else token.lower() for token in tokens_re.findall(text)]
+
 
 
 class LSI_Model(BaseEstimator, TransformerMixin):

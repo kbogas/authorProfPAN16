@@ -28,6 +28,7 @@ pipeline:
            # - count repl
            #- count wlength
            #- count tokens
+           #- twcnb
            - soa_model
            #- lsi_model
       #- select
@@ -130,6 +131,15 @@ count_word_lengths:
 soa:
   label: soa_model
   estimator: SOA_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 5
+    max_features: None
+
+twcnb:
+  label: twcnb
+  estimator: TWCNB
   estimator_pkg: pan.features
   estimator_params:
     max_df: 1.0

@@ -77,3 +77,17 @@ Results: es - gender, params: {} ,Accuracy_Mean: 0.6484375
 Time: 177.081253052 seconds.
 Results: nl - gender, params: {} ,Accuracy_Mean: 0.752604166667
 Time: 37.7906811237 seconds.
+Results: nl - gender, params: {} ,Accuracy_Mean: 0.752604166667
+Time: 30.0657851696 seconds.
+Results: nl - gender, params: {} ,Accuracy_Mean: 0.755208333333
+Time: 29.4300248623 seconds.
+Results: es - age, params: {} ,Accuracy_Mean: 0.504
+Results: es - gender, params: {} ,Accuracy_Mean: 0.68
+Time: 164.799551964 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.456422018349
+Results: en - gender, params: {} ,Accuracy_Mean: 0.743119266055
+Time: 226.164748907 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.417431192661
+Results: en - gender, params: {} ,Accuracy_Mean: 0.68119266055
+Time: 223.336388111 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.417431192661

@@ -67,8 +67,13 @@ In the above snippet, feature extractor names are expected to be defined in pan/
 Similarly, the above methods are expected to be defined in pan/preprocess.py and process a mutable iterable in place. (in our case a list of texts)
 
 ## License
-Pangram - NCSR Demokritos submission for Pan 2016
-Copyright 2016 Konstantinos Bougiatiotis
+Copyright 2016 NCSR Demokritos submission for Pan 2016, Konstantinos Bougiatiotis
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

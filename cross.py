@@ -41,7 +41,7 @@ def cross_val(dataset, task, model, num_folds=4):
                (dataset.lang, task, model.__class__.__name__))
     if task in dataset.config.classifier_list:
         grid_cv = GridSearchCV(model, params, cv=num_folds, verbose=1,
-                               n_jobs=-1)
+                               n_jobs=1)
         grid_cv.fit(X, y)
         # y_pred = grid_cv.best_estimator_.predict(X)
         # pprint.pprint(y_pred)

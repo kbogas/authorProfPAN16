@@ -15,7 +15,52 @@ from textblob.tokenizers import WordTokenizer
 from sklearn.base import BaseEstimator, TransformerMixin
 from misc import _twokenize
 
+
+def tokenization(text):
+
+        import re
+        # from nltk.stem import WordNetLemmatizer
+
+        # Create reg expressions removals
+        nonan = re.compile(r'[^a-zA-Z ]')  # basically numbers
+        # po_re = re.compile(r'\.|\!|\?|\,|\:|\(|\)')  # punct point and others
+        temp2 = nonan.sub('', text).lower().split()
+        # temp = nonan.sub('', po_re.sub('', text)).lower().split()
+        # print temp
+        # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
+        return temp2
+
+
+def tokenization2(text):
+
+        import re
+
+        emoticons_str = r"""
+        (?:
+          [:=;] # Eyes
+          [oO\-]? # Nose (optional)
+          [D\)\]\(\]/\\OpP] # Mouth
+        )"""
+
+        regex_str = [
+            emoticons_str,
+            r'<[^>]+>',  # HTML tags
+            r'(?:@[\w_]+)',  # @-mentions
+            r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)",  # hash-tags
+            r'http[s]?://(?:[a-z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-f][0-9a-f]))+',  # URLs
+            r'(?:(?:\d+,?)+(?:\.?\d+)?)',  # numbers
+            r"(?:[a-z][a-z'\-_]+[a-z])",  # words with - and '
+            r'(?:[\w_]+)',  # other words
+            r'(?:\S)'  # anything else
+        ]
+        tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
+        emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
+
+        return [token if emoticon_re.search(token) else token.lower() for token in tokens_re.findall(text)]
+
+
 # ------------------------ feature generators --------------------------------#
+
 
 
 class TopicTopWords(BaseEstimator, TransformerMixin):
@@ -189,7 +234,7 @@ class CountWordLength(BaseEstimator, TransformerMixin):
         maxi = self.span[1]
         num_counts = maxi - mini
         # wt = WordTokenizer()
-        tokens = [self.tokenization(text) for text in texts]
+        tokens = [tokenization(text) for text in texts]
         text_len_dist = []
         for line_tokens in tokens:
             counter = [0] * num_counts
@@ -199,20 +244,6 @@ class CountWordLength(BaseEstimator, TransformerMixin):
                     counter[word_len - 1] += 1
             text_len_dist.append([each for each in counter])
         return text_len_dist
-
-    def tokenization(self, text):
-
-        import re
-        # from nltk.stem import WordNetLemmatizer
-
-        # Create reg expressions removals
-        nonan = re.compile(r'[^a-zA-Z ]')  # basically numbers
-        # po_re = re.compile(r'\.|\!|\?|\,|\:|\(|\)')  # punct point and others
-        temp2 = nonan.sub('', text).lower().split()
-        # temp = nonan.sub('', po_re.sub('', text)).lower().split()
-        # print temp
-        # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
-        return temp2
 
 
 class CountTokens(BaseEstimator, TransformerMixin):
@@ -285,8 +316,9 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 'input': 'content',
                 'encoding': 'utf-8',
                 'decode_error': 'ignore',
+                # 'analyzer': 'word',
                 # 'vocabulary':list(voc),
-                'tokenizer': self.tokenization,
+                # 'tokenizer': tokenization,
                 #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
                 #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
                 'max_df': self.max_df,
@@ -391,47 +423,6 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             # return numpy.hstack((doc_prof, numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))))
             return doc_prof
 
-    def tokenization(self, text):
-
-        import re
-        # from nltk.stem import WordNetLemmatizer
-
-        # Create reg expressions removals
-        nonan = re.compile(r'[^a-zA-Z ]')  # basically numbers
-        # po_re = re.compile(r'\.|\!|\?|\,|\:|\(|\)')  # punct point and others
-        temp2 = nonan.sub('', text).lower().split()
-        # temp = nonan.sub('', po_re.sub('', text)).lower().split()
-        # print temp
-        # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
-        return temp2
-
-    def tokenization2(self, text):
-
-        import re
-
-        emoticons_str = r"""
-        (?:
-          [:=;] # Eyes
-          [oO\-]? # Nose (optional)
-          [D\)\]\(\]/\\OpP] # Mouth
-        )"""
-
-        regex_str = [
-            emoticons_str,
-            r'<[^>]+>',  # HTML tags
-            r'(?:@[\w_]+)',  # @-mentions
-            r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)",  # hash-tags
-            r'http[s]?://(?:[a-z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-f][0-9a-f]))+',  # URLs
-            r'(?:(?:\d+,?)+(?:\.?\d+)?)',  # numbers
-            r"(?:[a-z][a-z'\-_]+[a-z])",  # words with - and '
-            r'(?:[\w_]+)',  # other words
-            r'(?:\S)'  # anything else
-        ]
-        tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
-        emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
-
-        return [token if emoticon_re.search(token) else token.lower() for token in tokens_re.findall(text)]
-
 
 class TWCNB(BaseEstimator, TransformerMixin):
 
@@ -477,7 +468,7 @@ class TWCNB(BaseEstimator, TransformerMixin):
                 'encoding': 'utf-8',
                 'decode_error': 'ignore',
                 # 'vocabulary':list(voc),
-                'tokenizer': self.tokenization,
+                'tokenizer': tokenization,
                 #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
                 #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
                 'max_df': self.max_df,
@@ -584,46 +575,6 @@ class TWCNB(BaseEstimator, TransformerMixin):
             # return numpy.hstack((doc_prof, numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))))
             return doc_prof
 
-    def tokenization(self, text):
-
-        import re
-        # from nltk.stem import WordNetLemmatizer
-
-        # Create reg expressions removals
-        nonan = re.compile(r'[^a-zA-Z ]')  # basically numbers
-        # po_re = re.compile(r'\.|\!|\?|\,|\:|\(|\)')  # punct point and others
-        temp2 = nonan.sub('', text).lower().split()
-        # temp = nonan.sub('', po_re.sub('', text)).lower().split()
-        # print temp
-        # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
-        return temp2
-
-    def tokenization2(self, text):
-
-        import re
-
-        emoticons_str = r"""
-        (?:
-          [:=;] # Eyes
-          [oO\-]? # Nose (optional)
-          [D\)\]\(\]/\\OpP] # Mouth
-        )"""
-
-        regex_str = [
-            emoticons_str,
-            r'<[^>]+>',  # HTML tags
-            r'(?:@[\w_]+)',  # @-mentions
-            r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)",  # hash-tags
-            r'http[s]?://(?:[a-z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-f][0-9a-f]))+',  # URLs
-            r'(?:(?:\d+,?)+(?:\.?\d+)?)',  # numbers
-            r"(?:[a-z][a-z'\-_]+[a-z])",  # words with - and '
-            r'(?:[\w_]+)',  # other words
-            r'(?:\S)'  # anything else
-        ]
-        tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
-        emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
-
-        return [token if emoticon_re.search(token) else token.lower() for token in tokens_re.findall(text)]
 
 
 
@@ -648,7 +599,7 @@ class LSI_Model(BaseEstimator, TransformerMixin):
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
         else:
-            texts = [self.tokenization(text) for text in X]
+            texts = [tokenization(text) for text in X]
             self.dictionary = corpora.Dictionary(texts)
             corpus = [self.dictionary.doc2bow(text) for text in texts]
             self.lsi = models.LsiModel(corpus, id2word=self.dictionary, num_topics=self.num_topics)
@@ -669,7 +620,7 @@ class LSI_Model(BaseEstimator, TransformerMixin):
              Probably model was not fitted first. Run model.fit(X,y)!')
         else:
             # LSI
-            texts = [self.tokenization(text) for text in X]
+            texts = [tokenization(text) for text in X]
             corpus = [self.dictionary.doc2bow(text) for text in texts]
             transform_lsi = self.lsi[corpus]
             lsi_list = []
@@ -696,20 +647,6 @@ class LSI_Model(BaseEstimator, TransformerMixin):
             # print len(lsi_list[0])
             # for Naive Bayes to have only semi-positive values
             return temp_z + abs(temp_z.min())
-
-    def tokenization(self, text):
-
-        import re
-        from nltk.stem import WordNetLemmatizer
-
-        # Create reg expressions removals
-        nonan = re.compile(r'[^a-zA-Z ]')  # basically numbers
-        # po_re = re.compile(r'\.|\!|\?|\,|\:|\(|\)')  # punct point and others
-        temp2 = nonan.sub('', text).lower().split()
-        # temp = nonan.sub('', po_re.sub('', text)).lower().split()
-        # print temp
-        # temp2 = [WordNetLemmatizer().lemmatize(item, 'v') for item in temp2]
-        return temp2
 
 """ 
     def predict(self, X, y=None):

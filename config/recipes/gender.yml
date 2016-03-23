@@ -11,10 +11,10 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            - count 3grams tfidf
+            #- count 3grams tfidf
             #- count tokens
-            - twcnb
-            #- soa model
+            #- twcnb
+            - soa model
             #- lsi_model
       #- dtree
       - svm

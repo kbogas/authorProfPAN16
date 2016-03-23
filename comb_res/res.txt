@@ -91,3 +91,6 @@ Results: en - age, params: {} ,Accuracy_Mean: 0.417431192661
 Results: en - gender, params: {} ,Accuracy_Mean: 0.68119266055
 Time: 223.336388111 seconds.
 Results: en - age, params: {} ,Accuracy_Mean: 0.417431192661
+Results: en - age, params: {} ,Accuracy_Mean: 0.332568807339
+Results: en - gender, params: {} ,Accuracy_Mean: 0.743119266055
+Time: 216.897706985 seconds.

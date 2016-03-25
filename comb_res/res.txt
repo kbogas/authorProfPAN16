@@ -94,3 +94,22 @@ Results: en - age, params: {} ,Accuracy_Mean: 0.417431192661
 Results: en - age, params: {} ,Accuracy_Mean: 0.332568807339
 Results: en - gender, params: {} ,Accuracy_Mean: 0.743119266055
 Time: 216.897706985 seconds.
+Results: en - age, params: {} ,Accuracy_Mean: 0.43119266055
+Results: en - gender, params: {} ,Accuracy_Mean: 0.706422018349
+Time: 295.126777887 seconds.
+Time: 87.3167080879 seconds.
+Time: 86.4913909435 seconds.
+Time: 86.5284438133 seconds.
+Time: 86.8546750546 seconds.
+Time: 90.4261519909 seconds.
+Time: 87.0045859814 seconds.
+Time: 88.6160809994 seconds.
+Task:age, Pipeline:<open file './comb_res/res.txt', mode 'a' at 0x7fec0686c150>Results: en - age, params: {} ,Accuracy_Mean: 0.465596330275
+Task:gender, Pipeline:<open file './comb_res/res.txt', mode 'a' at 0x7fec096181e0>Results: en - gender, params: {} ,Accuracy_Mean: 0.724770642202
+Time: 569.297026157 seconds.
+Task:age, Pipeline:clean html+detwittify+3grams+soa_model+svmResults: en - age, params: {} ,Accuracy_Mean: 0.465596330275
+Task:gender, Pipeline:clean html+detwittify+soa model+svmResults: en - gender, params: {} ,Accuracy_Mean: 0.727064220183
+Time: 553.212949038 seconds.
+Task:age, Pipeline:clean html+detwittify+3grams+soa_model+svmResults: en - age, params: {} ,Accuracy_Mean: 0.45871559633
+Task:gender, Pipeline:clean html+detwittify+soa model+svmResults: en - gender, params: {} ,Accuracy_Mean: 0.740825688073
+Time: 827.390822172 seconds.

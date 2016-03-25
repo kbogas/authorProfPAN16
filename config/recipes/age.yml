@@ -22,7 +22,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-           #- 3grams
+           - 3grams
            # - count hash
            # - count url
            # - count repl

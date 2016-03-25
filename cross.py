@@ -85,6 +85,17 @@ if __name__ == '__main__':
     print('\n--------------- Thy time of Running ---------------')
     for task in tasks:
         tictac = from_recipe(config.recipes[task])
+        outline = ""
+        for step in tictac.steps:
+            if step[0]=="features":
+                for tf in step[1].transformer_list:
+                    outline += tf[0] + "+"
+            else:
+                outline += step[0]+ "+"
+        outline = outline[:-1]
+        print('Task:{}, Pipeline:{}'.format(task, outline))
+        with open('./comb_res/res.txt', 'a') as out:
+            out.write('Task:{}, Pipeline:{}'.format(task, outline))
         cross_val(dataset, task, tictac, num_folds)
     # print results at end
     print('\n--------------- Thy time of Judgement ---------------')

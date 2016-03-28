@@ -11,13 +11,14 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            #- count 3grams tfidf
+            - count 3grams tfidf
             #- count tokens
             #- twcnb
             - soa model
             #- lsi_model
       #- dtree
       - svm
+      #- max soa
       #- ada
       #- mvb
 
@@ -28,6 +29,11 @@ svm:
   estimator_params:
     C: 10 
     class_weight: 'balanced'
+
+max soa:
+  label: max soa
+  estimator: SOA_Predict
+  estimator_pkg: pan.features
 
 mvb:
   label: mvb
@@ -108,6 +114,9 @@ printer:
   estimator_pkg: pan.features
 
 #grid_params:
+ #- features__twcnb__max_df: [1.0, 0.9, 0.8]
+ #  features__twcnb__min_df: [1, 5, 10]
+ #  features__twcnb__max_features: [None, 10000, 15000]
 #  - svm__C: [0.01, 0.1, 1, 10, 100]
 #     svm__kernel: [linear]
 #     svm__class_weight: [auto, null]

@@ -427,10 +427,11 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
 class TWCNB(BaseEstimator, TransformerMixin):
 
     """ Models that extracts Second Order Attributes
-     based on Rennie, Shih, Teevan and Karger Paper"""
+     based on Rennie, Shih, Teevan and Karger <Paper></Paper>"""
 
     def __init__(self, max_df=1.0, min_df=5, max_features=None):
-        from sklearn.feature_extraction.text import CountVectorizer
+        from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+        
 
         # stop_list = []
         # with open(stopwords_path, 'r') as stop_inp:
@@ -445,13 +446,14 @@ class TWCNB(BaseEstimator, TransformerMixin):
         # self.dictionary = None
         # self.num_topics = 100
         # self.counter = CountVectorizer()
-        self.counter = CountVectorizer()
+        self.counter = TfidfVectorizer(sublinear_tf=True)
 
     def fit(self, X, y=None):
 
         import numpy
+        from sklearn.preprocessing import normalize
 
-        print "We are fitting!"
+        # print "We are fitting!"
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
         else:
@@ -478,8 +480,10 @@ class TWCNB(BaseEstimator, TransformerMixin):
             self.counter.set_params(**parameters)
             # print len(target_profiles)
             doc_term = self.counter.fit_transform(X)
-            print "Doc_Terms"
-            print doc_term.shape
+            # print "New one2"
+            normalize(doc_term, norm='l2', axis=1, copy=False)
+            # print "Doc_Terms"
+            # print doc_term.shape, type(doc_term)
             target_profiles = sorted(list(set(y)))
             self.labels = target_profiles
             doc_prof = numpy.zeros([doc_term.shape[0], len(target_profiles)])
@@ -488,41 +492,59 @@ class TWCNB(BaseEstimator, TransformerMixin):
                 tmp = numpy.ones([1, len(target_profiles)])
                 tmp[0, target_profiles.index(y[i])] = 0
                 doc_prof[i, :] = tmp
-            print "Doc_Prof"
-            print doc_prof.shape, type(doc_prof)
-            doc_term.data = numpy.log2(doc_term.data + 1)
+            # print "Doc_Prof"
+            # print doc_prof.shape, type(doc_prof)
+            #doc_term.data = numpy.log2(doc_term.data + 1)
             #doc_term.transpose
-            print "Doc_Term"
-            print doc_term.shape, type(doc_term)
-            term_prof = doc_term.transpose().dot(doc_prof)
+            # print "Doc_Term"
+            # print doc_term.shape, type(doc_term)
+            nominator = doc_term.transpose().dot(doc_prof)
+            # LAPLACE SMOOTHING
+            a = 1
+            nominator = nominator + a
+            # print "Term_Prof"
+            # print nominator.shape, type(nominator)
+            doc_sum = doc_term.sum(axis=1)
+            doc_sum = numpy.array(doc_sum, copy=False)
+            # print "Doc_Sum"
+            # print doc_sum.shape, type(doc_sum)
+            basic_row = numpy.dot(doc_sum.T, doc_prof)
+            basic_row = basic_row + a*doc_term.shape[1]
+            # print "Basic_Row"
+            # print basic_row.shape, type(basic_row)
+            denominator = numpy.tile(basic_row, (nominator.shape[0],1))
+            # print "Denominator"
+            # print denominator.shape, type(denominator)
+
             #term_prof = numpy.zeros([doc_term.shape[1], len(target_profiles)])
             #term_prof = numpy.log2(doc_term.transpose.data
             #term_prof = numpy.dot(
             #    numpy.log2(doc_term.toarray().astype('float', casting='unsafe').T + 1), doc_prof)
-            print "Term_Prof"
-            print term_prof.shape, type(term_prof)
+            
             # normalize against words
             # term_prof = term_prof / term_prof.sum(axis=0)
             # normalize across profiles
-            term_prof = term_prof / \
-                numpy.reshape(
-                   term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
+            # term_prof = term_prof / \
+                # numpy.reshape(
+                   # term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
             print "Random Term_Prof"
             # print self.counter.vocabulary_
-            print term_prof[0,:]
+            print nominator[0,:]
             # term_prof = term_prof / \
             #    numpy.reshape(
             #        term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
             # term_prof = term_prof / term_prof.sum(axis=0)
-            self.term_table = term_prof
-            print "SOA Model Fitted!"
+            self.term_table = numpy.log2(nominator*denominator)# term_prof
+            self.term_table = normalize(self.term_table, norm='l1', axis=1, copy=False)
+            # print "SOA Model Fitted!"
             return self
 
     def transform(self, X, y=None):
 
         import numpy
+        from sklearn.preprocessing import normalize
 
-        print "We are transforming!"
+        # print "We are transforming!"
         if self.labels is None:
             raise AttributeError('term_table was no found! \
              Probably model was not fitted first. Run model.fit(X,y)!')
@@ -530,8 +552,9 @@ class TWCNB(BaseEstimator, TransformerMixin):
             #doc_term = numpy.zeros(
             #    [len(X), self.term_table.shape[0]])
             doc_term = self.counter.transform(X)
-            print "Doc_Terms"
-            print doc_term.shape, type(doc_term)
+            normalize(doc_term, norm='l2', axis=1, copy=False)
+            # print "Doc_Terms"
+            # print doc_term.shape, type(doc_term)
             doc_prof = numpy.zeros(
                 [doc_term.shape[0], self.term_table.shape[1]])
             # print "Term_Prof"
@@ -540,11 +563,11 @@ class TWCNB(BaseEstimator, TransformerMixin):
             # doc_prof = numpy.dot(
             #    doc_term.toarray().astype('float', casting='unsafe'),
             #    self.term_table)
-            print "SOA Transform:"
+            # print "SOA Transform:"
             # print type(doc_prof)
-            print 'Doc_prof'
-            print doc_prof.shape, type(doc_prof)
-            print "Len Voc: %s" % (str(len(self.counter.vocabulary_)))
+            # print 'Doc_prof'
+            # print doc_prof.shape, type(doc_prof)
+            print "Len Voc: %s" % (str(doc_term.shape[1]))
             # import pprint
             # pprint.pprint(self.counter.vocabulary_)
             # LSI
@@ -685,10 +708,11 @@ class SOA_Predict(object):
         import numpy
 
         y_pred = []
-        print type(doc_prof)
-        pprint.pprint(doc_prof)
+        # print type(doc_prof)
+        #pprint.pprint(doc_prof)
         for i in range(0, doc_prof.shape[0]):
-            y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
+            #y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
+            y_pred.append(self.labels[numpy.argmin(doc_prof[i, :])])
             if i == 0:
                 print y_pred
                 print doc_prof[i, :]

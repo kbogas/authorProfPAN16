@@ -168,10 +168,9 @@ duplicate remover:
 
 #grid_params:
 #  - mvb__fit_prior: [True, False]
-#  - features__soa_model__max_df: [1.0, 0.9, 0.8]
-#    features__soa_model__min_df: [1, 5, 10]
-#    features__soa_model__max_features: [None, 10000, 15000]
-#  - svm__C: [0.01, 0.1]
+# - features__twcnb__max_df: [1.0, 0.9, 0.8]
+#   features__twcnb__min_df: [1, 5, 10]
+#   features__twcnb__max_features: [None, 10000, 15000]
 #    features__3grams__max_features: [1000, 3000]
 #  - svm__C: [0.01, 0.1, 1, 10, 100]
 #   svm__kernel: [rbf, linear, sigmoid]

@@ -113,3 +113,37 @@ Time: 553.212949038 seconds.
 Task:age, Pipeline:clean html+detwittify+3grams+soa_model+svmResults: en - age, params: {} ,Accuracy_Mean: 0.45871559633
 Task:gender, Pipeline:clean html+detwittify+soa model+svmResults: en - gender, params: {} ,Accuracy_Mean: 0.740825688073
 Time: 827.390822172 seconds.
+Task:age, Pipeline:clean html+detwittify+3grams+soa_model+svm Results: en - age, params: {} ,Accuracy_Mean: 0.465596330275
+Task:gender, Pipeline:clean html+detwittify+soa model+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.685779816514
+Time: 209.220430136 seconds.
+Task:age, Pipeline:clean html+detwittify+3grams+soa_model+svm Results: en - age, params: {} ,Accuracy_Mean: 0.465596330275
+Task:gender, Pipeline:clean html+detwittify+soa model+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.706422018349
+Time: 219.912919044 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+svm Results: en - age, params: {} ,Accuracy_Mean: 0.463302752294
+Task:gender, Pipeline:clean html+detwittify+twcnb+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.754587155963
+Time: 199.723901987 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+svm Results: en - age, params: {} ,Accuracy_Mean: 0.463302752294
+Task:gender, Pipeline:clean html+detwittify+twcnb+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.729357798165
+Time: 188.515182018 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+svm Results: en - age, params: {} ,Accuracy_Mean: 0.463302752294
+Task:gender, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svmTask:age, Pipeline:clean html+detwittify+twcnb+svm Results: en - age, params: {} ,Accuracy_Mean: 0.417431192661
+Task:gender, Pipeline:clean html+detwittify+twcnb+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.589449541284
+Time: 200.594211102 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+max soa Results: en - age, params: {} ,Accuracy_Mean: 0.419724770642
+Task:gender, Pipeline:clean html+detwittify+twcnb+max soa Results: en - gender, params: {} ,Accuracy_Mean: 0.529816513761
+Time: 194.103671074 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+max soa Results: en - age, params: {} ,Accuracy_Mean: 0.419724770642
+Task:gender, Pipeline:clean html+detwittify+twcnb+max soa Results: en - gender, params: {} ,Accuracy_Mean: 0.529816513761
+Time: 188.194011927 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+max soa Results: en - age, params: {} ,Accuracy_Mean: 0.419724770642
+Task:gender, Pipeline:clean html+detwittify+twcnb+max soa Results: en - gender, params: {} ,Accuracy_Mean: 0.529816513761
+Time: 187.443405867 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+svm Results: en - age, params: {} ,Accuracy_Mean: 0.245412844037
+Task:gender, Pipeline:clean html+detwittify+twcnb+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.603211009174
+Time: 207.502766132 seconds.
+Task:age, Pipeline:clean html+detwittify+3grams+twcnb+svm Results: en - age, params: {} ,Accuracy_Mean: 0.350917431193
+Task:gender, Pipeline:clean html+detwittify+count 3grams tfidf+twcnb+svm Results: en - gender, params: {} ,Accuracy_Mean: 0.672018348624
+Time: 287.425091982 seconds.
+Task:age, Pipeline:clean html+detwittify+twcnb+max soaTask:age, Pipeline:clean html+detwittify+3grams+soa_model+svm Results: en - age, params: {} ,Accuracy_Mean: 0.45871559633
+Task:gender, Pipeline:clean html+detwittify+count 3grams tfidf+soa model+max soa Results: en - gender, params: {} ,Accuracy_Mean: 0.5
+Time: 234.652418852 seconds.

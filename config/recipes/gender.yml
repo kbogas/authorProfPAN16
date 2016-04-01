@@ -11,9 +11,9 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            - count 3grams tfidf
+            #- count 3grams tfidf
             #- count tokens
-            #- twcnb
+            - twcnb
             - soa model
             #- lsi_model
       #- dtree
@@ -89,6 +89,7 @@ soa:
     max_df: 1.0
     min_df: 5
     max_features: None
+    ngram_range: 1
 
 
 twcnb:

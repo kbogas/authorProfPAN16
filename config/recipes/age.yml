@@ -22,13 +22,13 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-           - 3grams
+           #- 3grams
            # - count hash
            # - count url
            # - count repl
            #- count wlength
            #- count tokens
-           #- twcnb
+           - twcnb
            - soa_model
            #- lsi_model
       #- select
@@ -133,7 +133,7 @@ soa:
   estimator_params:
     max_df: 1.0
     min_df: 5
-    max_features: None
+    max_features: 5000 #None
 
 twcnb:
   label: twcnb
@@ -142,7 +142,7 @@ twcnb:
   estimator_params:
     max_df: 1.0
     min_df: 5
-    max_features: None
+    max_features: 5000
 
 lsi:
   label: lsi_model
@@ -166,14 +166,14 @@ duplicate remover:
   estimator: remove_duplicates
   estimator_pkg: pan.preprocess
 
-#grid_params:
+grid_params:
 #  - mvb__fit_prior: [True, False]
-# - features__twcnb__max_df: [1.0, 0.9, 0.8]
-#   features__twcnb__min_df: [1, 5, 10]
-#   features__twcnb__max_features: [None, 10000, 15000]
+  # - features__twcnb__max_df: [1.0, 0.8]
+    # features__twcnb__min_df: [1, 5, 10]
+    # features__twcnb__max_features: [None, 5000, 10000, 15000]
 #    features__3grams__max_features: [1000, 3000]
-#  - svm__C: [0.01, 0.1, 1, 10, 100]
-#   svm__kernel: [rbf, linear, sigmoid]
+  - svm__C: [0.01, 0.1, 1, 10, 100]
+    svm__kernel: [rbf, linear, sigmoid]
 #     svm__kernel: [linear]
 #     svm__class_weight: [auto, null]
 # - svm__C: [0.01, 0.1, 1, 10, 100]

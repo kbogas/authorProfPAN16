@@ -88,11 +88,18 @@ if __name__ == '__main__':
         outline = ""
         for step in tictac.steps:
             if step[0]=="features":
-                for tf in step[1].transformer_list:
-                    outline += tf[0] + "+"
-            else:
-                outline += step[0]+ "+"
-        outline = outline[:-1]
+            # print type(step[1])
+            for tf in step[1].transformer_list:
+                #print type(tf[1])
+                #print type(tf[1].get_params())
+                outline += tf[0] + " with Params:[" + str(tf[1].get_params()) + "]+"
+        else:
+#            if hasattr(step[1], 'get_params'):
+#                outline += step[0] + " with Params:[" + str(step[1].get_params()) + "]+"
+#            else:
+#                outline += step[0]+ "+"
+            outline += step[0]+ "+"
+        outline = outline[:-1] + "\n"
         print('Task:{}, Pipeline:{}'.format(task, outline))
         with open('./comb_res/res.txt', 'a') as out:
             out.write('Task:{}, Pipeline:{}'.format(task, outline))

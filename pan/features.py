@@ -299,6 +299,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
 
         import numpy
+        from sklearn.preprocessing import StandardScaler, normalize
 
         print "We are fitting!"
         if y is None:
@@ -316,7 +317,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 'input': 'content',
                 'encoding': 'utf-8',
                 'decode_error': 'ignore',
-                # 'analyzer': 'word',
+                'analyzer': 'word',
                 # 'vocabulary':list(voc),
                 # 'tokenizer': tokenization,
                 #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
@@ -326,8 +327,12 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 'max_features': self.max_features
             }
             self.counter.set_params(**parameters)
+            print str(self.counter.get_params())
             # print len(target_profiles)
             doc_term = self.counter.fit_transform(X)
+            # st_scaler = StandardScaler(copy=False)
+            # st_scaler.fit_transform(doc_term)
+            #normalize(doc_term, norm='l1', axis=0, copy=False)
             print "Doc_Terms"
             print doc_term.shape
             target_profiles = sorted(list(set(y)))
@@ -427,7 +432,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
 class TWCNB(BaseEstimator, TransformerMixin):
 
     """ Models that extracts Second Order Attributes
-     based on Rennie, Shih, Teevan and Karger <Paper></Paper>"""
+     based on Rennie, Shih, Teevan and Karger </Paper>"""
 
     def __init__(self, max_df=1.0, min_df=5, max_features=None):
         from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
@@ -469,8 +474,9 @@ class TWCNB(BaseEstimator, TransformerMixin):
                 'input': 'content',
                 'encoding': 'utf-8',
                 'decode_error': 'ignore',
+                'analyzer': 'word',
                 # 'vocabulary':list(voc),
-                'tokenizer': tokenization,
+                #'tokenizer': tokenization,
                 #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
                 #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
                 'max_df': self.max_df,
@@ -481,7 +487,7 @@ class TWCNB(BaseEstimator, TransformerMixin):
             # print len(target_profiles)
             doc_term = self.counter.fit_transform(X)
             # print "New one2"
-            normalize(doc_term, norm='l2', axis=1, copy=False)
+            #normalize(doc_term, norm='l2', axis=1, copy=False)
             # print "Doc_Terms"
             # print doc_term.shape, type(doc_term)
             target_profiles = sorted(list(set(y)))
@@ -527,15 +533,15 @@ class TWCNB(BaseEstimator, TransformerMixin):
             # term_prof = term_prof / \
                 # numpy.reshape(
                    # term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
-            print "Random Term_Prof"
-            # print self.counter.vocabulary_
-            print nominator[0,:]
             # term_prof = term_prof / \
             #    numpy.reshape(
             #        term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
             # term_prof = term_prof / term_prof.sum(axis=0)
             self.term_table = numpy.log2(nominator*denominator)# term_prof
             self.term_table = normalize(self.term_table, norm='l1', axis=1, copy=False)
+            print "Random Term_Prof"
+            # print self.counter.vocabulary_
+            print self.term_table[0,:]
             # print "SOA Model Fitted!"
             return self
 
@@ -567,9 +573,9 @@ class TWCNB(BaseEstimator, TransformerMixin):
             # print type(doc_prof)
             # print 'Doc_prof'
             # print doc_prof.shape, type(doc_prof)
-            print "Len Voc: %s" % (str(doc_term.shape[1]))
-            # import pprint
-            # pprint.pprint(self.counter.vocabulary_)
+            print "Len Voc: %s\n" % (str(doc_term.shape[1]))
+            #import pprint
+            #pprint.pprint(self.counter.vocabulary_)
             # LSI
             # texts = [self.tokenization(text) for text in X]
             # corpus = [self.dictionary.doc2bow(text) for text in texts]

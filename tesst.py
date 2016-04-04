@@ -81,6 +81,22 @@ if __name__ == '__main__':
     print('\n--------------- Thy time of Running ---------------')
     for task in tasks:
         tictac = from_recipe(config.recipes[task])
+        outline = ""
+        for step in tictac.steps:
+            if step[0] == "features":
+                # print type(step[1])
+                    for tf in step[1].transformer_list:
+                        # print type(tf[1])
+                        # print type(tf[1].get_params())
+                        outline += tf[0] + " with Params:[" + str(tf[1].get_params()) + "]+"
+            else:
+                # if hasattr(step[1], 'get_params'):
+                    # outline += step[0] + " with Params:[" + str(step[1].get_params()) + "]+"
+                # else:
+                    # outline += step[0]+ "+"
+                outline += step[0] + "+"
+        outline = outline[:-1] + "\n"
+        print('Task:{}, Pipeline:{}'.format(task, outline))
         test_data(dataset, task, tictac, split)
     # print results at end
     print('\n--------------- Thy time of Judgement ---------------')

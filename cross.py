@@ -30,6 +30,7 @@ def cross_val(dataset, task, model, num_folds=4):
     # y = [yy.lower() for yy in y]
     # get parameters for grid search if it exists - else pass empty dict
     params = model.grid_params if hasattr(model, 'grid_params') else dict()
+    print params
     # from collections import Counter
     # import pprint
     # pprint.pprint(Counter(y))
@@ -41,7 +42,7 @@ def cross_val(dataset, task, model, num_folds=4):
                (dataset.lang, task, model.__class__.__name__))
     if task in dataset.config.classifier_list:
         grid_cv = GridSearchCV(model, params, cv=num_folds, verbose=1,
-                               n_jobs=1)
+                               n_jobs=-1, refit=False)
         grid_cv.fit(X, y)
         # y_pred = grid_cv.best_estimator_.predict(X)
         # pprint.pprint(y_pred)
@@ -87,18 +88,18 @@ if __name__ == '__main__':
         tictac = from_recipe(config.recipes[task])
         outline = ""
         for step in tictac.steps:
-            if step[0]=="features":
-            # print type(step[1])
-            for tf in step[1].transformer_list:
-                #print type(tf[1])
-                #print type(tf[1].get_params())
-                outline += tf[0] + " with Params:[" + str(tf[1].get_params()) + "]+"
-        else:
-#            if hasattr(step[1], 'get_params'):
-#                outline += step[0] + " with Params:[" + str(step[1].get_params()) + "]+"
-#            else:
-#                outline += step[0]+ "+"
-            outline += step[0]+ "+"
+            if step[0] == "features":
+                # print type(step[1])
+                    for tf in step[1].transformer_list:
+                        # print type(tf[1])
+                        # print type(tf[1].get_params())
+                        outline += tf[0] + " with Params:[" + str(tf[1].get_params()) + "]+"
+            else:
+                # if hasattr(step[1], 'get_params'):
+                    # outline += step[0] + " with Params:[" + str(step[1].get_params()) + "]+"
+                # else:
+                    # outline += step[0]+ "+"
+                outline += step[0] + "+"
         outline = outline[:-1] + "\n"
         print('Task:{}, Pipeline:{}'.format(task, outline))
         with open('./comb_res/res.txt', 'a') as out:

@@ -1,0 +1,7 @@
+{% for ind_word, word in enumerate(words) %s}
+Word: {{word}}
+{% set relation_groups= relation_groups_all[ind_word%}
+{% for rel in relation_groups%}
+{{rel.subject.text}}--{{rel.action.text}}--{{rel.argument.text}}
+{%endfor%}
+{% endfor%}

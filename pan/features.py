@@ -272,24 +272,125 @@ class CountTokens(BaseEstimator, TransformerMixin):
 
 # class SOA_Model2(object):
 
+class SOAC_Model2(BaseEstimator, TransformerMixin):
 
-class SOA_Model2(BaseEstimator, TransformerMixin):
+    """ Complementary of SOA model"""
 
-    """ Models that extracts Second Order Attributes
-     (SOA) base on PAN 2013-2015 Winners"""
-
-    def __init__(self, max_df=1.0, min_df=5, max_features=None):
+    def __init__(self, max_df=1.0, min_df=5,
+                 tokenizer_var='sklearn', max_features=None):
         from sklearn.feature_extraction.text import TfidfVectorizer
 
         # stop_list = []
         # with open(stopwords_path, 'r') as stop_inp:
         # for w in stop_inp:
         # stop_list.append(w.replace("\n", ""))
+        print tokenizer_var
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
         self.term_table = None
         self.labels = None
+        if tokenizer_var == '1':
+            self.tokenization = tokenization
+        elif tokenizer_var == '2':
+            self.tokenization = tokenization2
+        elif tokenizer_var == '3':
+            self.tokenization = _twokenize.tokenizeRawTweetText
+        else:
+            self.tokenization = None
+
+        # self.lsi = None
+        # self.dictionary = None
+        # self.num_topics = 100
+        # self.counter = CountVectorizer()
+        self.counter = TfidfVectorizer(use_idf=False)
+
+    def fit(self, X, y=None):
+
+        import numpy
+
+        print "We are fitting!"
+        if y is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            parameters = {
+                'input': 'content',
+                'encoding': 'utf-8',
+                'decode_error': 'ignore',
+                'analyzer': 'word',
+                'tokenizer': self.tokenization,
+                # 'vocabulary':list(voc),
+                # 'tokenizer': tokenization,
+                #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
+                #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
+                'max_df': self.max_df,
+                'min_df': self.min_df,
+                'max_features': self.max_features
+            }
+            self.counter.set_params(**parameters)
+            doc_term = self.counter.fit_transform(X)
+            target_profiles = sorted(list(set(y)))
+            self.labels = target_profiles
+            doc_prof = numpy.zeros([doc_term.shape[0], len(target_profiles)])
+            for i in range(0, doc_term.shape[0]):
+                tmp = numpy.ones([1, len(target_profiles)])
+                tmp[0, target_profiles.index(y[i])] = 0
+                doc_prof[i, :] = tmp
+            doc_term.data = numpy.log2(doc_term.data + 1)
+            term_prof = doc_term.transpose().dot(doc_prof)
+            # normalize against words
+            term_prof = term_prof / term_prof.sum(axis=0)
+            # normalize across profiles
+            term_prof = term_prof / \
+                numpy.reshape(
+                   term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
+            self.term_table = term_prof
+            return self
+
+    def transform(self, X, y=None):
+
+        import numpy
+
+        print "We are transforming!"
+        if self.labels is None:
+            raise AttributeError('term_table was no found! \
+             Probably model was not fitted first. Run model.fit(X,y)!')
+        else:
+            doc_term = self.counter.transform(X)
+            doc_prof = numpy.zeros(
+                [doc_term.shape[0], self.term_table.shape[1]])
+            doc_prof = doc_term.dot(self.term_table)
+            return -doc_prof
+
+
+class SOA_Model2(BaseEstimator, TransformerMixin):
+
+    """ Models that extracts Second Order Attributes
+     (SOA) base on PAN 2013-2015 Winners"""
+
+    def __init__(self, max_df=1.0, min_df=5,
+                 tokenizer_var='sklearn', max_features=None):
+        from sklearn.feature_extraction.text import TfidfVectorizer
+
+        # stop_list = []
+        # with open(stopwords_path, 'r') as stop_inp:
+        # for w in stop_inp:
+        # stop_list.append(w.replace("\n", ""))
+        print tokenizer_var
+        self.max_df = max_df
+        self.min_df = min_df
+        self.max_features = max_features
+        self.term_table = None
+        self.labels = None
+        if tokenizer_var == '1':
+            self.tokenization = tokenization
+        elif tokenizer_var == '2':
+            self.tokenization = tokenization2
+        elif tokenizer_var == '3':
+            self.tokenization = _twokenize.tokenizeRawTweetText
+        else:
+            self.tokenization = None
+
         # self.lsi = None
         # self.dictionary = None
         # self.num_topics = 100
@@ -318,6 +419,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 'encoding': 'utf-8',
                 'decode_error': 'ignore',
                 'analyzer': 'word',
+                'tokenizer': self.tokenization,
                 # 'vocabulary':list(voc),
                 # 'tokenizer': tokenization,
                 #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
@@ -327,7 +429,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 'max_features': self.max_features
             }
             self.counter.set_params(**parameters)
-            print str(self.counter.get_params())
+            # print str(self.counter.get_params())
             # print len(target_profiles)
             doc_term = self.counter.fit_transform(X)
             # st_scaler = StandardScaler(copy=False)
@@ -717,9 +819,135 @@ class SOA_Predict(object):
         # print type(doc_prof)
         #pprint.pprint(doc_prof)
         for i in range(0, doc_prof.shape[0]):
-            #y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
-            y_pred.append(self.labels[numpy.argmin(doc_prof[i, :])])
+            y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
+            # y_pred.append(self.labels[numpy.argmin(doc_prof[i, :])])
             if i == 0:
                 print y_pred
                 print doc_prof[i, :]
         return y_pred
+
+import sklearn.
+
+class skLDA(BaseEstimator, TransformerMixin):
+
+    """ LDA model based on sklearnLDA"""
+
+    def __init__(self, n_topics=100, verbose=1, random_state=42):
+        from sklearn.feature_extraction.text import CountVectorizer
+        from sklearn.decomposition import LatentDirichletAllocation
+
+        print "num topics:" + str(n_topics)
+        print "verbose:" + str(verbose)
+        self.labels = None
+        # bazw manually ta numtopics ktlp giati pernane san None Orismata..Vale ta print an thes..
+        self.LDA = LatentDirichletAllocation(n_topics=50, verbose=1, random_state=42)
+        # Conceptually much better results with TFIDFVECTORIZER(use_log tf)
+        self.counter = CountVectorizer()
+
+    def fit(self, X, y=None):
+
+        # print "We are fitting!"
+        if y is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            parameters = {
+                'input': 'content',
+                'encoding': 'utf-8',
+                'decode_error': 'ignore',
+                'analyzer': 'word',
+                # 'vocabulary':list(voc),
+                #'tokenizer': tokenization,
+                #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
+                #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
+                'max_df': 1.0,
+                'min_df': 5,
+                'max_features': None
+            }
+            self.counter.set_params(**parameters)
+            doc_term = self.counter.fit_transform(X)
+            target_profiles = sorted(list(set(y)))
+            self.labels = target_profiles
+            self.LDA.fit(doc_term, y)
+            return self
+
+    def transform(self, X, y=None):
+
+        # print "We are transforming!"
+        if self.labels is None:
+            raise AttributeError('term_table was no found! \
+             Probably model was not fitted first. Run model.fit(X,y)!')
+        else:
+            #doc_term = numpy.zeros(
+            #    [len(X), self.term_table.shape[0]])
+            doc_term = self.counter.transform(X)
+            doc_topics = self.LDA.transform(doc_term)
+            print("\nTopics in LDA model:")
+            tf_feature_names = self.counter.get_feature_names()
+            print_top_words(self.LDA, tf_feature_names, 20)
+            return doc_topics
+
+
+def print_top_words(model, feature_names, n_top_words):
+
+    for topic_idx, topic in enumerate(model.components_):
+        print("Topic #%d:" % topic_idx)
+        print(" ".join([feature_names[i]
+                        for i in topic.argsort()[:-n_top_words - 1:-1]]))
+    print()
+
+class skNMF(BaseEstimator, TransformerMixin):
+
+    """ NMF model based on sklearn"""
+
+    def __init__(self, verbose=1, random_state=42):
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.decomposition import NMF
+
+        print "verbose:" + str(verbose)
+        self.labels = None
+        # bazw manually ta numtopics ktlp giati pernane san None Orismata..Vale ta print an thes..
+        self.NMF = NMF(init='nndsvd', verbose=1, rnadom_state=42)
+        # Conceptually much better results with TFIDFVECTORIZER(use_log tf)
+        self.counter = TfidfVectorizer(sublinear_tf=True)
+
+    def fit(self, X, y=None):
+
+
+        # print "We are fitting!"
+        if y is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            parameters = {
+                'input': 'content',
+                'encoding': 'utf-8',
+                'decode_error': 'ignore',
+                'analyzer': 'word',
+                # 'vocabulary':list(voc),
+                #'tokenizer': tokenization,
+                #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
+                #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
+                'max_df': 1.0,
+                'min_df': 5,
+                'max_features': None
+            }
+            self.counter.set_params(**parameters)
+            doc_term = self.counter.fit_transform(X)
+            target_profiles = sorted(list(set(y)))
+            self.labels = target_profiles
+            self.NMF.fit(doc_term, y)
+            return self
+
+    def transform(self, X, y=None):
+
+        # print "We are transforming!"
+        if self.labels is None:
+            raise AttributeError('term_table was no found! \
+             Probably model was not fitted first. Run model.fit(X,y)!')
+        else:
+            #doc_term = numpy.zeros(
+            #    [len(X), self.term_table.shape[0]])
+            doc_term = self.counter.transform(X)
+            doc_topics = self.NMF.transform(doc_term)
+            tf_feature_names = self.counter.get_feature_names()
+            print_top_words(self.NFM, tf_feature_names, 20)
+            return doc_topics

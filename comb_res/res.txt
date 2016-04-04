@@ -202,3 +202,80 @@ Task:age, Pipeline:clean html+detwittify+twcnb with Params:[{'max_features': 500
 Task:age, Pipeline:clean html+detwittify+twcnb with Params:[{'max_features': 5000, 'ngram_range': None, 'max_df': 1.0, 'min_df': 5}]+svm
 Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'ngram_range': None, 'max_df': 1.0, 'min_df': 5}]+svm
 Task:age, Pipeline:clean html+detwittify+twcnb with Params:[{'max_features': 5000, 'max_df': 1.0, 'min_df': 5}]+soa_model with Params:[{'max_features': 5000, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 5000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 5000, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.424311926606
+Task:age, Pipeline:3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 5000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 5000, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.424311926606
+Task:gender, Pipeline:count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 'None', 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.743119266055
+Time: 452.367918968 seconds.
+Task:age, Pipeline:soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'learning_offset': 10.0, 'n_jobs': 1, 'topic_word_prior': None, 'perp_tol': 0.1, 'evaluate_every': -1, 'max_iter': 10, 'mean_change_tol': 0.001, 'batch_size': 128, 'max_doc_update_iter': 100, 'learning_decay': 0.7, 'random_state': 42, 'doc_topic_prior': None, 'n_topics': 100, 'total_samples': 1000000.0, 'learning_method': 'online', 'verbose': 1}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'learning_offset': 10.0, 'n_jobs': 1, 'topic_word_prior': None, 'perp_tol': 0.1, 'evaluate_every': -1, 'max_iter': 10, 'mean_change_tol': 0.001, 'batch_size': 128, 'max_doc_update_iter': 100, 'learning_decay': 0.7, 'random_state': 42, 'doc_topic_prior': None, 'n_topics': 100, 'total_samples': 1000000.0, 'learning_method': 'online', 'verbose': 1}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Results: en - age, params: {"svm__C": 100, "svm__kernel": "sigmoid"} ,Accuracy_Mean: 0.316513761468
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.727064220183
+Time: 826.812246084 seconds.
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.261467889908
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.690366972477
+Time: 210.17315793 seconds.
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.399082568807
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.756880733945
+Time: 167.153414011 seconds.
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.419724770642
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.711009174312
+Time: 211.670898914 seconds.
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Task:age, Pipeline:clean html+detwittify+skLDA with Params:[{'n_topics': None, 'random_state': None, 'verbose': None}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.399082568807
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.706422018349
+Time: 116.690067053 seconds.
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 5000, 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+max soa
+Results: en - age, params: {} ,Accuracy_Mean: 0.327981651376
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {"svm__C": 0.1, "svm__kernel": "rbf"} ,Accuracy_Mean: 0.461009174312
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.706422018349
+Time: 699.888884068 seconds.
+Task:age, Pipeline:clean html+detwittify+3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 5000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.357798165138
+Task:gender, Pipeline:clean html+detwittify+count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.461009174312
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.665137614679
+Time: 123.004130125 seconds.
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.461009174312
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.461009174312
+Task:gender, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': None, 'max_df': 1.0, 'min_df': 5}]+svm
+Results: en - gender, params: {"svm__C": 0.1} ,Accuracy_Mean: 0.759174311927
+Time: 378.788588047 seconds.

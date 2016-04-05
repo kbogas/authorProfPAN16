@@ -69,11 +69,10 @@ class TopicTopWords(BaseEstimator, TransformerMixin):
         as a percentage for each topic."""
 
     def __init__(self, n_topics, k_top):
-        import lda
         from sklearn.feature_extraction.text import CountVectorizer
         self.n_topics = n_topics
         self.k_top = k_top
-        self.model = lda.LDA(n_topics=self.n_topics,
+        self.model = LDA(n_topics=self.n_topics,
                              n_iter=10,
                              random_state=1)
         self.counter = CountVectorizer()
@@ -826,7 +825,6 @@ class SOA_Predict(object):
                 print doc_prof[i, :]
         return y_pred
 
-import sklearn.
 
 class skLDA(BaseEstimator, TransformerMixin):
 
@@ -951,3 +949,73 @@ class skNMF(BaseEstimator, TransformerMixin):
             tf_feature_names = self.counter.get_feature_names()
             print_top_words(self.NFM, tf_feature_names, 20)
             return doc_topics
+
+class XGBoostClassifier(BaseEstimator, TransformerMixin):
+
+
+
+    def __init__(self, num_boost_round=10, **params):
+
+        self.clf = None
+        self.num_boost_round = 100
+        self.labels = None
+        self.params = params
+
+    def fit(self, X, y, num_boost_round=None):
+
+        import xgboost as xgb
+
+        num_boost_round = num_boost_round or self.num_boost_round
+        self.label2num = dict((label, i) for i, label in enumerate(sorted(set(y))))
+        self.params.update({'objective': 'multi:softprob', 'num_class': len(set(y)), 'eval_metric': 'merror', 'nthread': -1})
+        if y is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            dtrain = xgb.DMatrix(X, label=[self.label2num[label] for label in y])
+            self.clf = xgb.train(params=self.params, dtrain=dtrain, num_boost_round=num_boost_round)
+
+    def predict(self, X):
+
+        import numpy
+
+        num2label = dict((i, label)for label, i in self.label2num.items())
+        Y = self.predict_proba(X)
+        y = numpy.argmax(Y, axis=1)
+        return numpy.array([num2label[i] for i in y])
+
+    def predict_proba(self, X):
+
+        from xgboost import DMatrix
+
+        dtest = DMatrix(X)
+        return self.clf.predict(dtest)
+
+    def score(self, X, y_true):
+
+        from sklearn.metrics import accuracy_score
+
+        y_pred = self.predict(X)
+        return accuracy_score(y_true, y_pred, normalize=True)
+
+        # Y = self.predict_proba(X)
+        # return 1 / logloss(y, Y)
+
+    def get_params(self, deep=True):
+        return self.params
+
+    def set_params(self, **params):
+        if 'num_boost_round' in params:
+            self.num_boost_round = params.pop('num_boost_round')
+        if 'objective' in params:
+            del params['objective']
+        self.params.update(params)
+        return self
+
+
+def logloss(y_true, Y_pred):
+
+    import math
+    import numpy as np
+
+    label2num = dict((name, i) for i, name in enumerate(sorted(set(y_true))))
+    return -1 * sum(math.log(y[label2num[label]]) if y[label2num[label]] > 0 else -np.inf for y, label in zip(Y_pred, y_true)) / len(Y_pred)

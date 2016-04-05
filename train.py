@@ -37,7 +37,7 @@ if __name__ == '__main__':
         X, y = dataset.get_data(task)
         tictac = from_recipe(config.recipes[task])
         all_models[task] = tictac.fit(X, y)
-    modelfile = os.path.join(outfolder, '%s2.bin' % dataset.lang)
+    modelfile = os.path.join(outfolder, '%s3.bin' % dataset.lang)
     print('Writing model to {}'.format(modelfile))
     #fo = open(modelfile,  'wb')
     #import pprint

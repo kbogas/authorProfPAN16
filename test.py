@@ -48,7 +48,7 @@ if __name__ == '__main__':
     model = args.model
     infolder = args.infolder
     outfolder = args.outfolder
-
+    print('Loading dataset...')
     dataset = ProfilingDataset(infolder)
     print('Loaded {} users...\n'.format(len(dataset.entries)))
     config = dataset.config

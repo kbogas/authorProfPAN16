@@ -836,6 +836,7 @@ class skLDA(BaseEstimator, TransformerMixin):
 
         print "num topics:" + str(n_topics)
         print "verbose:" + str(verbose)
+        print "TRAVA TA MALIAA SOU"
         self.labels = None
         # bazw manually ta numtopics ktlp giati pernane san None Orismata..Vale ta print an thes..
         self.LDA = LatentDirichletAllocation(n_topics=50, verbose=1, random_state=42)

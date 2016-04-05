@@ -13,7 +13,7 @@ pipeline:
           transformer_list:
             - count 3grams tfidf
             #- count tokens
-            #- twcnb
+            - twcnb
             - soa_model
             - soac_model
             #- lsi_model
@@ -97,7 +97,7 @@ soa:
   estimator_params:
     max_df: 1.0
     min_df: 5
-    max_features: None
+    max_features: 5000
 
 soac:
   label: soac_model
@@ -107,7 +107,7 @@ soac:
     max_df: 1.0
     min_df: 5
     tokenizer_var: '1'
-    max_features: None
+    max_features: 5000
 
 
 twcnb:
@@ -117,7 +117,7 @@ twcnb:
   estimator_params:
     max_df: 1.0
     min_df: 5
-    max_features: None
+    max_features: 5000
 
 
 lsi:
@@ -133,11 +133,11 @@ printer:
   estimator_pkg: pan.features
 
 
-grid_params:
+# grid_params:
  #- features__twcnb__max_df: [1.0, 0.9, 0.8]
  #  features__twcnb__min_df: [1, 5, 10]
  #  features__twcnb__max_features: [None, 10000, 15000]
-  - svm__C: [0.01, 0.1, 1, 10, 100]
+  # - svm__C: [0.01, 0.1, 1, 10, 100]
 #     svm__kernel: [linear]
 #     svm__class_weight: [auto, null]
 #     3grams__max_features:  [1000, 3000, 5000, 7500, 10000, null]

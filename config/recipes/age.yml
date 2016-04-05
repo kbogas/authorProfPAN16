@@ -28,7 +28,7 @@ pipeline:
            # - count repl
            #- count wlength
            #- count tokens
-           #- twcnb
+           - twcnb
            #- skNMF
            #- skLDA
            - soa_model
@@ -51,7 +51,6 @@ xgboost:
   estimator_params:
     num_boost_round: 10
 
-
 skNMF: 
   label: skNMF
   estimator: skNMF
@@ -68,7 +67,6 @@ skLDA:
     n_topics: 50
     verbose: 1
     random_state: 42
-
 
 mvb:
   label: mvb
@@ -164,7 +162,7 @@ soa:
     max_df: 1.0
     min_df: 5
     tokenizer_var: '1'
-    max_features: None
+    max_features: 5000
 
 soac:
   label: soac_model
@@ -174,7 +172,7 @@ soac:
     max_df: 1.0
     min_df: 5
     tokenizer_var: '1'
-    max_features: None
+    max_features: 5000
 
 
 
@@ -209,7 +207,7 @@ duplicate remover:
   estimator: remove_duplicates
   estimator_pkg: pan.preprocess
 
-grid_params:
+# grid_params:
 #  - features__soa_model__max_df: [1.0, 0.8]
 #    features__soa_model__tokenizer_var: ['sklearn', '1', '2', '3']
 #  - mvb__fit_prior: [True, False]
@@ -217,8 +215,8 @@ grid_params:
     # features__twcnb__min_df: [1, 5, 10]
     # features__twcnb__max_features: [None, 5000, 10000, 15000]
 #    features__3grams__max_features: [1000, 3000]
- - svm__C: [0.01, 0.1, 1, 10, 100]
-   svm__kernel: [rbf, linear, sigmoid]
+ # - svm__C: [0.01, 0.1, 1, 10, 100]
+   # svm__kernel: [rbf, linear, sigmoid]
 #     svm__kernel: [linear]
 #     svm__class_weight: [auto, null]
 # - svm__C: [0.01, 0.1, 1, 10, 100]

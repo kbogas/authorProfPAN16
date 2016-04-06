@@ -791,6 +791,25 @@ class LSI_Model(BaseEstimator, TransformerMixin):
             y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
         return y_pred """
 
+class FeatureSelector(BaseEstimator, TransformerMixin):
+
+    def __init__(self, K=100):
+        """ Initialize max class document
+        """
+        from sklearn.feature_selection import SelectKBest
+        from sklearn.feature_selection import chi2
+        
+        self.K = K
+        self.Kbest = SelectKBest(score_func=chi2, K=self.K)
+
+    def fit(self, X, y):
+        X_new = self.Kbest.fit_transform(X, y)
+        return self
+
+    def transform(self, X, y=None):
+        return self.Kbest.transform(X)
+
+
 
 class SOA_Predict(object):
 
@@ -828,6 +847,95 @@ class SOA_Predict(object):
         return y_pred
 
 
+class LDA(BaseEstimator, TransformerMixin):
+
+    """ LDA MODELS """
+
+    def __init__(self, num_topics=100, lib='sklearn'):
+
+        from sklearn.feature_extraction.text import CountVectorizer
+
+        self.num_topics = num_topics
+        self.lib = lib
+        print self.lib
+        self.labels = None
+        self.corpus = None
+        self.dictionary = None
+        self.counter = CountVectorizer()
+        if self.lib == 'sklearn':
+            from sklearn.decomposition import LatentDirichletAllocation
+            self.LDA = LatentDirichletAllocation(n_topics=self.num_topics)
+        else:
+            self.LDA = None
+
+    def fit(self, X, y=None):
+
+        if y is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            target_profiles = sorted(list(set(y)))
+            self.labels = target_profiles
+            if self.LDA is None:
+                from gensim import corpora, models
+                X = [text.lower().split() for text in X]
+                self.dictionary = corpora.Dictionary(X)
+                self.corpus = [self.dictionary.doc2bow(text) for text in X]
+                if self.lib == 'gensim':
+                    self.LDA = models.LdaModel(num_topics=self.num_topics, corpus=self.corpus, id2word=self.dictionary)
+                elif self.lib == 'mallet':
+                    self.LDA = models.wrappers.LdaMallet('/home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet', corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
+            else:
+                parameters = {
+                    'input': 'content',
+                    'encoding': 'utf-8',
+                    'decode_error': 'ignore',
+                    'analyzer': 'word',
+                    # 'vocabulary':list(voc),
+                    #'tokenizer': tokenization,
+                    #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
+                    #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
+                    'max_df': 0.9,
+                    'min_df': 5,
+                    'max_features': 5000
+                }
+                self.counter.set_params(**parameters)
+                doc_term = self.counter.fit_transform(X)
+                self.LDA.fit(doc_term, y)
+            return self
+
+    def transform(self, X, y=None):
+
+        # print "We are transforming!"
+        if self.labels is None:
+            raise AttributeError('term_table was no found! \
+             Probably model was not fitted first. Run model.fit(X,y)!')
+        else:
+            #doc_term = numpy.zeros(
+            #    [len(X), self.term_table.shape[0]])
+            if self.lib == 'sklearn':
+                doc_term = self.counter.transform(X)
+                doc_topics = self.LDA.transform(doc_term)
+                print("\nTopics in LDA model:")
+                tf_feature_names = self.counter.get_feature_names()
+                print_top_words(self.LDA, tf_feature_names, 10)
+            else:
+                X = [text.lower().split() for text in X]
+                test_corpus = [self.dictionary.doc2bow(text) for text in X]
+                if self.LDA is None:
+                    print self.lib
+                    print 'dic'
+                    #print self.__dict__
+                doc_topics = self.LDA[test_corpus]
+                print("\nTopics in LDA model:")
+                self.LDA.print_topics(self.num_topics, 10)
+            return doc_topics
+
+
+
+
+
+
+
 class skLDA(BaseEstimator, TransformerMixin):
 
     """ LDA model based on sklearnLDA"""
@@ -843,7 +951,7 @@ class skLDA(BaseEstimator, TransformerMixin):
         # print "verbose:" + str(verbose)
         self.labels = None
         # bazw manually ta numtopics ktlp giati pernane san None Orismata..Vale ta print an thes..
-        self.LDA = LatentDirichletAllocation(n_topics=self.n_topics, verbose=self.verbose, random_state=self.random_state, )
+        self.LDA = LatentDirichletAllocation(n_topics=self.n_topics, verbose=self.verbose, random_state=self.random_state)
         # Conceptually much better results with TFIDFVECTORIZER(use_log tf)
         self.counter = CountVectorizer()
 
@@ -903,15 +1011,16 @@ class skNMF(BaseEstimator, TransformerMixin):
 
     """ NMF model based on sklearn"""
 
-    def __init__(self, verbose=1, random_state=42):
+    def __init__(self, n_components=100, verbose=1, random_state=42):
         from sklearn.feature_extraction.text import TfidfVectorizer
         from sklearn.decomposition import NMF
-
+        
+        self.n_components = n_components
         self.verbose = verbose
         self.random_state = random_state
         # print "verbose:" + str(verbose)
         self.labels = None
-        self.NMF = NMF(init='nndsvd', verbose=self.verbose, random_state=self.random_state)
+        self.NMF = NMF(init='nndsvd', n_components=self.n_components, verbose=self.verbose, random_state=self.random_state)
         # Conceptually much better results with TFIDFVECTORIZER(use_log tf)
         self.counter = TfidfVectorizer(sublinear_tf=True)
 

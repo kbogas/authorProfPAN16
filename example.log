@@ -1,0 +1,721 @@
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+WARNING:tictacs.parse:Added entry LDA has been interpreted as data
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:built Dictionary(192304 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'vang']...) from 326 documents (total 2483442 corpus positions)
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:built Dictionary(193739 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'bloqueos']...) from 326 documents (total 2577532 corpus positions)
+INFO:gensim.corpora.dictionary:built Dictionary(201828 unique tokens: [u'fawn', u'considered.', u'ready!!', u'vang', u'considered,']...) from 328 documents (total 2681494 corpus positions)
+INFO:gensim.corpora.dictionary:built Dictionary(202368 unique tokens: [u'biennials', u'fawn', u'considered.', u'ready!!', u'vang']...) from 328 documents (total 2663137 corpus positions)
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:built Dictionary(192304 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'vang']...) from 326 documents (total 2483442 corpus positions)
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:built Dictionary(202368 unique tokens: [u'biennials', u'fawn', u'considered.', u'ready!!', u'vang']...) from 328 documents (total 2663137 corpus positions)
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:built Dictionary(201828 unique tokens: [u'fawn', u'considered.', u'ready!!', u'vang', u'considered,']...) from 328 documents (total 2681494 corpus positions)
+INFO:gensim.corpora.dictionary:built Dictionary(193739 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'bloqueos']...) from 326 documents (total 2577532 corpus positions)
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:built Dictionary(192304 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'vang']...) from 326 documents (total 2483442 corpus positions)
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.models.ldamodel:using symmetric alpha at 0.01
+INFO:gensim.models.ldamodel:using serial LDA version on this node
+INFO:gensim.corpora.dictionary:built Dictionary(193739 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'bloqueos']...) from 326 documents (total 2577532 corpus positions)
+INFO:gensim.corpora.dictionary:built Dictionary(202368 unique tokens: [u'biennials', u'fawn', u'considered.', u'ready!!', u'vang']...) from 328 documents (total 2663137 corpus positions)
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.models.ldamodel:using symmetric alpha at 0.01
+INFO:gensim.models.ldamodel:using serial LDA version on this node
+INFO:gensim.models.ldamodel:using symmetric alpha at 0.01
+INFO:gensim.models.ldamodel:using serial LDA version on this node
+INFO:gensim.models.ldamodel:running online LDA training, 100 topics, 1 passes over the supplied corpus of 326 documents, updating model once every 326 documents, evaluating perplexity every 326 documents, iterating 50x with a convergence threshold of 0.001000
+WARNING:gensim.models.ldamodel:too few updates, training might not converge; consider increasing the number of passes or iterations to improve accuracy
+INFO:gensim.corpora.dictionary:built Dictionary(201828 unique tokens: [u'fawn', u'considered.', u'ready!!', u'vang', u'considered,']...) from 328 documents (total 2681494 corpus positions)
+INFO:gensim.models.ldamodel:using symmetric alpha at 0.01
+INFO:gensim.models.ldamodel:using serial LDA version on this node
+DEBUG:gensim.models.ldamodel:bound: at document #0
+INFO:gensim.models.ldamodel:running online LDA training, 100 topics, 1 passes over the supplied corpus of 328 documents, updating model once every 328 documents, evaluating perplexity every 328 documents, iterating 50x with a convergence threshold of 0.001000
+INFO:gensim.models.ldamodel:running online LDA training, 100 topics, 1 passes over the supplied corpus of 326 documents, updating model once every 326 documents, evaluating perplexity every 326 documents, iterating 50x with a convergence threshold of 0.001000
+WARNING:gensim.models.ldamodel:too few updates, training might not converge; consider increasing the number of passes or iterations to improve accuracy
+INFO:gensim.models.ldamodel:running online LDA training, 100 topics, 1 passes over the supplied corpus of 328 documents, updating model once every 328 documents, evaluating perplexity every 328 documents, iterating 50x with a convergence threshold of 0.001000
+WARNING:gensim.models.ldamodel:too few updates, training might not converge; consider increasing the number of passes or iterations to improve accuracy
+WARNING:gensim.models.ldamodel:too few updates, training might not converge; consider increasing the number of passes or iterations to improve accuracy
+DEBUG:gensim.models.ldamodel:bound: at document #0
+DEBUG:gensim.models.ldamodel:bound: at document #0
+DEBUG:gensim.models.ldamodel:bound: at document #0
+INFO:gensim.models.ldamodel:-36.693 per-word bound, 111081517477.1 perplexity estimate based on a held-out corpus of 326 documents with 2483442 words
+INFO:gensim.models.ldamodel:PROGRESS: pass 0, at document #326/326
+DEBUG:gensim.models.ldamodel:performing inference on a chunk of 326 documents
+INFO:gensim.models.ldamodel:-35.997 per-word bound, 68582155163.9 perplexity estimate based on a held-out corpus of 326 documents with 2577532 words
+INFO:gensim.models.ldamodel:PROGRESS: pass 0, at document #326/326
+DEBUG:gensim.models.ldamodel:performing inference on a chunk of 326 documents
+INFO:gensim.models.ldamodel:-36.295 per-word bound, 84334546813.6 perplexity estimate based on a held-out corpus of 328 documents with 2663137 words
+INFO:gensim.models.ldamodel:PROGRESS: pass 0, at document #328/328
+DEBUG:gensim.models.ldamodel:performing inference on a chunk of 328 documents
+INFO:gensim.models.ldamodel:-36.070 per-word bound, 72137851583.3 perplexity estimate based on a held-out corpus of 328 documents with 2681494 words
+INFO:gensim.models.ldamodel:PROGRESS: pass 0, at document #328/328
+DEBUG:gensim.models.ldamodel:performing inference on a chunk of 328 documents
+DEBUG:gensim.models.ldamodel:3/326 documents converged within 50 iterations
+DEBUG:gensim.models.ldamodel:updating topics
+DEBUG:gensim.models.ldamodel:1/326 documents converged within 50 iterations
+DEBUG:gensim.models.ldamodel:updating topics
+DEBUG:gensim.models.ldamodel:2/328 documents converged within 50 iterations
+DEBUG:gensim.models.ldamodel:updating topics
+INFO:gensim.models.ldamodel:topic #49 (0.010): 0.031*the + 0.020*a + 0.016*to + 0.014*in + 0.013*is + 0.011*of + 0.010*i + 0.010*- + 0.009*you + 0.009*and
+INFO:gensim.models.ldamodel:topic #37 (0.010): 0.030*the + 0.025*a + 0.022*to + 0.017*for + 0.015*of + 0.012*in + 0.009*- + 0.009*is + 0.009*and + 0.007*on
+INFO:gensim.models.ldamodel:topic #91 (0.010): 0.033*the + 0.025*to + 0.020*a + 0.014*for + 0.013*in + 0.013*of + 0.010*i + 0.010*is + 0.010*at + 0.010*on
+INFO:gensim.models.ldamodel:topic #9 (0.010): 0.030*the + 0.020*to + 0.016*a + 0.014*in + 0.013*for + 0.012*of + 0.011*and + 0.010*i + 0.009*on + 0.009*at
+INFO:gensim.models.ldamodel:topic #67 (0.010): 0.033*the + 0.020*a + 0.019*to + 0.015*for + 0.014*of + 0.012*in + 0.011*is + 0.011*i + 0.009*and + 0.008*you
+INFO:gensim.models.ldamodel:topic diff=39.892389, rho=1.000000
+DEBUG:gensim.models.ldamodel:3/328 documents converged within 50 iterations
+DEBUG:gensim.models.ldamodel:updating topics
+INFO:gensim.models.ldamodel:topic #73 (0.010): 0.026*the + 0.021*to + 0.018*a + 0.010*for + 0.009*of + 0.009*is + 0.009*and + 0.008*in + 0.008*you + 0.007*i
+INFO:gensim.models.ldamodel:topic #86 (0.010): 0.025*the + 0.023*a + 0.017*to + 0.013*of + 0.013*in + 0.012*i + 0.010*for + 0.010*on + 0.008*is + 0.008*you
+INFO:gensim.models.ldamodel:topic #38 (0.010): 0.024*to + 0.021*the + 0.018*a + 0.016*of + 0.014*for + 0.012*and + 0.012*in + 0.011*is + 0.010*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #36 (0.010): 0.031*the + 0.019*a + 0.018*to + 0.014*for + 0.013*in + 0.012*of + 0.010*is + 0.010*and + 0.009*you + 0.008*on
+INFO:gensim.models.ldamodel:topic #58 (0.010): 0.031*the + 0.019*a + 0.016*in + 0.015*is + 0.013*and + 0.012*for + 0.012*to + 0.011*of + 0.009*i + 0.009*on
+INFO:gensim.models.ldamodel:topic diff=40.246401, rho=1.000000
+INFO:gensim.models.ldamodel:topic #22 (0.010): 0.026*the + 0.017*a + 0.017*to + 0.014*in + 0.012*of + 0.011*on + 0.011*for + 0.010*at + 0.010*i + 0.009*and
+INFO:gensim.models.ldamodel:topic #62 (0.010): 0.030*the + 0.020*a + 0.019*to + 0.013*of + 0.012*for + 0.011*in + 0.010*and + 0.010*is + 0.009*i + 0.009*-
+INFO:gensim.models.ldamodel:topic #90 (0.010): 0.020*to + 0.016*the + 0.013*a + 0.010*in + 0.010*- + 0.008*of + 0.008*i + 0.008*for + 0.007*on + 0.007*and
+INFO:gensim.models.ldamodel:topic #79 (0.010): 0.028*the + 0.014*to + 0.012*a + 0.010*in + 0.010*of + 0.009*and + 0.009*- + 0.007*for + 0.007*you + 0.006*is
+INFO:gensim.models.ldamodel:topic #58 (0.010): 0.028*the + 0.024*a + 0.020*to + 0.015*in + 0.011*is + 0.010*of + 0.009*on + 0.009*i + 0.009*for + 0.007*and
+INFO:gensim.models.ldamodel:topic diff=39.586219, rho=1.000000
+INFO:gensim.models.ldamodel:topic #17 (0.010): 0.024*the + 0.019*a + 0.015*to + 0.015*on + 0.013*of + 0.013*for + 0.011*and + 0.011*is + 0.009*in + 0.008*-
+INFO:gensim.models.ldamodel:topic #84 (0.010): 0.021*a + 0.018*the + 0.015*to + 0.013*of + 0.010*i + 0.010*for + 0.009*in + 0.009*on + 0.009*is + 0.008*you
+INFO:gensim.models.ldamodel:topic #74 (0.010): 0.031*the + 0.022*to + 0.018*a + 0.015*of + 0.013*for + 0.012*you + 0.012*in + 0.011*and + 0.009*is + 0.009*i
+INFO:gensim.models.ldamodel:topic #66 (0.010): 0.030*the + 0.020*to + 0.018*a + 0.015*and + 0.015*for + 0.013*of + 0.011*i + 0.010*on + 0.010*in + 0.009*you
+INFO:gensim.models.ldamodel:topic #94 (0.010): 0.022*the + 0.022*to + 0.017*a + 0.013*of + 0.012*in + 0.012*is + 0.011*for + 0.010*and + 0.008*i + 0.008*at
+INFO:gensim.models.ldamodel:topic diff=39.875226, rho=1.000000
+INFO:gensim.models.ldamodel:topic #0 (0.010): 0.029*the + 0.022*to + 0.014*a + 0.013*in + 0.012*of + 0.012*for + 0.010*is + 0.010*you + 0.008*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #1 (0.010): 0.023*the + 0.017*to + 0.016*of + 0.015*a + 0.015*in + 0.013*i + 0.009*and + 0.009*for + 0.008*on + 0.008*at
+INFO:gensim.models.ldamodel:topic #2 (0.010): 0.027*the + 0.026*to + 0.022*a + 0.012*i + 0.012*of + 0.011*and + 0.011*is + 0.010*for + 0.009*in + 0.008*on
+INFO:gensim.models.ldamodel:topic #3 (0.010): 0.022*to + 0.020*the + 0.013*a + 0.013*for + 0.011*and + 0.009*in + 0.009*of + 0.009*i + 0.008*is + 0.007*you
+INFO:gensim.models.ldamodel:topic #0 (0.010): 0.024*the + 0.023*a + 0.016*to + 0.014*of + 0.011*in + 0.011*and + 0.010*i + 0.010*for + 0.010*is + 0.007*you
+INFO:gensim.models.ldamodel:topic #4 (0.010): 0.024*the + 0.024*to + 0.016*a + 0.015*in + 0.014*for + 0.012*of + 0.011*and + 0.011*i + 0.010*- + 0.009*is
+INFO:gensim.models.ldamodel:topic #1 (0.010): 0.022*a + 0.021*the + 0.018*to + 0.013*in + 0.010*and + 0.010*i + 0.010*of + 0.009*for + 0.008*is + 0.007*you
+INFO:gensim.models.ldamodel:topic #0 (0.010): 0.028*the + 0.021*to + 0.015*a + 0.013*in + 0.012*of + 0.011*for + 0.010*you + 0.009*is + 0.009*on + 0.008*and
+INFO:gensim.models.ldamodel:topic #5 (0.010): 0.036*the + 0.016*to + 0.015*a + 0.013*of + 0.012*for + 0.012*and + 0.011*- + 0.011*in + 0.011*is + 0.007*on
+INFO:gensim.models.ldamodel:topic #2 (0.010): 0.026*the + 0.018*to + 0.012*a + 0.011*of + 0.010*in + 0.010*for + 0.009*on + 0.009*and + 0.009*i + 0.009*you
+INFO:gensim.models.ldamodel:topic #1 (0.010): 0.023*the + 0.022*to + 0.020*a + 0.012*in + 0.011*and + 0.011*you + 0.010*for + 0.010*i + 0.010*of + 0.008*is
+INFO:gensim.models.ldamodel:topic #3 (0.010): 0.028*the + 0.018*to + 0.015*in + 0.014*a + 0.013*of + 0.010*and + 0.010*for + 0.009*on + 0.007*you + 0.007*i
+INFO:gensim.models.ldamodel:topic #6 (0.010): 0.038*the + 0.019*to + 0.019*a + 0.014*and + 0.014*i + 0.013*of + 0.011*for + 0.011*in + 0.009*on + 0.009*is
+INFO:gensim.models.ldamodel:topic #2 (0.010): 0.027*the + 0.025*to + 0.017*a + 0.016*of + 0.015*in + 0.011*is + 0.010*for + 0.009*i + 0.008*you + 0.008*and
+INFO:gensim.models.ldamodel:topic #4 (0.010): 0.017*the + 0.015*a + 0.012*of + 0.012*for + 0.011*is + 0.011*i + 0.010*to + 0.008*you + 0.007*in + 0.007*and
+INFO:gensim.models.ldamodel:topic #7 (0.010): 0.031*the + 0.021*to + 0.017*a + 0.013*of + 0.012*is + 0.012*in + 0.010*and + 0.010*for + 0.009*- + 0.008*you
+INFO:gensim.models.ldamodel:topic #5 (0.010): 0.032*the + 0.027*to + 0.015*of + 0.014*is + 0.013*in + 0.013*a + 0.013*for + 0.010*and + 0.008*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #8 (0.010): 0.028*the + 0.025*to + 0.018*a + 0.017*in + 0.013*of + 0.010*is + 0.010*for + 0.008*and + 0.008*i + 0.008*on
+INFO:gensim.models.ldamodel:topic #3 (0.010): 0.030*the + 0.020*a + 0.014*in + 0.014*for + 0.013*and + 0.013*to + 0.013*of + 0.012*- + 0.011*i + 0.008*is
+INFO:gensim.models.ldamodel:topic #6 (0.010): 0.028*the + 0.018*a + 0.016*in + 0.016*to + 0.012*of + 0.010*is + 0.010*and + 0.009*for + 0.008*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #9 (0.010): 0.030*the + 0.020*to + 0.016*a + 0.014*in + 0.013*for + 0.012*of + 0.011*and + 0.010*i + 0.009*on + 0.009*at
+INFO:gensim.models.ldamodel:topic #4 (0.010): 0.026*the + 0.022*- + 0.015*to + 0.015*a + 0.015*of + 0.013*for + 0.011*in + 0.010*and + 0.010*i + 0.007*at
+INFO:gensim.models.ldamodel:topic #7 (0.010): 0.029*the + 0.016*to + 0.014*a + 0.014*of + 0.012*in + 0.011*i + 0.011*and + 0.011*you + 0.010*for + 0.009*on
+INFO:gensim.models.ldamodel:topic #10 (0.010): 0.020*the + 0.019*a + 0.016*in + 0.015*to + 0.014*of + 0.012*i + 0.011*for + 0.011*- + 0.009*is + 0.007*at
+INFO:gensim.models.ldamodel:topic #5 (0.010): 0.031*the + 0.016*of + 0.015*to + 0.015*in + 0.012*and + 0.011*i + 0.011*a + 0.009*for + 0.009*you + 0.008*is
+INFO:gensim.models.ldamodel:topic #8 (0.010): 0.031*the + 0.021*to + 0.018*a + 0.015*of + 0.014*in + 0.011*for + 0.009*and + 0.008*- + 0.008*is + 0.007*on
+INFO:gensim.models.ldamodel:topic #11 (0.010): 0.034*the + 0.025*to + 0.019*a + 0.017*and + 0.015*for + 0.014*in + 0.013*of + 0.010*on + 0.009*i + 0.009*-
+INFO:gensim.models.ldamodel:topic #6 (0.010): 0.025*the + 0.017*to + 0.015*a + 0.015*for + 0.014*of + 0.010*i + 0.010*in + 0.010*on + 0.010*is + 0.009*you
+INFO:gensim.models.ldamodel:topic #9 (0.010): 0.030*the + 0.019*a + 0.017*of + 0.014*to + 0.013*in + 0.011*for + 0.010*is + 0.009*on + 0.009*and + 0.008*i
+INFO:gensim.models.ldamodel:topic #12 (0.010): 0.023*the + 0.016*to + 0.016*a + 0.013*in + 0.011*i + 0.010*of + 0.010*for + 0.008*on + 0.008*is + 0.008*and
+INFO:gensim.models.ldamodel:topic #7 (0.010): 0.023*the + 0.017*a + 0.014*i + 0.014*to + 0.011*of + 0.009*in + 0.009*is + 0.008*for + 0.008*you + 0.008*and
+INFO:gensim.models.ldamodel:topic #10 (0.010): 0.025*the + 0.016*to + 0.015*in + 0.014*for + 0.012*and + 0.012*a + 0.011*of + 0.011*i + 0.010*on + 0.009*at
+INFO:gensim.models.ldamodel:topic #13 (0.010): 0.026*the + 0.016*a + 0.013*is + 0.011*in + 0.011*to + 0.009*of + 0.008*for + 0.008*and + 0.008*you + 0.008*on
+INFO:gensim.models.ldamodel:topic #8 (0.010): 0.027*the + 0.021*to + 0.016*of + 0.014*in + 0.013*a + 0.012*i + 0.012*is + 0.010*and + 0.009*for + 0.007*you
+INFO:gensim.models.ldamodel:topic #11 (0.010): 0.029*the + 0.023*to + 0.020*a + 0.015*of + 0.014*in + 0.013*is + 0.011*- + 0.010*and + 0.009*i + 0.009*for
+INFO:gensim.models.ldamodel:topic #14 (0.010): 0.030*the + 0.017*to + 0.015*for + 0.014*a + 0.013*of + 0.012*and + 0.012*in + 0.010*is + 0.010*- + 0.008*i
+INFO:gensim.models.ldamodel:topic #9 (0.010): 0.025*to + 0.022*the + 0.018*a + 0.016*of + 0.015*in + 0.011*for + 0.011*is + 0.010*and + 0.009*on + 0.009*-
+INFO:gensim.models.ldamodel:topic #12 (0.010): 0.021*the + 0.013*to + 0.013*a + 0.012*via + 0.011*in + 0.010*for + 0.009*of + 0.009*is + 0.009*and + 0.007*internet
+INFO:gensim.models.ldamodel:topic #15 (0.010): 0.026*the + 0.019*to + 0.015*a + 0.013*and + 0.012*- + 0.011*of + 0.011*in + 0.010*for + 0.010*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #10 (0.010): 0.025*the + 0.020*to + 0.017*a + 0.015*of + 0.013*in + 0.010*and + 0.010*for + 0.009*i + 0.008*is + 0.008*-
+INFO:gensim.models.ldamodel:topic #13 (0.010): 0.033*the + 0.020*to + 0.016*a + 0.012*of + 0.011*for + 0.010*you + 0.010*in + 0.010*and + 0.010*on + 0.009*is
+INFO:gensim.models.ldamodel:topic #16 (0.010): 0.022*the + 0.020*to + 0.016*a + 0.014*of + 0.012*for + 0.011*in + 0.011*and + 0.011*you + 0.008*- + 0.007*is
+INFO:gensim.models.ldamodel:topic #11 (0.010): 0.018*the + 0.011*to + 0.009*a + 0.008*i + 0.007*and + 0.007*is + 0.007*on + 0.007*in + 0.006*for + 0.005*of
+INFO:gensim.models.ldamodel:topic #17 (0.010): 0.038*the + 0.020*a + 0.019*to + 0.012*of + 0.012*in + 0.012*for + 0.010*you + 0.010*and + 0.010*is + 0.007*on
+INFO:gensim.models.ldamodel:topic #14 (0.010): 0.031*the + 0.017*a + 0.015*of + 0.014*to + 0.013*for + 0.012*and + 0.012*is + 0.010*in + 0.008*you + 0.007*i
+INFO:gensim.models.ldamodel:topic #12 (0.010): 0.036*the + 0.016*a + 0.015*to + 0.014*of + 0.014*in + 0.012*and + 0.012*i + 0.010*you + 0.010*on + 0.009*is
+INFO:gensim.models.ldamodel:topic #18 (0.010): 0.026*the + 0.025*to + 0.016*a + 0.015*for + 0.011*of + 0.010*in + 0.010*you + 0.010*is + 0.009*and + 0.009*on
+INFO:gensim.models.ldamodel:topic #15 (0.010): 0.022*the + 0.017*to + 0.016*a + 0.012*and + 0.011*of + 0.011*for + 0.010*in + 0.009*on + 0.008*from + 0.008*-
+INFO:gensim.models.ldamodel:topic #13 (0.010): 0.021*the + 0.021*to + 0.017*a + 0.015*and + 0.014*of + 0.013*in + 0.013*is + 0.011*you + 0.010*on + 0.009*for
+INFO:gensim.models.ldamodel:topic #19 (0.010): 0.018*a + 0.018*the + 0.015*to + 0.013*- + 0.012*and + 0.011*in + 0.009*of + 0.009*at + 0.009*for + 0.007*is
+INFO:gensim.models.ldamodel:topic #16 (0.010): 0.028*the + 0.015*to + 0.015*in + 0.015*a + 0.015*of + 0.012*is + 0.011*and + 0.010*for + 0.010*i + 0.009*on
+INFO:gensim.models.ldamodel:topic #14 (0.010): 0.025*the + 0.020*to + 0.013*of + 0.012*a + 0.010*and + 0.010*via + 0.010*in + 0.009*i + 0.008*is + 0.008*for
+INFO:gensim.models.ldamodel:topic #20 (0.010): 0.027*the + 0.014*a + 0.011*for + 0.011*to + 0.011*of + 0.010*in + 0.009*and + 0.009*i + 0.008*on + 0.007*you
+INFO:gensim.models.ldamodel:topic #17 (0.010): 0.025*the + 0.021*a + 0.019*to + 0.012*of + 0.012*in + 0.012*and + 0.012*is + 0.009*you + 0.009*on + 0.009*for
+INFO:gensim.models.ldamodel:topic #15 (0.010): 0.024*a + 0.019*to + 0.017*the + 0.011*and + 0.011*for + 0.010*in + 0.010*i + 0.009*of + 0.009*- + 0.008*de
+INFO:gensim.models.ldamodel:topic #21 (0.010): 0.022*the + 0.019*to + 0.016*a + 0.014*in + 0.014*i + 0.011*of + 0.010*for + 0.010*on + 0.010*you + 0.009*-
+INFO:gensim.models.ldamodel:topic #18 (0.010): 0.035*the + 0.020*to + 0.014*in + 0.013*of + 0.013*is + 0.012*a + 0.012*and + 0.011*i + 0.010*for + 0.008*you
+INFO:gensim.models.ldamodel:topic #22 (0.010): 0.019*a + 0.018*the + 0.016*to + 0.014*i + 0.013*of + 0.013*and + 0.011*in + 0.011*for + 0.010*is + 0.008*on
+INFO:gensim.models.ldamodel:topic #16 (0.010): 0.026*the + 0.022*to + 0.018*of + 0.015*a + 0.014*and + 0.011*in + 0.010*i + 0.009*you + 0.009*is + 0.009*for
+INFO:gensim.models.ldamodel:topic #19 (0.010): 0.018*the + 0.018*to + 0.016*is + 0.015*a + 0.014*of + 0.011*i + 0.011*in + 0.011*and + 0.010*for + 0.010*you
+INFO:gensim.models.ldamodel:topic #23 (0.010): 0.024*the + 0.020*a + 0.016*to + 0.012*you + 0.012*of + 0.011*for + 0.010*on + 0.010*and + 0.010*in + 0.009*is
+INFO:gensim.models.ldamodel:topic #17 (0.010): 0.022*the + 0.017*to + 0.016*a + 0.012*in + 0.011*for + 0.011*is + 0.010*of + 0.010*i + 0.008*and + 0.008*my
+INFO:gensim.models.ldamodel:topic #20 (0.010): 0.013*a + 0.012*in + 0.012*the + 0.011*to + 0.010*of + 0.007*is + 0.007*for + 0.007*and + 0.006*i + 0.006*-
+INFO:gensim.models.ldamodel:topic #24 (0.010): 0.025*the + 0.019*to + 0.016*a + 0.011*in + 0.011*for + 0.009*you + 0.009*and + 0.007*i + 0.007*on + 0.007*is
+INFO:gensim.models.ldamodel:topic #21 (0.010): 0.023*the + 0.019*in + 0.017*to + 0.016*a + 0.013*of + 0.011*for + 0.010*and + 0.008*is + 0.008*on + 0.007*-
+INFO:gensim.models.ldamodel:topic #18 (0.010): 0.020*the + 0.016*in + 0.016*- + 0.015*to + 0.014*a + 0.009*of + 0.009*for + 0.009*and + 0.008*is + 0.008*on
+INFO:gensim.models.ldamodel:topic #25 (0.010): 0.023*the + 0.021*to + 0.016*a + 0.013*i + 0.011*is + 0.011*in + 0.010*for + 0.010*and + 0.010*of + 0.007*on
+INFO:gensim.models.ldamodel:topic #22 (0.010): 0.020*the + 0.015*to + 0.012*a + 0.011*in + 0.010*i + 0.009*for + 0.009*and + 0.008*of + 0.008*you + 0.006*is
+INFO:gensim.models.ldamodel:topic #26 (0.010): 0.032*the + 0.018*to + 0.018*a + 0.014*of + 0.013*in + 0.012*is + 0.012*i + 0.011*for + 0.010*on + 0.010*and
+INFO:gensim.models.ldamodel:topic #19 (0.010): 0.025*the + 0.025*to + 0.022*a + 0.011*in + 0.010*for + 0.010*i + 0.009*is + 0.009*you + 0.009*and + 0.009*on
+INFO:gensim.models.ldamodel:topic #27 (0.010): 0.029*the + 0.025*to + 0.016*a + 0.016*i + 0.015*of + 0.012*in + 0.012*and + 0.012*is + 0.010*on + 0.009*you
+INFO:gensim.models.ldamodel:topic #23 (0.010): 0.017*to + 0.017*the + 0.011*for + 0.011*in + 0.011*of + 0.010*a + 0.010*and + 0.008*is + 0.007*- + 0.007*i
+INFO:gensim.models.ldamodel:topic #20 (0.010): 0.026*the + 0.021*to + 0.017*a + 0.014*for + 0.014*in + 0.012*and + 0.012*of + 0.009*on + 0.009*i + 0.009*you
+INFO:gensim.models.ldamodel:topic #28 (0.010): 0.020*the + 0.020*to + 0.017*a + 0.014*and + 0.012*for + 0.011*- + 0.010*of + 0.010*in + 0.010*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #24 (0.010): 0.031*the + 0.023*to + 0.016*of + 0.014*a + 0.014*and + 0.014*for + 0.012*in + 0.010*is + 0.008*- + 0.008*i
+INFO:gensim.models.ldamodel:topic #21 (0.010): 0.028*to + 0.021*the + 0.017*a + 0.016*in + 0.015*of + 0.011*and + 0.011*for + 0.011*is + 0.008*you + 0.008*i
+INFO:gensim.models.ldamodel:topic #29 (0.010): 0.026*the + 0.022*to + 0.018*a + 0.015*i + 0.014*of + 0.013*for + 0.012*in + 0.011*and + 0.009*- + 0.009*you
+INFO:gensim.models.ldamodel:topic #30 (0.010): 0.024*the + 0.018*to + 0.016*a + 0.013*of + 0.011*in + 0.010*and + 0.009*for + 0.009*you + 0.008*i + 0.007*-
+INFO:gensim.models.ldamodel:topic #22 (0.010): 0.026*the + 0.017*a + 0.017*to + 0.014*in + 0.012*of + 0.011*on + 0.011*for + 0.010*at + 0.010*i + 0.009*and
+INFO:gensim.models.ldamodel:topic #25 (0.010): 0.026*the + 0.017*to + 0.015*of + 0.014*and + 0.014*a + 0.014*in + 0.012*is + 0.009*for + 0.009*i + 0.009*on
+INFO:gensim.models.ldamodel:topic #26 (0.010): 0.031*the + 0.022*to + 0.020*of + 0.020*a + 0.014*for + 0.013*in + 0.012*is + 0.011*i + 0.008*- + 0.007*and
+INFO:gensim.models.ldamodel:topic #31 (0.010): 0.028*the + 0.026*to + 0.020*a + 0.018*of + 0.017*in + 0.015*for + 0.013*is + 0.012*and + 0.011*on + 0.008*you
+INFO:gensim.models.ldamodel:topic #23 (0.010): 0.034*the + 0.018*to + 0.015*a + 0.014*of + 0.011*and + 0.011*- + 0.011*for + 0.011*i + 0.010*is + 0.009*in
+INFO:gensim.models.ldamodel:topic #32 (0.010): 0.027*the + 0.022*a + 0.017*to + 0.016*for + 0.013*of + 0.012*in + 0.011*i + 0.009*you + 0.009*on + 0.009*and
+INFO:gensim.models.ldamodel:topic #24 (0.010): 0.017*the + 0.015*a + 0.014*of + 0.013*to + 0.011*- + 0.011*in + 0.011*and + 0.010*for + 0.009*i + 0.008*at
+INFO:gensim.models.ldamodel:topic #27 (0.010): 0.022*to + 0.019*the + 0.013*a + 0.012*in + 0.010*of + 0.010*and + 0.009*for + 0.008*is + 0.008*i + 0.007*with
+INFO:gensim.models.ldamodel:topic #33 (0.010): 0.033*the + 0.013*a + 0.013*to + 0.012*is + 0.012*of + 0.010*for + 0.009*in + 0.008*and + 0.008*i + 0.007*on
+INFO:gensim.models.ldamodel:topic #25 (0.010): 0.024*the + 0.020*a + 0.019*to + 0.015*of + 0.012*in + 0.012*is + 0.012*i + 0.011*on + 0.011*and + 0.009*for
+INFO:gensim.models.ldamodel:topic #28 (0.010): 0.028*to + 0.025*the + 0.016*a + 0.014*of + 0.013*i + 0.012*is + 0.012*on + 0.012*and + 0.011*for + 0.011*in
+INFO:gensim.models.ldamodel:topic #34 (0.010): 0.023*the + 0.017*to + 0.014*a + 0.013*for + 0.013*i + 0.012*of + 0.011*in + 0.008*is + 0.007*and + 0.007*you
+INFO:gensim.models.ldamodel:topic #29 (0.010): 0.023*the + 0.022*to + 0.015*a + 0.015*in + 0.014*of + 0.013*for + 0.012*i + 0.011*and + 0.011*is + 0.009*on
+INFO:gensim.models.ldamodel:topic #26 (0.010): 0.030*the + 0.024*to + 0.014*a + 0.013*is + 0.012*in + 0.012*for + 0.010*of + 0.010*and + 0.010*i + 0.007*on
+INFO:gensim.models.ldamodel:topic #35 (0.010): 0.027*the + 0.025*to + 0.023*a + 0.015*i + 0.014*is + 0.013*for + 0.012*of + 0.011*and + 0.010*in + 0.009*you
+INFO:gensim.models.ldamodel:topic #30 (0.010): 0.027*the + 0.025*to + 0.018*a + 0.014*for + 0.013*of + 0.012*i + 0.011*in + 0.009*and + 0.008*you + 0.008*on
+INFO:gensim.models.ldamodel:topic #27 (0.010): 0.021*the + 0.018*to + 0.014*in + 0.013*a + 0.012*of + 0.012*for + 0.012*i + 0.011*is + 0.010*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #36 (0.010): 0.018*the + 0.016*to + 0.010*a + 0.009*of + 0.009*in + 0.007*and + 0.007*i + 0.007*for + 0.005*you + 0.005*on
+INFO:gensim.models.ldamodel:topic #31 (0.010): 0.047*the + 0.017*to + 0.015*is + 0.015*a + 0.015*of + 0.012*in + 0.011*i + 0.011*for + 0.010*and + 0.010*you
+INFO:gensim.models.ldamodel:topic #28 (0.010): 0.028*the + 0.022*to + 0.021*a + 0.017*i + 0.012*for + 0.012*in + 0.011*is + 0.010*of + 0.009*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #37 (0.010): 0.030*the + 0.025*a + 0.022*to + 0.017*for + 0.015*of + 0.012*in + 0.009*- + 0.009*is + 0.009*and + 0.007*on
+INFO:gensim.models.ldamodel:topic #32 (0.010): 0.022*the + 0.015*to + 0.014*a + 0.013*in + 0.011*is + 0.011*of + 0.009*and + 0.009*on + 0.008*- + 0.008*i
+INFO:gensim.models.ldamodel:topic #29 (0.010): 0.023*to + 0.018*the + 0.017*a + 0.012*of + 0.012*i + 0.011*is + 0.011*for + 0.010*and + 0.009*in + 0.009*on
+INFO:gensim.models.ldamodel:topic #38 (0.010): 0.028*the + 0.020*to + 0.017*a + 0.016*in + 0.016*i + 0.013*of + 0.011*for + 0.010*and + 0.008*... + 0.008*on
+INFO:gensim.models.ldamodel:topic #33 (0.010): 0.034*the + 0.019*to + 0.016*a + 0.011*of + 0.011*and + 0.011*in + 0.010*for + 0.009*at + 0.009*i + 0.008*is
+INFO:gensim.models.ldamodel:topic #30 (0.010): 0.018*the + 0.018*a + 0.016*to + 0.011*i + 0.010*of + 0.010*for + 0.009*is + 0.009*in + 0.008*and + 0.006*on
+INFO:gensim.models.ldamodel:topic #39 (0.010): 0.028*the + 0.022*to + 0.015*a + 0.015*and + 0.015*of + 0.012*for + 0.011*is + 0.010*you + 0.009*in + 0.009*i
+INFO:gensim.models.ldamodel:topic #34 (0.010): 0.019*to + 0.015*a + 0.015*the + 0.014*of + 0.012*for + 0.012*and + 0.010*at + 0.008*in + 0.007*you + 0.007*on
+INFO:gensim.models.ldamodel:topic #31 (0.010): 0.031*the + 0.021*to + 0.020*a + 0.017*and + 0.015*- + 0.013*for + 0.011*i + 0.011*in + 0.010*of + 0.009*on
+INFO:gensim.models.ldamodel:topic #40 (0.010): 0.023*the + 0.021*to + 0.019*a + 0.017*of + 0.015*in + 0.013*for + 0.012*and + 0.010*you + 0.009*i + 0.009*is
+INFO:gensim.models.ldamodel:topic #35 (0.010): 0.019*to + 0.019*the + 0.016*a + 0.013*in + 0.012*is + 0.011*for + 0.010*and + 0.009*on + 0.008*of + 0.008*-
+INFO:gensim.models.ldamodel:topic #32 (0.010): 0.037*the + 0.023*to + 0.023*a + 0.016*in + 0.014*for + 0.014*of + 0.011*and + 0.010*on + 0.009*i + 0.009*is
+INFO:gensim.models.ldamodel:topic #41 (0.010): 0.023*the + 0.017*to + 0.016*a + 0.012*in + 0.012*of + 0.011*for + 0.011*is + 0.008*i + 0.007*- + 0.007*and
+INFO:gensim.models.ldamodel:topic #36 (0.010): 0.031*the + 0.019*a + 0.018*to + 0.014*for + 0.013*in + 0.012*of + 0.010*is + 0.010*and + 0.009*you + 0.008*on
+INFO:gensim.models.ldamodel:topic #33 (0.010): 0.023*the + 0.021*to + 0.017*a + 0.014*for + 0.014*of + 0.013*in + 0.012*is + 0.012*and + 0.010*i + 0.008*you
+INFO:gensim.models.ldamodel:topic #42 (0.010): 0.030*to + 0.022*the + 0.021*a + 0.015*in + 0.014*and + 0.013*i + 0.011*of + 0.011*for + 0.010*you + 0.008*is
+INFO:gensim.models.ldamodel:topic #37 (0.010): 0.028*the + 0.018*to + 0.018*a + 0.015*and + 0.011*for + 0.010*in + 0.009*of + 0.009*is + 0.008*on + 0.006*at
+INFO:gensim.models.ldamodel:topic #34 (0.010): 0.027*the + 0.022*a + 0.021*to + 0.017*i + 0.014*for + 0.014*of + 0.012*in + 0.010*is + 0.009*my + 0.008*-
+INFO:gensim.models.ldamodel:topic #43 (0.010): 0.029*the + 0.019*to + 0.018*a + 0.014*in + 0.013*of + 0.011*and + 0.011*- + 0.010*is + 0.010*for + 0.007*i
+INFO:gensim.models.ldamodel:topic #38 (0.010): 0.024*to + 0.021*the + 0.018*a + 0.016*of + 0.014*for + 0.012*and + 0.012*in + 0.011*is + 0.010*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #35 (0.010): 0.031*the + 0.021*to + 0.018*of + 0.015*a + 0.015*and + 0.012*- + 0.011*on + 0.011*in + 0.011*for + 0.010*i
+INFO:gensim.models.ldamodel:topic #44 (0.010): 0.036*the + 0.015*of + 0.015*to + 0.015*for + 0.014*- + 0.013*a + 0.013*in + 0.011*is + 0.009*and + 0.008*i
+INFO:gensim.models.ldamodel:topic #39 (0.010): 0.031*the + 0.019*to + 0.017*a + 0.017*of + 0.015*in + 0.012*for + 0.012*you + 0.011*i + 0.011*is + 0.010*on
+INFO:gensim.models.ldamodel:topic #36 (0.010): 0.023*a + 0.019*the + 0.015*to + 0.011*and + 0.011*in + 0.010*of + 0.009*for + 0.009*you + 0.009*is + 0.008*i
+INFO:gensim.models.ldamodel:topic #45 (0.010): 0.023*the + 0.016*a + 0.016*to + 0.013*is + 0.009*and + 0.007*i + 0.007*in + 0.007*of + 0.007*you + 0.007*on
+INFO:gensim.models.ldamodel:topic #37 (0.010): 0.021*the + 0.020*a + 0.017*to + 0.012*in + 0.012*is + 0.010*for + 0.010*of + 0.008*you + 0.008*i + 0.008*on
+INFO:gensim.models.ldamodel:topic #40 (0.010): 0.025*the + 0.019*to + 0.019*of + 0.016*a + 0.012*in + 0.011*for + 0.009*i + 0.009*and + 0.008*is + 0.008*on
+INFO:gensim.models.ldamodel:topic #46 (0.010): 0.021*the + 0.015*to + 0.013*a + 0.010*for + 0.010*in + 0.009*of + 0.009*on + 0.008*and + 0.007*i + 0.007*-
+INFO:gensim.models.ldamodel:topic #38 (0.010): 0.032*the + 0.022*to + 0.017*of + 0.015*a + 0.013*and + 0.012*for + 0.011*in + 0.008*i + 0.008*you + 0.008*is
+INFO:gensim.models.ldamodel:topic #47 (0.010): 0.022*to + 0.019*the + 0.013*a + 0.012*i + 0.012*of + 0.010*for + 0.008*and + 0.008*in + 0.008*is + 0.006*on
+INFO:gensim.models.ldamodel:topic #41 (0.010): 0.028*the + 0.017*a + 0.017*to + 0.013*in + 0.010*for + 0.009*of + 0.009*on + 0.007*is + 0.007*and + 0.007*-
+INFO:gensim.models.ldamodel:topic #39 (0.010): 0.029*the + 0.019*a + 0.017*to + 0.016*in + 0.015*of + 0.013*and + 0.012*for + 0.010*on + 0.010*at + 0.008*you
+INFO:gensim.models.ldamodel:topic #48 (0.010): 0.021*the + 0.016*a + 0.013*to + 0.011*for + 0.011*in + 0.011*is + 0.010*i + 0.010*and + 0.010*of + 0.009*on
+INFO:gensim.models.ldamodel:topic #42 (0.010): 0.029*the + 0.020*a + 0.019*to + 0.015*of + 0.014*in + 0.010*i + 0.010*for + 0.010*and + 0.010*on + 0.008*is
+INFO:gensim.models.ldamodel:topic #40 (0.010): 0.026*the + 0.016*in + 0.013*to + 0.013*a + 0.011*of + 0.010*and + 0.009*for + 0.009*is + 0.008*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #49 (0.010): 0.031*the + 0.020*a + 0.016*to + 0.014*in + 0.013*is + 0.011*of + 0.010*i + 0.010*- + 0.009*you + 0.009*and
+INFO:gensim.models.ldamodel:topic #43 (0.010): 0.021*the + 0.017*to + 0.016*a + 0.012*of + 0.011*for + 0.010*i + 0.010*is + 0.009*and + 0.008*on + 0.008*in
+INFO:gensim.models.ldamodel:topic #41 (0.010): 0.024*the + 0.023*to + 0.015*for + 0.014*of + 0.014*a + 0.013*in + 0.011*and + 0.011*is + 0.009*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #50 (0.010): 0.021*the + 0.014*a + 0.013*of + 0.013*to + 0.010*and + 0.009*in + 0.009*for + 0.008*on + 0.008*you + 0.007*i
+INFO:gensim.models.ldamodel:topic #44 (0.010): 0.023*the + 0.018*to + 0.017*a + 0.015*for + 0.014*in + 0.013*of + 0.011*and + 0.011*i + 0.009*is + 0.007*you
+INFO:gensim.models.ldamodel:topic #42 (0.010): 0.019*the + 0.017*to + 0.014*of + 0.013*a + 0.012*for + 0.011*and + 0.009*on + 0.009*is + 0.009*i + 0.008*at
+INFO:gensim.models.ldamodel:topic #51 (0.010): 0.032*the + 0.022*a + 0.021*to + 0.013*in + 0.012*is + 0.012*for + 0.011*of + 0.010*i + 0.009*and + 0.007*you
+INFO:gensim.models.ldamodel:topic #45 (0.010): 0.020*the + 0.020*a + 0.015*to + 0.013*of + 0.011*i + 0.010*and + 0.010*in + 0.010*for + 0.009*you + 0.009*-
+INFO:gensim.models.ldamodel:topic #46 (0.010): 0.022*the + 0.015*to + 0.010*in + 0.010*is + 0.010*of + 0.010*a + 0.009*for + 0.009*i + 0.009*and + 0.008*you
+INFO:gensim.models.ldamodel:topic #43 (0.010): 0.015*to + 0.014*in + 0.014*a + 0.014*the + 0.013*for + 0.011*- + 0.009*of + 0.007*i + 0.007*is + 0.007*on
+INFO:gensim.models.ldamodel:topic #52 (0.010): 0.024*the + 0.017*to + 0.015*in + 0.013*of + 0.011*and + 0.011*on + 0.011*for + 0.010*a + 0.008*is + 0.007*at
+INFO:gensim.models.ldamodel:topic #0 (0.010): 0.029*the + 0.021*to + 0.015*a + 0.013*in + 0.012*of + 0.011*for + 0.010*is + 0.010*you + 0.009*on + 0.009*and
+INFO:gensim.models.ldamodel:topic #47 (0.010): 0.023*the + 0.017*to + 0.016*a + 0.013*in + 0.011*for + 0.011*of + 0.010*and + 0.010*i + 0.010*you + 0.009*is
+INFO:gensim.models.ldamodel:topic #53 (0.010): 0.023*the + 0.020*a + 0.020*to + 0.013*of + 0.012*in + 0.011*for + 0.011*and + 0.011*is + 0.008*i + 0.008*on
+INFO:gensim.models.ldamodel:topic #44 (0.010): 0.027*the + 0.020*to + 0.016*a + 0.012*is + 0.012*of + 0.011*in + 0.011*for + 0.011*i + 0.011*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #1 (0.010): 0.024*the + 0.019*a + 0.013*to + 0.011*i + 0.010*in + 0.010*of + 0.009*de + 0.009*is + 0.008*for + 0.007*and
+INFO:gensim.models.ldamodel:topic #48 (0.010): 0.025*the + 0.019*to + 0.014*of + 0.013*a + 0.013*for + 0.012*i + 0.012*in + 0.011*is + 0.009*on + 0.008*and
+INFO:gensim.models.ldamodel:topic #54 (0.010): 0.028*the + 0.017*a + 0.015*to + 0.015*for + 0.013*in + 0.012*of + 0.012*i + 0.009*is + 0.009*you + 0.008*and
+INFO:gensim.models.ldamodel:topic #45 (0.010): 0.017*a + 0.017*to + 0.015*the + 0.013*and + 0.010*in + 0.010*is + 0.009*i + 0.008*you + 0.008*on + 0.008*for
+INFO:gensim.models.ldamodel:topic #49 (0.010): 0.034*the + 0.024*to + 0.019*a + 0.018*in + 0.016*and + 0.014*for + 0.014*of + 0.012*is + 0.012*on + 0.010*i
+INFO:gensim.models.ldamodel:topic #55 (0.010): 0.029*the + 0.020*to + 0.017*a + 0.014*i + 0.012*of + 0.011*in + 0.011*for + 0.010*is + 0.009*and + 0.009*my
+INFO:gensim.models.ldamodel:topic #46 (0.010): 0.016*a + 0.015*to + 0.014*the + 0.008*is + 0.008*i + 0.008*and + 0.008*in + 0.008*you + 0.008*for + 0.007*on
+INFO:gensim.models.ldamodel:topic #2 (0.010): 0.038*the + 0.019*to + 0.018*of + 0.016*is + 0.015*a + 0.013*for + 0.011*and + 0.010*in + 0.008*on + 0.007*i
+INFO:gensim.models.ldamodel:topic #50 (0.010): 0.034*the + 0.023*to + 0.016*a + 0.013*for + 0.011*in + 0.011*and + 0.010*of + 0.010*on + 0.009*you + 0.009*is
+INFO:gensim.models.ldamodel:topic #56 (0.010): 0.029*the + 0.022*to + 0.016*a + 0.014*and + 0.014*of + 0.014*- + 0.012*for + 0.010*on + 0.010*in + 0.010*is
+INFO:gensim.models.ldamodel:topic #47 (0.010): 0.037*the + 0.018*a + 0.016*- + 0.016*to + 0.015*of + 0.014*in + 0.013*and + 0.011*i + 0.010*for + 0.009*is
+INFO:gensim.models.ldamodel:topic #3 (0.010): 0.019*a + 0.017*the + 0.013*to + 0.010*de + 0.009*and + 0.008*in + 0.007*i + 0.007*for + 0.006*on + 0.006*que
+INFO:gensim.models.ldamodel:topic #57 (0.010): 0.019*the + 0.019*a + 0.016*in + 0.014*and + 0.014*to + 0.011*is + 0.010*of + 0.009*you + 0.008*i + 0.008*for
+INFO:gensim.models.ldamodel:topic #51 (0.010): 0.024*the + 0.019*a + 0.016*to + 0.011*and + 0.011*is + 0.011*for + 0.010*i + 0.009*you + 0.009*in + 0.009*of
+INFO:gensim.models.ldamodel:topic #48 (0.010): 0.025*the + 0.019*to + 0.018*a + 0.017*of + 0.014*in + 0.012*and + 0.010*i + 0.010*on + 0.009*for + 0.009*is
+INFO:gensim.models.ldamodel:topic #4 (0.010): 0.033*to + 0.023*the + 0.018*a + 0.015*for + 0.014*i + 0.012*of + 0.012*in + 0.010*and + 0.009*on + 0.009*you
+INFO:gensim.models.ldamodel:topic #58 (0.010): 0.020*the + 0.012*of + 0.012*a + 0.012*to + 0.011*in + 0.010*and + 0.010*for + 0.008*on + 0.008*is + 0.006*i
+INFO:gensim.models.ldamodel:topic #52 (0.010): 0.027*the + 0.021*a + 0.020*to + 0.012*and + 0.011*i + 0.010*in + 0.008*is + 0.008*for + 0.007*- + 0.006*you
+INFO:gensim.models.ldamodel:topic #49 (0.010): 0.024*the + 0.020*to + 0.017*a + 0.015*of + 0.013*i + 0.013*in + 0.011*you + 0.010*for + 0.008*- + 0.007*is
+INFO:gensim.models.ldamodel:topic #5 (0.010): 0.026*the + 0.025*a + 0.021*to + 0.015*in + 0.013*i + 0.010*and + 0.009*of + 0.009*is + 0.008*for + 0.007*-
+INFO:gensim.models.ldamodel:topic #59 (0.010): 0.027*the + 0.021*to + 0.014*a + 0.012*in + 0.012*and + 0.011*i + 0.010*of + 0.009*you + 0.008*- + 0.008*on
+INFO:gensim.models.ldamodel:topic #6 (0.010): 0.021*the + 0.017*to + 0.017*a + 0.011*is + 0.011*on + 0.011*of + 0.011*i + 0.011*in + 0.010*and + 0.008*you
+INFO:gensim.models.ldamodel:topic #60 (0.010): 0.036*the + 0.020*to + 0.018*a + 0.017*for + 0.014*of + 0.013*- + 0.012*and + 0.010*on + 0.010*is + 0.009*in
+INFO:gensim.models.ldamodel:topic #53 (0.010): 0.042*the + 0.028*to + 0.018*a + 0.015*of + 0.012*i + 0.011*is + 0.011*in + 0.011*for + 0.010*and + 0.009*on
+INFO:gensim.models.ldamodel:topic #50 (0.010): 0.030*the + 0.019*to + 0.016*a + 0.014*for + 0.013*i + 0.012*of + 0.012*in + 0.011*and + 0.010*- + 0.010*is
+INFO:gensim.models.ldamodel:topic #61 (0.010): 0.018*in + 0.015*a + 0.014*to + 0.014*the + 0.013*- + 0.011*of + 0.010*and + 0.008*you + 0.007*for + 0.007*is
+INFO:gensim.models.ldamodel:topic #54 (0.010): 0.023*the + 0.019*a + 0.018*to + 0.012*in + 0.012*for + 0.011*of + 0.010*is + 0.010*and + 0.009*i + 0.009*on
+INFO:gensim.models.ldamodel:topic #7 (0.010): 0.019*the + 0.019*a + 0.018*to + 0.013*and + 0.013*of + 0.011*in + 0.011*i + 0.010*for + 0.009*is + 0.009*on
+INFO:gensim.models.ldamodel:topic #51 (0.010): 0.023*the + 0.017*a + 0.017*to + 0.013*in + 0.011*of + 0.010*on + 0.010*for + 0.010*i + 0.008*is + 0.007*and
+INFO:gensim.models.ldamodel:topic #62 (0.010): 0.024*the + 0.015*a + 0.015*to + 0.012*in + 0.012*is + 0.009*for + 0.009*- + 0.009*on + 0.009*i + 0.008*de
+INFO:gensim.models.ldamodel:topic #55 (0.010): 0.025*the + 0.019*to + 0.015*a + 0.014*in + 0.013*of + 0.013*for + 0.009*on + 0.009*and + 0.008*i + 0.007*at
+INFO:gensim.models.ldamodel:topic #8 (0.010): 0.021*the + 0.016*to + 0.014*a + 0.011*of + 0.010*i + 0.010*and + 0.009*for + 0.009*is + 0.009*in + 0.008*on
+INFO:gensim.models.ldamodel:topic #52 (0.010): 0.028*the + 0.016*in + 0.016*to + 0.012*a + 0.009*for + 0.009*of + 0.009*on + 0.009*and + 0.008*i + 0.008*you
+INFO:gensim.models.ldamodel:topic #63 (0.010): 0.028*the + 0.020*to + 0.018*a + 0.018*and + 0.015*of + 0.013*for + 0.012*i + 0.010*in + 0.010*on + 0.008*you
+INFO:gensim.models.ldamodel:topic #56 (0.010): 0.023*the + 0.016*to + 0.016*a + 0.011*and + 0.010*of + 0.010*is + 0.009*i + 0.009*in + 0.009*for + 0.009*you
+INFO:gensim.models.ldamodel:topic #9 (0.010): 0.029*the + 0.019*to + 0.016*a + 0.013*for + 0.013*in + 0.013*and + 0.011*is + 0.010*of + 0.010*i + 0.009*you
+INFO:gensim.models.ldamodel:topic #64 (0.010): 0.029*the + 0.019*to + 0.018*a + 0.014*in + 0.012*of + 0.011*for + 0.011*- + 0.010*and + 0.008*i + 0.008*is
+INFO:gensim.models.ldamodel:topic #53 (0.010): 0.031*the + 0.021*to + 0.015*a + 0.013*for + 0.013*of + 0.012*i + 0.011*and + 0.010*in + 0.010*- + 0.010*is
+INFO:gensim.models.ldamodel:topic #57 (0.010): 0.018*the + 0.016*a + 0.013*in + 0.012*to + 0.012*of + 0.012*for + 0.011*and + 0.011*is + 0.009*i + 0.007*on
+INFO:gensim.models.ldamodel:topic #10 (0.010): 0.021*the + 0.015*to + 0.012*a + 0.010*in + 0.009*- + 0.009*at + 0.008*and + 0.008*of + 0.008*is + 0.008*for
+INFO:gensim.models.ldamodel:topic #65 (0.010): 0.028*the + 0.019*to + 0.017*a + 0.015*of + 0.013*in + 0.011*and + 0.011*- + 0.010*for + 0.009*on + 0.008*you
+INFO:gensim.models.ldamodel:topic #58 (0.010): 0.031*the + 0.019*a + 0.016*in + 0.015*is + 0.013*and + 0.012*for + 0.012*to + 0.011*of + 0.009*i + 0.009*on
+INFO:gensim.models.ldamodel:topic #54 (0.010): 0.036*the + 0.019*to + 0.019*of + 0.018*for + 0.016*a + 0.014*in + 0.012*and + 0.010*on + 0.009*- + 0.008*i
+INFO:gensim.models.ldamodel:topic #66 (0.010): 0.026*the + 0.015*is + 0.014*a + 0.013*in + 0.013*of + 0.012*and + 0.010*to + 0.008*for + 0.007*- + 0.007*i
+INFO:gensim.models.ldamodel:topic #59 (0.010): 0.027*the + 0.023*to + 0.020*a + 0.014*is + 0.013*of + 0.013*in + 0.012*and + 0.011*i + 0.010*on + 0.010*you
+INFO:gensim.models.ldamodel:topic #11 (0.010): 0.026*the + 0.025*a + 0.016*to + 0.012*i + 0.010*is + 0.010*for + 0.010*and + 0.010*of + 0.009*in + 0.007*at
+INFO:gensim.models.ldamodel:topic #55 (0.010): 0.025*to + 0.022*the + 0.019*a + 0.012*i + 0.011*in + 0.010*and + 0.010*of + 0.009*on + 0.008*for + 0.008*is
+INFO:gensim.models.ldamodel:topic #67 (0.010): 0.033*the + 0.020*a + 0.019*to + 0.015*for + 0.014*of + 0.012*in + 0.011*is + 0.011*i + 0.009*and + 0.008*you
+INFO:gensim.models.ldamodel:topic #60 (0.010): 0.013*the + 0.013*a + 0.012*to + 0.012*is + 0.010*in + 0.010*for + 0.009*of + 0.008*i + 0.008*and + 0.006*you
+INFO:gensim.models.ldamodel:topic #12 (0.010): 0.023*the + 0.015*a + 0.013*to + 0.011*and + 0.009*- + 0.009*on + 0.009*in + 0.009*i + 0.008*of + 0.008*for
+INFO:gensim.models.ldamodel:topic #68 (0.010): 0.030*the + 0.021*a + 0.017*to + 0.013*in + 0.011*- + 0.011*and + 0.011*i + 0.011*of + 0.011*for + 0.011*is
+INFO:gensim.models.ldamodel:topic #56 (0.010): 0.025*the + 0.023*to + 0.019*a + 0.016*in + 0.014*for + 0.013*of + 0.012*and + 0.011*you + 0.009*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #61 (0.010): 0.022*to + 0.017*the + 0.017*a + 0.015*of + 0.013*is + 0.011*and + 0.010*in + 0.010*i + 0.009*for + 0.008*you
+INFO:gensim.models.ldamodel:topic #69 (0.010): 0.026*the + 0.022*to + 0.018*of + 0.014*is + 0.013*a + 0.013*for + 0.013*in + 0.011*and + 0.011*- + 0.009*on
+INFO:gensim.models.ldamodel:topic #13 (0.010): 0.028*the + 0.024*to + 0.015*of + 0.014*a + 0.014*in + 0.013*for + 0.012*i + 0.011*you + 0.010*and + 0.010*is
+INFO:gensim.models.ldamodel:topic #57 (0.010): 0.029*the + 0.021*to + 0.020*a + 0.016*of + 0.014*in + 0.011*for + 0.011*and + 0.010*you + 0.010*is + 0.009*i
+INFO:gensim.models.ldamodel:topic #62 (0.010): 0.023*the + 0.017*to + 0.012*for + 0.011*of + 0.011*in + 0.010*a + 0.010*is + 0.009*- + 0.008*and + 0.007*at
+INFO:gensim.models.ldamodel:topic #70 (0.010): 0.024*the + 0.016*a + 0.015*to + 0.014*in + 0.013*of + 0.012*and + 0.012*by + 0.010*for + 0.010*is + 0.008*texas
+INFO:gensim.models.ldamodel:topic #58 (0.010): 0.028*the + 0.024*a + 0.020*to + 0.015*in + 0.011*is + 0.010*of + 0.009*on + 0.009*i + 0.009*for + 0.007*and
+INFO:gensim.models.ldamodel:topic #14 (0.010): 0.036*the + 0.026*to + 0.019*a + 0.015*and + 0.014*of + 0.014*for + 0.012*- + 0.011*in + 0.010*i + 0.010*is
+INFO:gensim.models.ldamodel:topic #63 (0.010): 0.025*to + 0.022*the + 0.019*a + 0.013*of + 0.011*in + 0.010*is + 0.009*and + 0.008*at + 0.008*i + 0.008*for
+INFO:gensim.models.ldamodel:topic #71 (0.010): 0.031*the + 0.025*a + 0.021*in + 0.018*of + 0.017*to + 0.012*for + 0.011*i + 0.011*is + 0.010*and + 0.009*on
+INFO:gensim.models.ldamodel:topic #59 (0.010): 0.025*the + 0.016*to + 0.016*a + 0.013*in + 0.012*and + 0.011*of + 0.011*for + 0.011*- + 0.010*i + 0.009*is
+INFO:gensim.models.ldamodel:topic #64 (0.010): 0.020*the + 0.016*to + 0.015*a + 0.014*of + 0.014*for + 0.013*and + 0.013*in + 0.011*by + 0.010*on + 0.008*i
+INFO:gensim.models.ldamodel:topic #15 (0.010): 0.027*the + 0.023*to + 0.020*a + 0.017*of + 0.016*and + 0.014*in + 0.011*i + 0.011*for + 0.010*is + 0.009*you
+INFO:gensim.models.ldamodel:topic #72 (0.010): 0.020*the + 0.020*to + 0.014*a + 0.012*of + 0.011*in + 0.011*for + 0.010*and + 0.009*is + 0.009*you + 0.008*on
+INFO:gensim.models.ldamodel:topic #60 (0.010): 0.037*the + 0.023*to + 0.020*a + 0.016*i + 0.014*in + 0.013*and + 0.011*for + 0.011*of + 0.011*is + 0.009*on
+INFO:gensim.models.ldamodel:topic #65 (0.010): 0.020*the + 0.015*for + 0.014*a + 0.011*to + 0.010*is + 0.009*in + 0.008*of + 0.008*and + 0.007*de + 0.006*on
+INFO:gensim.models.ldamodel:topic #16 (0.010): 0.020*to + 0.017*the + 0.016*a + 0.011*in + 0.010*of + 0.009*for + 0.008*on + 0.008*and + 0.007*you + 0.007*is
+INFO:gensim.models.ldamodel:topic #73 (0.010): 0.024*the + 0.021*to + 0.014*of + 0.013*in + 0.013*a + 0.012*and + 0.011*is + 0.011*for + 0.008*i + 0.008*on
+INFO:gensim.models.ldamodel:topic #61 (0.010): 0.026*the + 0.018*to + 0.018*in + 0.015*of + 0.014*a + 0.014*for + 0.010*is + 0.009*you + 0.009*and + 0.009*i
+INFO:gensim.models.ldamodel:topic #66 (0.010): 0.027*the + 0.017*to + 0.016*a + 0.015*in + 0.014*for + 0.013*of + 0.013*i + 0.011*and + 0.008*is + 0.007*on
+INFO:gensim.models.ldamodel:topic #17 (0.010): 0.024*the + 0.019*a + 0.015*to + 0.015*on + 0.013*of + 0.013*for + 0.011*and + 0.011*is + 0.009*in + 0.008*-
+INFO:gensim.models.ldamodel:topic #74 (0.010): 0.030*the + 0.026*a + 0.022*to + 0.014*and + 0.014*i + 0.012*of + 0.011*in + 0.010*is + 0.009*for + 0.009*you
+INFO:gensim.models.ldamodel:topic #62 (0.010): 0.030*the + 0.020*a + 0.019*to + 0.013*of + 0.012*for + 0.011*in + 0.010*and + 0.010*is + 0.009*i + 0.009*-
+INFO:gensim.models.ldamodel:topic #67 (0.010): 0.019*the + 0.016*a + 0.015*to + 0.011*and + 0.010*of + 0.009*for + 0.009*is + 0.009*in + 0.008*i + 0.008*you
+INFO:gensim.models.ldamodel:topic #18 (0.010): 0.030*the + 0.020*to + 0.020*a + 0.016*in + 0.013*of + 0.012*for + 0.011*is + 0.010*you + 0.010*and + 0.008*i
+INFO:gensim.models.ldamodel:topic #75 (0.010): 0.022*to + 0.022*the + 0.020*a + 0.016*of + 0.013*for + 0.011*and + 0.009*on + 0.008*in + 0.008*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #63 (0.010): 0.023*to + 0.022*the + 0.016*a + 0.014*for + 0.013*of + 0.010*is + 0.010*i + 0.008*in + 0.007*and + 0.007*on
+INFO:gensim.models.ldamodel:topic #68 (0.010): 0.028*the + 0.020*a + 0.018*to + 0.014*and + 0.013*in + 0.013*of + 0.011*is + 0.011*for + 0.008*- + 0.008*on
+INFO:gensim.models.ldamodel:topic #19 (0.010): 0.027*to + 0.022*a + 0.022*the + 0.018*in + 0.013*of + 0.012*is + 0.011*and + 0.011*for + 0.010*on + 0.009*you
+INFO:gensim.models.ldamodel:topic #76 (0.010): 0.026*the + 0.020*to + 0.014*a + 0.011*is + 0.010*on + 0.010*for + 0.010*in + 0.010*of + 0.009*and + 0.008*i
+INFO:gensim.models.ldamodel:topic #64 (0.010): 0.019*a + 0.013*the + 0.010*in + 0.009*- + 0.009*to + 0.009*of + 0.009*and + 0.008*is + 0.008*i + 0.007*for
+INFO:gensim.models.ldamodel:topic #77 (0.010): 0.023*the + 0.016*to + 0.015*a + 0.013*in + 0.012*of + 0.011*and + 0.009*- + 0.009*is + 0.008*for + 0.007*on
+INFO:gensim.models.ldamodel:topic #20 (0.010): 0.025*the + 0.023*a + 0.015*of + 0.012*in + 0.012*i + 0.012*is + 0.011*to + 0.011*for + 0.009*and + 0.008*you
+INFO:gensim.models.ldamodel:topic #65 (0.010): 0.031*the + 0.021*a + 0.021*to + 0.013*in + 0.011*of + 0.010*i + 0.009*- + 0.009*for + 0.009*is + 0.009*and
+INFO:gensim.models.ldamodel:topic #69 (0.010): 0.020*the + 0.015*to + 0.013*a + 0.010*in + 0.010*of + 0.009*is + 0.009*and + 0.008*i + 0.008*for + 0.006*-
+INFO:gensim.models.ldamodel:topic #78 (0.010): 0.024*the + 0.015*to + 0.013*a + 0.013*of + 0.011*and + 0.010*i + 0.009*is + 0.009*in + 0.008*for + 0.007*with
+INFO:gensim.models.ldamodel:topic #70 (0.010): 0.022*a + 0.019*the + 0.016*to + 0.016*in + 0.015*i + 0.012*of + 0.012*for + 0.010*and + 0.010*you + 0.009*is
+INFO:gensim.models.ldamodel:topic #66 (0.010): 0.033*the + 0.025*to + 0.015*a + 0.015*of + 0.013*in + 0.012*for + 0.011*is + 0.010*on + 0.010*and + 0.009*you
+INFO:gensim.models.ldamodel:topic #21 (0.010): 0.025*a + 0.022*the + 0.014*in + 0.013*of + 0.012*to + 0.011*for + 0.009*on + 0.009*and + 0.009*i + 0.008*you
+INFO:gensim.models.ldamodel:topic #79 (0.010): 0.030*the + 0.021*to + 0.020*a + 0.014*in + 0.013*and + 0.013*of + 0.012*is + 0.010*for + 0.010*on + 0.010*i
+INFO:gensim.models.ldamodel:topic #67 (0.010): 0.030*the + 0.021*a + 0.020*to + 0.013*of + 0.012*in + 0.012*for + 0.009*on + 0.009*- + 0.009*and + 0.009*is
+INFO:gensim.models.ldamodel:topic #71 (0.010): 0.023*the + 0.020*to + 0.016*a + 0.012*in + 0.012*of + 0.012*and + 0.011*is + 0.011*i + 0.010*for + 0.008*you
+INFO:gensim.models.ldamodel:topic #22 (0.010): 0.022*the + 0.013*to + 0.012*in + 0.012*and + 0.012*a + 0.009*for + 0.009*on + 0.008*is + 0.008*of + 0.008*i
+INFO:gensim.models.ldamodel:topic #80 (0.010): 0.024*the + 0.022*to + 0.016*in + 0.014*and + 0.013*i + 0.013*for + 0.011*on + 0.010*a + 0.010*of + 0.009*you
+INFO:gensim.models.ldamodel:topic #68 (0.010): 0.033*the + 0.025*to + 0.017*of + 0.013*a + 0.011*for + 0.010*is + 0.010*in + 0.009*and + 0.009*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #72 (0.010): 0.026*the + 0.023*to + 0.016*in + 0.016*a + 0.014*for + 0.013*of + 0.012*and + 0.010*on + 0.010*is + 0.009*you
+INFO:gensim.models.ldamodel:topic #23 (0.010): 0.017*the + 0.012*a + 0.012*to + 0.010*is + 0.009*in + 0.008*of + 0.008*for + 0.007*i + 0.006*and + 0.006*-
+INFO:gensim.models.ldamodel:topic #81 (0.010): 0.032*the + 0.018*to + 0.012*in + 0.011*a + 0.011*and + 0.010*for + 0.010*is + 0.010*of + 0.008*- + 0.007*on
+INFO:gensim.models.ldamodel:topic #73 (0.010): 0.026*the + 0.021*to + 0.018*a + 0.010*for + 0.009*of + 0.009*is + 0.009*and + 0.008*in + 0.008*you + 0.007*i
+INFO:gensim.models.ldamodel:topic #69 (0.010): 0.037*the + 0.018*to + 0.017*of + 0.016*a + 0.015*in + 0.014*is + 0.013*for + 0.010*on + 0.010*and + 0.009*you
+INFO:gensim.models.ldamodel:topic #24 (0.010): 0.025*the + 0.023*a + 0.019*to + 0.014*is + 0.012*of + 0.012*in + 0.011*for + 0.010*and + 0.010*i + 0.010*on
+INFO:gensim.models.ldamodel:topic #82 (0.010): 0.017*the + 0.014*a + 0.012*to + 0.010*for + 0.009*of + 0.008*i + 0.007*- + 0.007*in + 0.007*at + 0.007*and
+INFO:gensim.models.ldamodel:topic #74 (0.010): 0.038*the + 0.024*a + 0.021*to + 0.016*i + 0.015*of + 0.013*in + 0.013*and + 0.010*for + 0.009*you + 0.008*is
+INFO:gensim.models.ldamodel:topic #70 (0.010): 0.029*the + 0.015*to + 0.014*in + 0.013*a + 0.013*for + 0.012*i + 0.011*of + 0.010*and + 0.009*on + 0.009*is
+INFO:gensim.models.ldamodel:topic #25 (0.010): 0.025*the + 0.024*to + 0.015*a + 0.015*for + 0.012*of + 0.012*i + 0.011*and + 0.011*in + 0.008*is + 0.007*on
+INFO:gensim.models.ldamodel:topic #83 (0.010): 0.023*in + 0.019*the + 0.018*to + 0.017*a + 0.015*of + 0.012*for + 0.010*- + 0.010*and + 0.009*is + 0.009*on
+INFO:gensim.models.ldamodel:topic #75 (0.010): 0.023*the + 0.021*a + 0.018*to + 0.015*for + 0.015*of + 0.010*in + 0.009*and + 0.008*at + 0.008*on + 0.008*-
+INFO:gensim.models.ldamodel:topic #71 (0.010): 0.026*the + 0.014*to + 0.013*a + 0.011*and + 0.011*in + 0.009*i + 0.008*is + 0.008*of + 0.007*for + 0.006*on
+INFO:gensim.models.ldamodel:topic #26 (0.010): 0.038*the + 0.020*to + 0.019*a + 0.012*in + 0.012*of + 0.012*i + 0.010*is + 0.010*for + 0.010*and + 0.010*on
+INFO:gensim.models.ldamodel:topic #84 (0.010): 0.022*the + 0.020*to + 0.018*a + 0.013*in + 0.011*of + 0.009*for + 0.009*and + 0.008*is + 0.008*- + 0.008*at
+INFO:gensim.models.ldamodel:topic #76 (0.010): 0.024*the + 0.018*a + 0.017*of + 0.016*to + 0.013*is + 0.013*in + 0.012*and + 0.010*for + 0.010*you + 0.009*i
+INFO:gensim.models.ldamodel:topic #72 (0.010): 0.028*the + 0.021*to + 0.019*a + 0.015*for + 0.014*in + 0.013*of + 0.012*- + 0.009*and + 0.009*you + 0.007*is
+INFO:gensim.models.ldamodel:topic #85 (0.010): 0.026*the + 0.024*to + 0.017*a + 0.012*of + 0.012*for + 0.011*and + 0.011*in + 0.011*is + 0.011*on + 0.010*you
+INFO:gensim.models.ldamodel:topic #27 (0.010): 0.033*the + 0.019*to + 0.016*a + 0.016*of + 0.015*in + 0.014*is + 0.011*for + 0.011*i + 0.010*you + 0.010*and
+INFO:gensim.models.ldamodel:topic #77 (0.010): 0.030*the + 0.018*to + 0.017*a + 0.014*of + 0.012*i + 0.011*is + 0.011*for + 0.011*you + 0.011*and + 0.010*in
+INFO:gensim.models.ldamodel:topic #86 (0.010): 0.020*the + 0.017*to + 0.015*of + 0.015*a + 0.013*in + 0.011*is + 0.010*and + 0.010*for + 0.009*on + 0.009*-
+INFO:gensim.models.ldamodel:topic #73 (0.010): 0.028*the + 0.018*to + 0.018*of + 0.017*a + 0.011*and + 0.011*in + 0.011*you + 0.011*for + 0.010*on + 0.010*is
+INFO:gensim.models.ldamodel:topic #28 (0.010): 0.018*the + 0.015*a + 0.015*to + 0.011*in + 0.011*for + 0.011*of + 0.010*- + 0.009*and + 0.008*is + 0.008*i
+INFO:gensim.models.ldamodel:topic #78 (0.010): 0.034*the + 0.019*to + 0.018*a + 0.014*i + 0.014*in + 0.011*of + 0.011*is + 0.010*for + 0.010*at + 0.010*and
+INFO:gensim.models.ldamodel:topic #87 (0.010): 0.033*the + 0.020*to + 0.015*a + 0.014*of + 0.012*in + 0.012*for + 0.010*and + 0.010*is + 0.009*on + 0.007*i
+INFO:gensim.models.ldamodel:topic #74 (0.010): 0.023*the + 0.017*a + 0.015*to + 0.014*of + 0.012*and + 0.011*is + 0.010*in + 0.010*for + 0.009*on + 0.009*you
+INFO:gensim.models.ldamodel:topic #79 (0.010): 0.027*to + 0.025*the + 0.018*a + 0.017*in + 0.013*of + 0.012*is + 0.011*and + 0.010*i + 0.010*for + 0.008*on
+INFO:gensim.models.ldamodel:topic #29 (0.010): 0.031*to + 0.024*the + 0.018*a + 0.013*i + 0.012*in + 0.012*for + 0.010*you + 0.009*is + 0.009*of + 0.009*and
+INFO:gensim.models.ldamodel:topic #88 (0.010): 0.027*the + 0.021*to + 0.021*a + 0.015*of + 0.015*and + 0.013*for + 0.013*in + 0.013*is + 0.012*i + 0.011*on
+INFO:gensim.models.ldamodel:topic #80 (0.010): 0.038*the + 0.020*to + 0.015*a + 0.013*for + 0.012*of + 0.012*and + 0.011*in + 0.011*is + 0.009*on + 0.009*you
+INFO:gensim.models.ldamodel:topic #75 (0.010): 0.028*to + 0.028*the + 0.021*a + 0.013*is + 0.012*of + 0.011*in + 0.011*and + 0.010*for + 0.010*i + 0.009*on
+INFO:gensim.models.ldamodel:topic #30 (0.010): 0.030*the + 0.021*to + 0.018*a + 0.015*of + 0.014*in + 0.012*for + 0.010*you + 0.010*and + 0.009*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #89 (0.010): 0.035*the + 0.020*to + 0.018*a + 0.017*- + 0.014*in + 0.013*of + 0.012*for + 0.010*and + 0.009*by + 0.009*i
+INFO:gensim.models.ldamodel:topic #81 (0.010): 0.028*to + 0.022*the + 0.021*a + 0.015*for + 0.014*of + 0.013*in + 0.011*at + 0.011*i + 0.009*and + 0.009*on
+INFO:gensim.models.ldamodel:topic #31 (0.010): 0.019*to + 0.018*the + 0.013*a + 0.012*for + 0.012*of + 0.010*and + 0.010*is + 0.009*in + 0.008*i + 0.008*you
+INFO:gensim.models.ldamodel:topic #76 (0.010): 0.035*the + 0.023*a + 0.015*to + 0.014*in + 0.012*of + 0.012*i + 0.011*for + 0.011*is + 0.010*you + 0.008*-
+INFO:gensim.models.ldamodel:topic #90 (0.010): 0.012*to + 0.012*the + 0.009*a + 0.009*of + 0.007*in + 0.007*and + 0.007*for + 0.007*is + 0.006*on + 0.005*you
+INFO:gensim.models.ldamodel:topic #82 (0.010): 0.021*the + 0.018*a + 0.016*to + 0.011*for + 0.010*and + 0.009*de + 0.009*i + 0.008*is + 0.008*- + 0.008*in
+INFO:gensim.models.ldamodel:topic #32 (0.010): 0.018*to + 0.014*a + 0.014*the + 0.010*for + 0.009*and + 0.009*of + 0.008*in + 0.008*i + 0.008*on + 0.008*is
+INFO:gensim.models.ldamodel:topic #77 (0.010): 0.030*the + 0.019*a + 0.017*to + 0.013*in + 0.013*for + 0.012*is + 0.011*of + 0.011*and + 0.009*- + 0.008*i
+INFO:gensim.models.ldamodel:topic #91 (0.010): 0.033*the + 0.025*to + 0.020*a + 0.014*for + 0.013*in + 0.013*of + 0.010*i + 0.010*is + 0.010*at + 0.010*on
+INFO:gensim.models.ldamodel:topic #83 (0.010): 0.021*the + 0.017*to + 0.016*a + 0.011*for + 0.010*in + 0.010*and + 0.008*of + 0.007*on + 0.007*i + 0.007*is
+INFO:gensim.models.ldamodel:topic #33 (0.010): 0.026*the + 0.018*i + 0.017*a + 0.016*to + 0.014*and + 0.012*in + 0.011*for + 0.011*- + 0.011*of + 0.009*on
+INFO:gensim.models.ldamodel:topic #92 (0.010): 0.023*the + 0.022*to + 0.018*a + 0.015*of + 0.015*for + 0.012*is + 0.012*and + 0.012*in + 0.008*i + 0.008*-
+INFO:gensim.models.ldamodel:topic #78 (0.010): 0.035*the + 0.023*to + 0.018*a + 0.015*in + 0.014*of + 0.013*is + 0.013*for + 0.010*and + 0.009*- + 0.009*i
+INFO:gensim.models.ldamodel:topic #84 (0.010): 0.029*the + 0.022*to + 0.014*a + 0.012*of + 0.012*in + 0.011*for + 0.010*and + 0.010*i + 0.009*is + 0.009*you
+INFO:gensim.models.ldamodel:topic #93 (0.010): 0.026*the + 0.018*in + 0.017*to + 0.015*a + 0.014*of + 0.012*for + 0.010*is + 0.008*and + 0.008*- + 0.006*i
+INFO:gensim.models.ldamodel:topic #34 (0.010): 0.027*the + 0.020*a + 0.016*and + 0.016*to + 0.014*in + 0.014*of + 0.013*for + 0.012*is + 0.010*- + 0.009*i
+INFO:gensim.models.ldamodel:topic #79 (0.010): 0.028*the + 0.014*to + 0.012*a + 0.010*in + 0.010*of + 0.009*and + 0.009*- + 0.007*for + 0.007*you + 0.006*is
+INFO:gensim.models.ldamodel:topic #85 (0.010): 0.031*the + 0.017*to + 0.016*a + 0.013*of + 0.011*in + 0.009*and + 0.009*for + 0.008*you + 0.008*i + 0.008*-
+INFO:gensim.models.ldamodel:topic #94 (0.010): 0.027*the + 0.017*a + 0.016*to + 0.012*i + 0.012*of + 0.011*in + 0.011*and + 0.010*for + 0.008*is + 0.007*you
+INFO:gensim.models.ldamodel:topic #35 (0.010): 0.024*the + 0.022*a + 0.017*to + 0.013*is + 0.012*for + 0.012*of + 0.012*in + 0.011*you + 0.010*and + 0.009*i
+INFO:gensim.models.ldamodel:topic #80 (0.010): 0.031*the + 0.022*a + 0.020*to + 0.019*in + 0.014*i + 0.013*and + 0.012*of + 0.012*for + 0.012*is + 0.010*on
+INFO:gensim.models.ldamodel:topic #86 (0.010): 0.025*the + 0.023*a + 0.017*to + 0.013*of + 0.013*in + 0.012*i + 0.010*for + 0.010*on + 0.008*is + 0.008*you
+INFO:gensim.models.ldamodel:topic #95 (0.010): 0.023*the + 0.016*to + 0.016*a + 0.012*in + 0.011*of + 0.009*i + 0.009*for + 0.008*- + 0.007*de + 0.007*and
+INFO:gensim.models.ldamodel:topic #36 (0.010): 0.022*the + 0.021*a + 0.019*to + 0.014*i + 0.012*and + 0.011*is + 0.010*in + 0.009*of + 0.009*at + 0.008*on
+INFO:gensim.models.ldamodel:topic #87 (0.010): 0.024*the + 0.019*to + 0.015*a + 0.014*of + 0.013*for + 0.012*and + 0.009*i + 0.008*is + 0.008*in + 0.008*at
+INFO:gensim.models.ldamodel:topic #81 (0.010): 0.030*the + 0.026*a + 0.021*to + 0.014*in + 0.013*of + 0.012*is + 0.011*for + 0.009*i + 0.008*and + 0.007*you
+INFO:gensim.models.ldamodel:topic #96 (0.010): 0.019*the + 0.019*to + 0.012*in + 0.012*a + 0.012*of + 0.011*and + 0.010*at + 0.009*for + 0.008*i + 0.008*-
+INFO:gensim.models.ldamodel:topic #88 (0.010): 0.033*the + 0.019*to + 0.016*a + 0.013*in + 0.012*for + 0.012*i + 0.011*is + 0.011*of + 0.009*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #37 (0.010): 0.020*the + 0.018*to + 0.016*a + 0.011*in + 0.010*for + 0.010*of + 0.009*i + 0.009*and + 0.008*is + 0.007*you
+INFO:gensim.models.ldamodel:topic #82 (0.010): 0.022*the + 0.021*to + 0.020*a + 0.014*in + 0.012*and + 0.012*of + 0.011*is + 0.010*for + 0.010*- + 0.009*on
+INFO:gensim.models.ldamodel:topic #97 (0.010): 0.032*the + 0.020*a + 0.017*to + 0.013*of + 0.009*i + 0.009*- + 0.009*in + 0.008*and + 0.008*on + 0.008*for
+INFO:gensim.models.ldamodel:topic #89 (0.010): 0.034*the + 0.018*to + 0.015*for + 0.013*a + 0.012*and + 0.011*of + 0.010*i + 0.009*in + 0.009*is + 0.008*on
+INFO:gensim.models.ldamodel:topic #38 (0.010): 0.034*the + 0.019*to + 0.014*i + 0.014*a + 0.013*in + 0.011*of + 0.010*is + 0.009*for + 0.009*on + 0.008*and
+INFO:gensim.models.ldamodel:topic #83 (0.010): 0.029*the + 0.022*to + 0.016*a + 0.013*of + 0.012*and + 0.012*for + 0.011*i + 0.011*is + 0.010*on + 0.009*in
+INFO:gensim.models.ldamodel:topic #98 (0.010): 0.030*the + 0.017*to + 0.016*a + 0.015*in + 0.013*for + 0.013*of + 0.012*and + 0.011*is + 0.008*you + 0.008*i
+INFO:gensim.models.ldamodel:topic #90 (0.010): 0.021*the + 0.015*for + 0.013*a + 0.013*to + 0.013*in + 0.011*is + 0.009*of + 0.009*and + 0.009*on + 0.008*i
+INFO:gensim.models.ldamodel:topic #39 (0.010): 0.026*the + 0.022*to + 0.015*a + 0.012*of + 0.010*for + 0.010*i + 0.010*is + 0.009*in + 0.009*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #99 (0.010): 0.028*the + 0.020*to + 0.016*a + 0.014*i + 0.012*of + 0.010*in + 0.010*and + 0.009*for + 0.008*is + 0.008*on
+INFO:gensim.models.ldamodel:topic #84 (0.010): 0.027*the + 0.022*to + 0.016*a + 0.014*of + 0.014*in + 0.013*and + 0.012*is + 0.011*for + 0.009*- + 0.008*i
+INFO:gensim.models.ldamodel:topic #91 (0.010): 0.016*the + 0.010*a + 0.008*of + 0.008*in + 0.008*to + 0.006*via + 0.006*is + 0.005*de + 0.005*- + 0.005*on
+INFO:gensim.models.ldamodel:topic #40 (0.010): 0.022*the + 0.019*to + 0.014*a + 0.011*and + 0.011*in + 0.011*of + 0.010*is + 0.010*for + 0.009*i + 0.008*on
+INFO:gensim.models.ldamodel:topic #85 (0.010): 0.025*the + 0.013*in + 0.012*on + 0.011*to + 0.011*for + 0.011*of + 0.011*a + 0.010*and + 0.009*i + 0.009*is
+INFO:gensim.models.ldamodel:topic #92 (0.010): 0.031*the + 0.023*to + 0.017*a + 0.015*of + 0.013*on + 0.013*and + 0.011*in + 0.010*for + 0.009*i + 0.009*you
+INFO:gensim.models.ldamodel:topic #41 (0.010): 0.021*the + 0.016*to + 0.013*a + 0.010*of + 0.009*for + 0.008*on + 0.008*in + 0.007*- + 0.007*and + 0.006*i
+INFO:gensim.models.ldamodel:topic #86 (0.010): 0.036*the + 0.020*to + 0.018*a + 0.015*for + 0.011*and + 0.011*of + 0.009*in + 0.009*i + 0.009*is + 0.008*you
+INFO:gensim.models.ldamodel:topic #93 (0.010): 0.028*the + 0.020*to + 0.017*a + 0.012*of + 0.011*in + 0.011*for + 0.010*is + 0.010*and + 0.008*you + 0.007*-
+INFO:gensim.models.ldamodel:topic #42 (0.010): 0.022*the + 0.018*to + 0.016*a + 0.015*in + 0.012*of + 0.012*for + 0.008*on + 0.008*is + 0.008*you + 0.008*and
+INFO:gensim.models.ldamodel:topic #87 (0.010): 0.026*the + 0.018*to + 0.017*a + 0.013*and + 0.010*for + 0.009*is + 0.008*i + 0.008*you + 0.008*in + 0.008*of
+INFO:gensim.models.ldamodel:topic #94 (0.010): 0.030*the + 0.022*to + 0.019*a + 0.016*i + 0.015*and + 0.013*for + 0.012*of + 0.011*in + 0.010*you + 0.009*is
+INFO:gensim.models.ldamodel:topic #88 (0.010): 0.034*the + 0.024*to + 0.017*in + 0.015*a + 0.013*of + 0.013*for + 0.011*i + 0.011*is + 0.010*you + 0.010*and
+INFO:gensim.models.ldamodel:topic #95 (0.010): 0.019*to + 0.018*the + 0.018*a + 0.016*in + 0.013*of + 0.010*for + 0.008*i + 0.008*you + 0.008*and + 0.007*at
+INFO:gensim.models.ldamodel:topic #89 (0.010): 0.033*the + 0.026*to + 0.018*of + 0.017*a + 0.015*in + 0.015*i + 0.014*and + 0.011*for + 0.011*is + 0.010*you
+INFO:gensim.models.ldamodel:topic #43 (0.010): 0.029*the + 0.018*to + 0.018*a + 0.014*for + 0.014*of + 0.013*i + 0.011*on + 0.011*in + 0.011*is + 0.011*you
+INFO:gensim.models.ldamodel:topic #96 (0.010): 0.023*the + 0.018*a + 0.017*to + 0.011*and + 0.011*of + 0.010*is + 0.009*in + 0.008*for + 0.007*i + 0.007*you
+INFO:gensim.models.ldamodel:topic #90 (0.010): 0.020*to + 0.016*the + 0.013*a + 0.010*in + 0.010*- + 0.008*of + 0.008*i + 0.008*for + 0.007*on + 0.007*and
+INFO:gensim.models.ldamodel:topic #97 (0.010): 0.033*the + 0.014*to + 0.014*a + 0.014*of + 0.014*is + 0.013*in + 0.012*and + 0.009*for + 0.009*i + 0.007*on
+INFO:gensim.models.ldamodel:topic #91 (0.010): 0.029*the + 0.017*a + 0.014*of + 0.011*to + 0.011*is + 0.011*in + 0.010*i + 0.009*you + 0.009*for + 0.009*and
+INFO:gensim.models.ldamodel:topic #98 (0.010): 0.023*to + 0.021*the + 0.018*a + 0.015*of + 0.012*in + 0.011*for + 0.010*and + 0.009*on + 0.008*is + 0.008*i
+INFO:gensim.models.ldamodel:topic #44 (0.010): 0.035*the + 0.022*a + 0.019*in + 0.017*to + 0.014*i + 0.014*of + 0.012*for + 0.010*at + 0.008*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #99 (0.010): 0.027*the + 0.023*a + 0.021*to + 0.016*for + 0.016*in + 0.014*of + 0.014*i + 0.013*and + 0.011*you + 0.010*is
+INFO:gensim.models.ldamodel:topic #45 (0.010): 0.035*the + 0.027*to + 0.021*a + 0.015*of + 0.014*in + 0.013*i + 0.013*is + 0.011*for + 0.010*and + 0.010*-
+INFO:gensim.models.ldamodel:topic #92 (0.010): 0.022*the + 0.021*to + 0.018*a + 0.014*in + 0.013*and + 0.012*of + 0.011*i + 0.010*for + 0.009*is + 0.008*my
+INFO:gensim.models.ldamodel:topic #46 (0.010): 0.029*the + 0.021*to + 0.018*a + 0.015*and + 0.014*of + 0.011*for + 0.009*you + 0.009*on + 0.009*i + 0.009*is
+INFO:gensim.models.ldamodel:topic #47 (0.010): 0.023*the + 0.020*to + 0.016*in + 0.014*a + 0.014*and + 0.013*is + 0.012*of + 0.011*on + 0.010*for + 0.008*you
+INFO:gensim.models.ldamodel:topic #93 (0.010): 0.028*the + 0.017*in + 0.017*to + 0.016*a + 0.014*of + 0.013*i + 0.013*for + 0.012*and + 0.012*is + 0.010*you
+INFO:gensim.models.ldamodel:topic #48 (0.010): 0.033*the + 0.018*to + 0.015*a + 0.013*i + 0.012*in + 0.012*of + 0.010*and + 0.010*for + 0.009*on + 0.008*is
+INFO:gensim.models.ldamodel:topic #94 (0.010): 0.018*a + 0.016*to + 0.015*the + 0.011*in + 0.011*for + 0.009*and + 0.009*of + 0.008*i + 0.008*de + 0.006*is
+INFO:gensim.models.ldamodel:topic #95 (0.010): 0.021*the + 0.017*to + 0.014*for + 0.012*of + 0.012*a + 0.011*i + 0.010*and + 0.009*in + 0.008*is + 0.008*you
+INFO:gensim.models.ldamodel:topic #49 (0.010): 0.028*the + 0.017*a + 0.016*to + 0.013*of + 0.012*for + 0.011*and + 0.010*is + 0.009*i + 0.009*in + 0.008*on
+INFO:gensim.models.ldamodel:topic #96 (0.010): 0.024*the + 0.019*a + 0.017*to + 0.014*for + 0.013*in + 0.012*of + 0.011*is + 0.010*you + 0.010*and + 0.008*on
+INFO:gensim.models.ldamodel:topic #97 (0.010): 0.021*a + 0.017*to + 0.016*the + 0.013*in + 0.013*i + 0.012*is + 0.009*and + 0.009*of + 0.008*for + 0.007*you
+INFO:gensim.models.ldamodel:topic #50 (0.010): 0.029*the + 0.024*to + 0.017*of + 0.017*a + 0.013*is + 0.013*i + 0.013*in + 0.012*and + 0.012*for + 0.011*at
+INFO:gensim.models.ldamodel:topic #51 (0.010): 0.036*the + 0.017*a + 0.014*to + 0.014*of + 0.012*and + 0.012*in + 0.012*i + 0.011*for + 0.010*is + 0.010*-
+INFO:gensim.models.ldamodel:topic #98 (0.010): 0.021*the + 0.019*is + 0.016*a + 0.014*to + 0.011*in + 0.009*via + 0.009*of + 0.008*out! + 0.008*and + 0.008*i
+INFO:gensim.models.ldamodel:topic #99 (0.010): 0.028*the + 0.021*a + 0.019*to + 0.014*in + 0.012*i + 0.012*- + 0.011*for + 0.011*of + 0.010*and + 0.010*is
+INFO:gensim.models.ldamodel:topic #52 (0.010): 0.028*to + 0.020*the + 0.016*of + 0.015*in + 0.014*for + 0.013*a + 0.012*- + 0.011*is + 0.011*on + 0.010*and
+INFO:gensim.models.ldamodel:topic #53 (0.010): 0.029*the + 0.018*a + 0.015*and + 0.015*to + 0.013*of + 0.012*for + 0.012*in + 0.011*is + 0.010*- + 0.010*you
+INFO:gensim.models.ldamodel:topic #54 (0.010): 0.016*the + 0.014*to + 0.013*and + 0.012*a + 0.010*on + 0.010*for + 0.008*of + 0.008*i + 0.007*is + 0.007*in
+INFO:gensim.models.ldamodel:topic #55 (0.010): 0.024*the + 0.017*to + 0.015*a + 0.014*is + 0.013*of + 0.013*i + 0.012*for + 0.010*and + 0.009*in + 0.008*on
+INFO:gensim.models.ldamodel:topic #56 (0.010): 0.017*the + 0.017*a + 0.013*in + 0.012*for + 0.012*to + 0.010*i + 0.010*of + 0.008*is + 0.007*and + 0.007*you
+INFO:gensim.models.ldamodel:topic #57 (0.010): 0.023*the + 0.019*a + 0.018*to + 0.013*i + 0.012*and + 0.010*of + 0.010*on + 0.009*in + 0.008*is + 0.008*for
+INFO:gensim.models.ldamodel:topic #58 (0.010): 0.027*the + 0.018*to + 0.013*a + 0.013*of + 0.013*in + 0.010*i + 0.009*is + 0.008*for + 0.007*you + 0.007*and
+INFO:gensim.models.ldamodel:topic #59 (0.010): 0.028*the + 0.019*to + 0.018*a + 0.014*of + 0.014*in + 0.013*and + 0.013*i + 0.012*you + 0.011*for + 0.008*is
+INFO:gensim.models.ldamodel:topic #60 (0.010): 0.026*the + 0.021*a + 0.013*of + 0.012*to + 0.010*for + 0.010*in + 0.009*and + 0.009*is + 0.009*i + 0.008*on
+INFO:gensim.models.ldamodel:topic #61 (0.010): 0.020*the + 0.017*to + 0.016*a + 0.012*of + 0.012*in + 0.010*and + 0.009*on + 0.009*- + 0.009*you + 0.008*for
+INFO:gensim.models.ldamodel:topic #62 (0.010): 0.028*the + 0.020*to + 0.016*of + 0.013*in + 0.012*on + 0.011*a + 0.011*is + 0.011*for + 0.011*and + 0.009*i
+INFO:gensim.models.ldamodel:topic #63 (0.010): 0.025*the + 0.018*to + 0.016*of + 0.011*a + 0.011*in + 0.008*you + 0.008*and + 0.008*is + 0.008*i + 0.008*for
+INFO:gensim.models.ldamodel:topic #64 (0.010): 0.042*the + 0.023*to + 0.017*a + 0.014*in + 0.012*of + 0.011*i + 0.010*is + 0.010*for + 0.010*and + 0.009*on
+INFO:gensim.models.ldamodel:topic #65 (0.010): 0.027*the + 0.017*to + 0.014*a + 0.013*of + 0.011*in + 0.010*- + 0.009*and + 0.009*i + 0.009*for + 0.009*is
+INFO:gensim.models.ldamodel:topic #66 (0.010): 0.030*the + 0.020*to + 0.018*a + 0.015*and + 0.015*for + 0.013*of + 0.011*i + 0.010*on + 0.010*in + 0.009*you
+INFO:gensim.models.ldamodel:topic #67 (0.010): 0.031*the + 0.021*to + 0.014*a + 0.014*of + 0.014*in + 0.013*and + 0.010*is + 0.009*for + 0.008*on + 0.008*i
+INFO:gensim.models.ldamodel:topic #68 (0.010): 0.029*the + 0.018*to + 0.018*of + 0.017*a + 0.012*for + 0.010*in + 0.010*is + 0.009*- + 0.009*on + 0.008*and
+INFO:gensim.models.ldamodel:topic #69 (0.010): 0.015*a + 0.012*the + 0.012*and + 0.011*to + 0.011*at + 0.009*in + 0.008*for + 0.008*of + 0.008*i + 0.006*-
+INFO:gensim.models.ldamodel:topic #70 (0.010): 0.021*the + 0.017*to + 0.015*a + 0.012*and + 0.012*of + 0.012*in + 0.011*is + 0.009*for + 0.008*with + 0.007*i
+INFO:gensim.models.ldamodel:topic #71 (0.010): 0.024*the + 0.017*to + 0.015*a + 0.013*in + 0.012*i + 0.012*of + 0.009*for + 0.008*- + 0.008*on + 0.008*is
+INFO:gensim.models.ldamodel:topic #72 (0.010): 0.028*the + 0.022*to + 0.020*of + 0.015*and + 0.014*in + 0.012*for + 0.012*a + 0.011*- + 0.009*i + 0.009*you
+INFO:gensim.models.ldamodel:topic #73 (0.010): 0.021*the + 0.015*to + 0.012*in + 0.012*a + 0.011*i + 0.010*and + 0.010*of + 0.009*is + 0.009*- + 0.009*on
+INFO:gensim.models.ldamodel:topic #74 (0.010): 0.031*the + 0.022*to + 0.018*a + 0.015*of + 0.013*for + 0.012*you + 0.012*in + 0.011*and + 0.009*is + 0.009*i
+INFO:gensim.models.ldamodel:topic #75 (0.010): 0.028*the + 0.025*to + 0.021*a + 0.015*of + 0.012*for + 0.012*and + 0.010*is + 0.010*- + 0.010*you + 0.010*in
+INFO:gensim.models.ldamodel:topic #76 (0.010): 0.023*the + 0.015*to + 0.013*of + 0.013*a + 0.012*and + 0.011*at + 0.011*in + 0.009*is + 0.009*you + 0.009*for
+INFO:gensim.models.ldamodel:topic #77 (0.010): 0.023*the + 0.019*a + 0.018*to + 0.013*of + 0.011*in + 0.010*and + 0.009*i + 0.009*for + 0.008*is + 0.008*on
+INFO:gensim.models.ldamodel:topic #78 (0.010): 0.024*the + 0.018*a + 0.017*to + 0.015*in + 0.011*- + 0.011*of + 0.010*i + 0.008*on + 0.008*and + 0.008*for
+INFO:gensim.models.ldamodel:topic #79 (0.010): 0.031*the + 0.022*to + 0.017*a + 0.016*of + 0.016*i + 0.013*for + 0.011*and + 0.011*in + 0.011*is + 0.010*you
+INFO:gensim.models.ldamodel:topic #80 (0.010): 0.027*the + 0.017*a + 0.012*for + 0.012*in + 0.011*to + 0.010*of + 0.009*is + 0.008*and + 0.007*via + 0.007*on
+INFO:gensim.models.ldamodel:topic #81 (0.010): 0.019*the + 0.014*of + 0.014*to + 0.010*a + 0.009*is + 0.009*and + 0.008*for + 0.008*on + 0.008*in + 0.007*i
+INFO:gensim.models.ldamodel:topic #82 (0.010): 0.021*the + 0.018*to + 0.017*of + 0.014*in + 0.012*a + 0.012*on + 0.011*for + 0.010*i + 0.009*is + 0.009*at
+INFO:gensim.models.ldamodel:topic #83 (0.010): 0.021*the + 0.017*to + 0.017*a + 0.015*i + 0.013*of + 0.011*in + 0.010*for + 0.009*you + 0.009*and + 0.008*at
+INFO:gensim.models.ldamodel:topic #84 (0.010): 0.021*a + 0.018*the + 0.015*to + 0.013*of + 0.010*i + 0.010*for + 0.009*in + 0.009*on + 0.009*is + 0.008*you
+INFO:gensim.models.ldamodel:topic #85 (0.010): 0.030*the + 0.017*a + 0.017*to + 0.012*i + 0.012*for + 0.009*and + 0.009*you + 0.009*in + 0.008*is + 0.008*of
+INFO:gensim.models.ldamodel:topic #86 (0.010): 0.024*to + 0.021*the + 0.019*for + 0.018*a + 0.014*of + 0.013*i + 0.011*on + 0.011*and + 0.009*my + 0.009*you
+INFO:gensim.models.ldamodel:topic #87 (0.010): 0.029*the + 0.017*to + 0.017*a + 0.013*for + 0.012*in + 0.011*and + 0.011*of + 0.010*on + 0.008*you + 0.008*is
+INFO:gensim.models.ldamodel:topic #88 (0.010): 0.027*the + 0.022*to + 0.019*a + 0.016*in + 0.014*of + 0.014*for + 0.011*is + 0.010*on + 0.009*i + 0.009*you
+INFO:gensim.models.ldamodel:topic #89 (0.010): 0.035*the + 0.024*to + 0.015*a + 0.013*i + 0.013*is + 0.013*of + 0.012*in + 0.011*and + 0.010*on + 0.009*for
+INFO:gensim.models.ldamodel:topic #90 (0.010): 0.024*the + 0.019*to + 0.019*a + 0.014*of + 0.014*and + 0.011*for + 0.011*in + 0.010*i + 0.009*you + 0.007*at
+INFO:gensim.models.ldamodel:topic #91 (0.010): 0.034*the + 0.026*a + 0.019*to + 0.015*for + 0.013*and + 0.011*in + 0.011*is + 0.010*of + 0.009*i + 0.008*you
+INFO:gensim.models.ldamodel:topic #92 (0.010): 0.027*the + 0.015*to + 0.013*in + 0.013*of + 0.012*is + 0.012*and + 0.011*a + 0.011*i + 0.011*for + 0.010*on
+INFO:gensim.models.ldamodel:topic #93 (0.010): 0.023*the + 0.019*to + 0.014*a + 0.014*in + 0.014*is + 0.011*for + 0.011*- + 0.010*of + 0.009*and + 0.007*i
+INFO:gensim.models.ldamodel:topic #94 (0.010): 0.022*the + 0.022*to + 0.017*a + 0.013*of + 0.012*in + 0.012*is + 0.011*for + 0.010*and + 0.008*i + 0.008*at
+INFO:gensim.models.ldamodel:topic #95 (0.010): 0.035*the + 0.017*a + 0.014*of + 0.013*and + 0.013*to + 0.012*in + 0.012*for + 0.011*at + 0.010*on + 0.008*is
+INFO:gensim.models.ldamodel:topic #96 (0.010): 0.037*the + 0.017*to + 0.016*a + 0.015*of + 0.014*in + 0.012*and + 0.010*is + 0.009*i + 0.009*on + 0.008*for
+INFO:gensim.models.ldamodel:topic #97 (0.010): 0.022*a + 0.019*to + 0.018*the + 0.012*of + 0.012*for + 0.012*is + 0.012*in + 0.011*and + 0.010*on + 0.009*i
+INFO:gensim.models.ldamodel:topic #98 (0.010): 0.026*the + 0.021*to + 0.016*a + 0.014*in + 0.012*i + 0.011*for + 0.011*of + 0.010*you + 0.009*is + 0.009*and
+INFO:gensim.models.ldamodel:topic #99 (0.010): 0.016*to + 0.015*the + 0.013*a + 0.010*of + 0.009*for + 0.008*i + 0.008*is + 0.008*in + 0.008*de + 0.007*you
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:summa.preprocessing.cleaner:'pattern' package not found; tag filters are not available for English
+INFO:gensim.corpora.dictionary:built Dictionary(193739 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'bloqueos']...) from 326 documents (total 2577532 corpus positions)
+INFO:gensim.corpora.dictionary:adding document #0 to Dictionary(0 unique tokens: [])
+INFO:gensim.corpora.dictionary:built Dictionary(192304 unique tokens: [u'biennials', u'considered,', u'considered.', u'ready!!', u'vang']...) from 326 documents (total 2483442 corpus positions)
+INFO:gensim.corpora.dictionary:built Dictionary(201828 unique tokens: [u'fawn', u'considered.', u'ready!!', u'vang', u'considered,']...) from 328 documents (total 2681494 corpus positions)
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/6499a3_corpus.txt
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/e98c21_corpus.txt
+INFO:gensim.corpora.dictionary:built Dictionary(202368 unique tokens: [u'biennials', u'fawn', u'considered.', u'ready!!', u'vang']...) from 328 documents (total 2663137 corpus positions)
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/fc6c0d_corpus.txt
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/397331_corpus.txt
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/e98c21_corpus.txt --output /tmp/e98c21_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/6499a3_corpus.txt --output /tmp/6499a3_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:training MALLET LDA with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet train-topics --input /tmp/e98c21_corpus.mallet --num-topics 100 --optimize-interval 0 --num-threads 4 --output-state /tmp/e98c21_state.mallet.gz --output-doc-topics /tmp/e98c21_doctopics.txt --output-topic-keys /tmp/e98c21_topickeys.txt --num-iterations 1000 --inferencer-filename /tmp/e98c21_inferencer.mallet
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/397331_corpus.txt --output /tmp/397331_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/fc6c0d_corpus.txt --output /tmp/fc6c0d_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:training MALLET LDA with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet train-topics --input /tmp/6499a3_corpus.mallet --num-topics 100 --optimize-interval 0 --num-threads 4 --output-state /tmp/6499a3_state.mallet.gz --output-doc-topics /tmp/6499a3_doctopics.txt --output-topic-keys /tmp/6499a3_topickeys.txt --num-iterations 1000 --inferencer-filename /tmp/6499a3_inferencer.mallet
+INFO:gensim.models.wrappers.ldamallet:training MALLET LDA with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet train-topics --input /tmp/397331_corpus.mallet --num-topics 100 --optimize-interval 0 --num-threads 4 --output-state /tmp/397331_state.mallet.gz --output-doc-topics /tmp/397331_doctopics.txt --output-topic-keys /tmp/397331_topickeys.txt --num-iterations 1000 --inferencer-filename /tmp/397331_inferencer.mallet
+INFO:gensim.models.wrappers.ldamallet:training MALLET LDA with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet train-topics --input /tmp/fc6c0d_corpus.mallet --num-topics 100 --optimize-interval 0 --num-threads 4 --output-state /tmp/fc6c0d_state.mallet.gz --output-doc-topics /tmp/fc6c0d_doctopics.txt --output-topic-keys /tmp/fc6c0d_topickeys.txt --num-iterations 1000 --inferencer-filename /tmp/fc6c0d_inferencer.mallet
+INFO:gensim.models.wrappers.ldamallet:loading assigned topics from /tmp/e98c21_state.mallet.gz
+INFO:gensim.models.wrappers.ldamallet:loaded assigned topics for 1541979 tokens
+INFO:gensim.models.wrappers.ldamallet:topic #71 (0.050): 0.139*- + 0.015*arbitration + 0.012*canvas + 0.011*catprogram + 0.010*law + 0.010*instructure + 0.008*court + 0.007*legal + 0.007*learning + 0.007*students
+INFO:gensim.models.wrappers.ldamallet:topic #89 (0.050): 0.009*. + 0.004*app + 0.004*email + 0.004*vía + 0.004*thecodinglove + 0.004*e3 + 0.003*@ + 0.003*:d + 0.003*tucker + 0.003*nowplaying
+INFO:gensim.models.wrappers.ldamallet:topic #58 (0.050): 0.012*great + 0.012*good + 0.008*time + 0.006*work + 0.006*make + 0.005*nice + 0.005*dont + 0.005*twitter + 0.005*im + 0.005*talk
+INFO:gensim.models.wrappers.ldamallet:topic #20 (0.050): 0.015*wcim1314 + 0.008*typeacon + 0.007*good + 0.007*1000 + 0.007*morning + 0.007*words + 0.007*writing + 0.006*cc + 0.005*training + 0.004*hows
+INFO:gensim.models.wrappers.ldamallet:topic #26 (0.050): 0.063*- + 0.034*free + 0.030*coupon + 0.019*deals + 0.013*+ + 0.012*coupons + 0.010*top + 0.010*more! + 0.008*check + 0.008*today
+INFO:gensim.models.wrappers.ldamallet:topic #40 (0.050): 0.103*credit + 0.080*card + 0.035*... + 0.020*cards + 0.017*- + 0.010*police + 0.008*theft + 0.008*fraud + 0.008*stolen + 0.008*debt
+INFO:gensim.models.wrappers.ldamallet:topic #8 (0.050): 0.034*english + 0.027*academic + 0.023*research + 0.019*solutions: + 0.015*ciid + 0.012*writing + 0.010*book + 0.010*section + 0.009*related + 0.009*(english
+INFO:gensim.models.wrappers.ldamallet:topic #7 (0.050): 0.090*seo + 0.053*- + 0.045*require + 0.042*latest + 0.042*jobs: + 0.032*job: + 0.031*marketing + 0.030*manager + 0.024*– + 0.019*executive
+INFO:gensim.models.wrappers.ldamallet:topic #49 (0.050): 0.026*de + 0.018*van + 0.016*het + 0.014*en + 0.013*ik + 0.012*een + 0.011*voor + 0.011*op + 0.009*met + 0.009*thaesis
+INFO:gensim.models.wrappers.ldamallet:topic #38 (0.050): 0.039*mendeley + 0.019*- + 0.010*rt: + 0.009*elsevier + 0.008*open + 0.008*. + 0.006*science + 0.005*im + 0.005*access + 0.004*:-)
+INFO:gensim.models.wrappers.ldamallet:topic #44 (0.050): 0.043*memo + 0.013*crazy + 0.013*tip + 0.011*fraudsters: + 0.009*eddie + 0.009*fraud + 0.007*$hlf + 0.006*accounting + 0.006*$tsla + 0.005*to:
+INFO:gensim.models.wrappers.ldamallet:topic #24 (0.050): 0.028*storify + 0.027*youve + 0.026*story + 0.026*quoted + 0.014*recap + 0.014*impact + 0.009*arizonawildcats + 0.009*asu + 0.008*summit + 0.008*-
+INFO:gensim.models.wrappers.ldamallet:topic #74 (0.050): 0.046*cfai + 0.035*member + 0.030*- + 0.026*art + 0.021*daily + 0.015*cfai.co + 0.014*| + 0.012*artists + 0.010*horse + 0.009*posted
+INFO:gensim.models.wrappers.ldamallet:topic #23 (0.050): 0.014*و + 0.012*rt: + 0.011*.. + 0.011*: + 0.010*في + 0.007*yelp + 0.007*:d + 0.006*lol + 0.005*على + 0.005*من
+INFO:gensim.models.wrappers.ldamallet:topic #88 (0.050): 0.030*paleo + 0.023*bites + 0.018*archive + 0.013*det + 0.011*är + 0.011*att + 0.011*på + 0.010*- + 0.010*episode + 0.009*du
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/e98c21_corpus.txt
+INFO:gensim.models.wrappers.ldamallet:loading assigned topics from /tmp/fc6c0d_state.mallet.gz
+INFO:gensim.models.wrappers.ldamallet:loading assigned topics from /tmp/397331_state.mallet.gz
+INFO:gensim.models.wrappers.ldamallet:loaded assigned topics for 1648114 tokens
+INFO:gensim.models.wrappers.ldamallet:topic #71 (0.050): 0.012*-- + 0.005*icwsm + 0.005*/cc + 0.004*actual + 0.004*test + 0.004*trec + 0.003*surely + 0.003*spider_io + 0.003*sigir + 0.003*python
+INFO:gensim.models.wrappers.ldamallet:topic #89 (0.050): 0.010*scandal + 0.009*... + 0.008*watching + 0.007*onceuponatime + 0.006*sharktank + 0.006*30rock + 0.005*snl + 0.004*ouat + 0.004*love + 0.004*thegoodwife
+INFO:gensim.models.wrappers.ldamallet:topic #58 (0.050): 0.037*lifelog + 0.023*chad + 0.022*capellman + 0.021*sigir2013 + 0.020*says: + 0.020*alex + 0.020*valli + 0.011*huffpost + 0.008*qconsf + 0.008*linkedin
+INFO:gensim.models.wrappers.ldamallet:topic #20 (0.050): 0.046*word + 0.045*day: + 0.017*- + 0.013*googleexplorer + 0.012*icic + 0.008*merry + 0.008*glass + 0.007*google + 0.007*good + 0.006*all!
+INFO:gensim.models.wrappers.ldamallet:topic #26 (0.050): 0.063*beauty + 0.060*makeup + 0.035*mineral + 0.033*etsy + 0.027*orglamix + 0.020*cosmetics + 0.016*green + 0.016*organic + 0.016*eco + 0.014*eye
+INFO:gensim.models.wrappers.ldamallet:topic #40 (0.050): 0.087*seo + 0.048*- + 0.034*news: + 0.031*content + 0.023*marketing + 0.019*writing + 0.016*| + 0.016*freelance + 0.013*career + 0.013*business
+INFO:gensim.models.wrappers.ldamallet:topic #8 (0.050): 0.019*nptalk + 0.019*sapcrm + 0.013*sap + 0.012*mmccon + 0.012*cmgrchat + 0.007*on! + 0.006*:-) + 0.005*:) + 0.005*time + 0.005*:-(
+INFO:gensim.models.wrappers.ldamallet:topic #7 (0.050): 0.052*animalworld + 0.023*– + 0.020*pet + 0.018*animal-world + 0.012*... + 0.011*featured + 0.010*hair + 0.009*animal-world’s + 0.009*eredcarpet + 0.009*-
+INFO:gensim.models.wrappers.ldamallet:topic #49 (0.050): 0.030*checked + 0.010*(checked + 0.008*de + 0.007*im + 0.007*added + 0.007*richmond + 0.007*video + 0.007*community + 0.007*gerry + 0.007*church
+INFO:gensim.models.wrappers.ldamallet:topic #38 (0.050): 0.010*rt: + 0.008*news + 0.004*man + 0.004*story + 0.003*. + 0.003*north + 0.003*bbc + 0.003*chinese + 0.002*sex + 0.002*guy
+INFO:gensim.models.wrappers.ldamallet:topic #44 (0.050): 0.022*rt: + 0.013*w/ + 0.008*boston + 0.007*| + 0.007*df13 + 0.007*international + 0.006*airport + 0.006*others) + 0.006*social + 0.005*post:
+INFO:gensim.models.wrappers.ldamallet:topic #24 (0.050): 0.041*review + 0.030*giveaway + 0.015*– + 0.014*giftideas + 0.014*latest: + 0.013*(sponsored) + 0.011*sponsored + 0.010*mom + 0.010*recipes + 0.009*ad
+INFO:gensim.models.wrappers.ldamallet:topic #74 (0.050): 0.043*| + 0.017*video + 0.012*oldpost + 0.010*added + 0.010*playlist + 0.008*- + 0.007*:) + 0.005*video: + 0.005*:-) + 0.005*security
+INFO:gensim.models.wrappers.ldamallet:topic #23 (0.050): 0.028*data + 0.017*big + 0.015*google + 0.011*analytics + 0.011*startup + 0.010*cloud + 0.010*rt: + 0.009*marketing + 0.009*mobile + 0.008*business
+INFO:gensim.models.wrappers.ldamallet:topic #88 (0.050): 0.018*rt: + 0.014*+ + 0.010*mobile + 0.009*hhl09 + 0.008*tweetsinspace + 0.007*research + 0.007*geohistorian + 0.006*sigml + 0.005*learning + 0.005*lwf11
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/fc6c0d_corpus.txt
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/e98c21_corpus.txt --output /tmp/e98c21_corpus.mallet.infer --use-pipe-from /tmp/e98c21_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:inferring topics with MALLET LDA '/home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet infer-topics --input /tmp/e98c21_corpus.mallet.infer --inferencer /tmp/e98c21_inferencer.mallet --output-doc-topics /tmp/e98c21_doctopics.txt.infer --num-iterations 100'
+INFO:gensim.models.wrappers.ldamallet:loaded assigned topics for 1642824 tokens
+INFO:gensim.models.wrappers.ldamallet:topic #71 (0.050): 0.067*free + 0.031*freebies + 0.009*typeacon + 0.009*birthday + 0.008*pax + 0.007*points + 0.005*rewards + 0.004*grow + 0.004*10 + 0.004*pampers
+INFO:gensim.models.wrappers.ldamallet:topic #89 (0.050): 0.056*cfai + 0.043*member + 0.033*art + 0.023*daily + 0.019*- + 0.018*cfai.co + 0.017*cop19 + 0.015*artists + 0.015*divestment + 0.014*fossil
+INFO:gensim.models.wrappers.ldamallet:topic #58 (0.050): 0.018*de + 0.011*badnovelopenings + 0.007*copywriter + 0.007*-- + 0.006*transatlantictvmashup + 0.006*ha + 0.006*és + 0.006*csr + 0.005*amb + 0.005*els
+INFO:gensim.models.wrappers.ldamallet:topic #20 (0.050): 0.015*netflix + 0.012*kdd2013 + 0.012*yelp + 0.011*cikm2013 + 0.011*talk + 0.009*recsys + 0.008*data + 0.007*learning + 0.006*checked + 0.006*oakland
+INFO:gensim.models.wrappers.ldamallet:topic #26 (0.050): 0.015*kidneywk13 + 0.006*dc + 0.006*christmas + 0.005*dc) + 0.005*(washington, + 0.005*rt: + 0.004*hammlect + 0.004*tree + 0.004*mizzou + 0.004*literally
+INFO:gensim.models.wrappers.ldamallet:topic #40 (0.050): 0.052*job + 0.038*jobs + 0.026*senior + 0.023*- + 0.019*fabrik + 0.016*content + 0.014*ingram + 0.014*group + 0.013*developer + 0.013*tn
+INFO:gensim.models.wrappers.ldamallet:topic #8 (0.050): 0.023*video + 0.015*- + 0.015*:-) + 0.013*oldpost + 0.012*added + 0.011*playlist + 0.007*video: + 0.005*favorited + 0.005*sound + 0.005*vimeo:
+INFO:gensim.models.wrappers.ldamallet:topic #7 (0.050): 0.021*vía + 0.009*- + 0.008*;-) + 0.005*rt: + 0.005*facebook + 0.004*nowplaying + 0.004*♫ + 0.004*:-) + 0.004*| + 0.004*noches
+INFO:gensim.models.wrappers.ldamallet:topic #49 (0.050): 0.067*:) + 0.010*- + 0.008*happy + 0.007*sa + 0.005*ang + 0.005*/cc + 0.005*bvb + 0.003*na + 0.003*waiting + 0.003*napolessurrenders
+INFO:gensim.models.wrappers.ldamallet:topic #38 (0.050): 0.012*de + 0.009*gerry + 0.007*block + 0.007*bbq + 0.006*spanish + 0.006*chefs + 0.006*big + 0.006*la + 0.006*2013. + 0.006*party
+INFO:gensim.models.wrappers.ldamallet:topic #44 (0.050): 0.027*great + 0.020*rt: + 0.019*love + 0.014*:) + 0.010*check + 0.010*good + 0.010*happy + 0.009*im + 0.007*day + 0.006*amazing
+INFO:gensim.models.wrappers.ldamallet:topic #24 (0.050): 0.038*paleo + 0.029*bites + 0.023*- + 0.022*archive + 0.012*episode + 0.010*podcast + 0.009*sugar + 0.008*rt: + 0.007*balanced + 0.007*healthy
+INFO:gensim.models.wrappers.ldamallet:topic #74 (0.050): 0.063*data + 0.047*- + 0.038*big + 0.035*| + 0.032*bigdata + 0.024*analytics + 0.017*semantic + 0.012*nlproc + 0.011*▸ + 0.011*pawcon
+INFO:gensim.models.wrappers.ldamallet:topic #23 (0.050): 0.008*sobre + 0.008*... + 0.005*getxoblog + 0.004*intraemprendizaje + 0.004*mmecanica + 0.004*transparencia + 0.003*nsa + 0.003*público + 0.003*españa + 0.003*gobierno
+INFO:gensim.models.wrappers.ldamallet:topic #88 (0.050): 0.020*art + 0.016*rt: + 0.008*visualambassador + 0.008*illustration + 0.008*horse + 0.006*show + 0.006*de + 0.006*work + 0.005*design + 0.005*la
+INFO:gensim.models.wrappers.ldamallet:serializing temporary corpus to /tmp/397331_corpus.txt
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/fc6c0d_corpus.txt --output /tmp/fc6c0d_corpus.mallet.infer --use-pipe-from /tmp/fc6c0d_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:inferring topics with MALLET LDA '/home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet infer-topics --input /tmp/fc6c0d_corpus.mallet.infer --inferencer /tmp/fc6c0d_inferencer.mallet --output-doc-topics /tmp/fc6c0d_doctopics.txt.infer --num-iterations 100'
+INFO:gensim.models.wrappers.ldamallet:converting temporary corpus to MALLET format with /home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet import-file --preserve-case --keep-sequence --remove-stopwords --token-regex '\S+' --input /tmp/397331_corpus.txt --output /tmp/397331_corpus.mallet.infer --use-pipe-from /tmp/397331_corpus.mallet
+INFO:gensim.models.wrappers.ldamallet:inferring topics with MALLET LDA '/home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet infer-topics --input /tmp/397331_corpus.mallet.infer --inferencer /tmp/397331_inferencer.mallet --output-doc-topics /tmp/397331_doctopics.txt.infer --num-iterations 100'
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/gender.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/gender.yml..
+INFO:tictacs.parse:Added entry grid_params..
+WARNING:tictacs.parse:Added entry grid_params has been interpreted as data
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+WARNING:tictacs.parse:Added entry LDA has been interpreted as data
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/gender.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/gender.yml..
+INFO:tictacs.parse:Added entry grid_params..
+WARNING:tictacs.parse:Added entry grid_params has been interpreted as data
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/gender.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/gender.yml..
+INFO:tictacs.parse:Added entry grid_params..
+WARNING:tictacs.parse:Added entry grid_params has been interpreted as data
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry LDA..
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry soa..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry FeatureSelector..
+WARNING:tictacs.parse:Added entry FeatureSelector has been interpreted as data
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry soa..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry FeatureSelector..
+WARNING:tictacs.parse:Added entry FeatureSelector has been interpreted as data
+INFO:tictacs.parse:Added entry html cleaner..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:created tictac object from recipe config/recipes/age.yml
+INFO:tictacs.parse:Reading recipe from file: config/recipes/age.yml..
+INFO:tictacs.parse:Added entry soa..
+INFO:tictacs.parse:Added entry svm..
+INFO:tictacs.parse:Added entry detwittifier..
+INFO:tictacs.parse:Added entry FeatureSelector..
+WARNING:tictacs.parse:Added entry FeatureSelector has been interpreted as data
+INFO:tictacs.parse:Added entry html cleaner..

@@ -28,11 +28,11 @@ pipeline:
            # - count repl
            #- count wlength
            #- count tokens
-           - twcnb
+           #- twcnb
            #- skNMF
            #- skLDA
            - soa_model
-           - soac_model
+           #- soac_model
            #- lsi_model
       #- select
       #- print 2
@@ -50,14 +50,6 @@ xgboost:
   estimator_pkg: pan.features
   estimator_params:
     num_boost_round: 10
-
-skNMF: 
-  label: skNMF
-  estimator: skNMF
-  estimator_pkg: pan.features
-  estimator_params:
-    verbose: 1
-    random_state: 42
 
 skLDA:
   label: skLDA
@@ -191,6 +183,14 @@ lsi:
   estimator_pkg: pan.features
   estimator_params:
     num_topics: 200
+
+skNMF:
+  label: skNMF
+  estimator: skNMF
+  estimator_pkg: pan.features
+  estimator_params:
+    random_state: 42
+    verbose: 1
 
 html cleaner:
   label: clean html

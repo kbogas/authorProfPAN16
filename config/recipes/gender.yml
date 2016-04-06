@@ -13,9 +13,9 @@ pipeline:
           transformer_list:
             - count 3grams tfidf
             #- count tokens
-            - twcnb
+            #- twcnb
             - soa_model
-            - soac_model
+            #- soac_model
             #- lsi_model
       #- dtree
       - svm

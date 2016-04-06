@@ -283,17 +283,18 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
         # with open(stopwords_path, 'r') as stop_inp:
         # for w in stop_inp:
         # stop_list.append(w.replace("\n", ""))
-        print tokenizer_var
+        # print tokenizer_var
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
+        self.tokenizer_var = tokenizer_var
         self.term_table = None
         self.labels = None
-        if tokenizer_var == '1':
+        if self.tokenizer_var == '1':
             self.tokenization = tokenization
-        elif tokenizer_var == '2':
+        elif self.tokenizer_var == '2':
             self.tokenization = tokenization2
-        elif tokenizer_var == '3':
+        elif self.tokenizer_var == '3':
             self.tokenization = _twokenize.tokenizeRawTweetText
         else:
             self.tokenization = None
@@ -375,17 +376,18 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
         # with open(stopwords_path, 'r') as stop_inp:
         # for w in stop_inp:
         # stop_list.append(w.replace("\n", ""))
-        print tokenizer_var
+        # print tokenizer_var
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
+        self.tokenizer_var = tokenizer_var
         self.term_table = None
         self.labels = None
-        if tokenizer_var == '1':
+        if self.tokenizer_var == '1':
             self.tokenization = tokenization
-        elif tokenizer_var == '2':
+        elif self.tokenizer_var == '2':
             self.tokenization = tokenization2
-        elif tokenizer_var == '3':
+        elif self.tokenizer_var == '3':
             self.tokenization = _twokenize.tokenizeRawTweetText
         else:
             self.tokenization = None
@@ -834,12 +836,14 @@ class skLDA(BaseEstimator, TransformerMixin):
         from sklearn.feature_extraction.text import CountVectorizer
         from sklearn.decomposition import LatentDirichletAllocation
 
-        print "num topics:" + str(n_topics)
-        print "verbose:" + str(verbose)
-        print "TRAVA TA MALIAA SOU"
+        self.n_topics = n_topics
+        self.verbose = verbose
+        self.random_state = random_state
+        # print "num topics:" + str(n_topics)
+        # print "verbose:" + str(verbose)
         self.labels = None
         # bazw manually ta numtopics ktlp giati pernane san None Orismata..Vale ta print an thes..
-        self.LDA = LatentDirichletAllocation(n_topics=50, verbose=1, random_state=42)
+        self.LDA = LatentDirichletAllocation(n_topics=self.n_topics, verbose=self.verbose, random_state=self.random_state, )
         # Conceptually much better results with TFIDFVECTORIZER(use_log tf)
         self.counter = CountVectorizer()
 
@@ -894,6 +898,7 @@ def print_top_words(model, feature_names, n_top_words):
                         for i in topic.argsort()[:-n_top_words - 1:-1]]))
     print()
 
+
 class skNMF(BaseEstimator, TransformerMixin):
 
     """ NMF model based on sklearn"""
@@ -902,10 +907,11 @@ class skNMF(BaseEstimator, TransformerMixin):
         from sklearn.feature_extraction.text import TfidfVectorizer
         from sklearn.decomposition import NMF
 
-        print "verbose:" + str(verbose)
+        self.verbose = verbose
+        self.random_state = random_state
+        # print "verbose:" + str(verbose)
         self.labels = None
-        # bazw manually ta numtopics ktlp giati pernane san None Orismata..Vale ta print an thes..
-        self.NMF = NMF(init='nndsvd', verbose=1, rnadom_state=42)
+        self.NMF = NMF(init='nndsvd', verbose=self.verbose, random_state=self.random_state)
         # Conceptually much better results with TFIDFVECTORIZER(use_log tf)
         self.counter = TfidfVectorizer(sublinear_tf=True)
 
@@ -951,9 +957,8 @@ class skNMF(BaseEstimator, TransformerMixin):
             print_top_words(self.NFM, tf_feature_names, 20)
             return doc_topics
 
+
 class XGBoostClassifier(BaseEstimator, TransformerMixin):
-
-
 
     def __init__(self, num_boost_round=10, **params):
 

@@ -127,10 +127,16 @@ class ProfilingDataset(DatasetLoader):
                           if f.endswith('.xml')]
             for test_file in test_files:
                 userid = test_file.split('.')[0]
+                # We define the number of attributes needed for each user!! HARDCODED TODO..
+                self.num_attrs = 2
+                # pprint.pprint(self.num_attrs)
                 # values are empty for test dataset
                 values = sum([(userid,), (Pan.EMPTY,)*self.num_attrs], ())
                 line = Pan.SEPARATOR.join(values)
                 lines.append(line)
+            # pprint.pprint(lines)
+            # pprint.pprint(lines)
+            # exit()
         # Method is the same from here on, since we've gotten or created
         # the lines with the values needed
         for line in lines:

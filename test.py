@@ -29,6 +29,8 @@ def test_data(dataset, model, task):
         # if it's not, we measure mean square root error (regression)
         sqe = mean_squared_error(y, predict)
         print('mean squared error : {}'.format(math.sqrt(sqe)))
+    # import pprint
+    # pprint.pprint(predict)
     dataset.set_labels(task, predict)
 
 

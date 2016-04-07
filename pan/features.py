@@ -881,7 +881,7 @@ class LDA(BaseEstimator, TransformerMixin):
                 self.dictionary = corpora.Dictionary(X)
                 self.corpus = [self.dictionary.doc2bow(text) for text in X]
                 if self.lib == 'gensim':
-                    self.LDA = models.LdaModel(num_topics=self.num_topics, corpus=self.corpus, id2word=self.dictionary)
+                    self.LDA = models.LdaModel(num_topics=self.num_topics, corpus=self.corpus, id2word=self.dictionary, minimum_probability=0.00)
                 elif self.lib == 'mallet':
                     self.LDA = models.wrappers.LdaMallet('/home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet', corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
             else:
@@ -890,11 +890,12 @@ class LDA(BaseEstimator, TransformerMixin):
                     'encoding': 'utf-8',
                     'decode_error': 'ignore',
                     'analyzer': 'word',
+                    'stop_words': 'english',
                     # 'vocabulary':list(voc),
                     #'tokenizer': tokenization,
                     #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
                     #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
-                    'max_df': 0.9,
+                    'max_df': 0.8,
                     'min_df': 5,
                     'max_features': 5000
                 }
@@ -925,7 +926,9 @@ class LDA(BaseEstimator, TransformerMixin):
                     print self.lib
                     print 'dic'
                     #print self.__dict__
-                doc_topics = self.LDA[test_corpus]
+                doc_topics1 = self.LDA[test_corpus]
+                doc_topics1 = [[topic[1] for topic in doc] for doc in doc_topics1]
+                doc_topics = numpy.array(doc_topics1)
                 print("\nTopics in LDA model:")
                 self.LDA.print_topics(self.num_topics, 10)
             return doc_topics

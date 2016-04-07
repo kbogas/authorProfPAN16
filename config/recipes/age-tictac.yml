@@ -1,0 +1,292 @@
+pipeline:
+  label: english
+  estimator: Pipeline
+  estimator_pkg: sklearn.pipeline
+  estimator_params:
+    steps:
+      - clean html
+      - detwittify
+      #- printer_1
+      #- label: print-entry
+      #  estimator: Sentinel
+      #  estimator_pkg: tictacs.wrappers
+      #  estimator_params:
+      #   x: 1
+      #   y: 1
+      #   shape: True
+      #   py_type: True
+      # - remove duplicates
+      # - features
+      - label: features
+        estimator: FeatureUnion
+        estimator_pkg: sklearn.pipeline
+        estimator_params:
+          transformer_list:
+           - 3grams
+           # - count hash
+           # - count url
+           # - count repl
+           #- count wlength
+           #- count tokens
+           #- twcnb
+           #- skNMF
+           #- skLDA
+           #- LDA
+           - soa_model
+           #- soac_model
+           #- lsi_model
+      #- select
+      #- print 2
+      #- printer
+      #- mvb
+      #- max soa
+      #- ada
+      # - FeatureSelector
+      - svm
+      #- xgboost
+      #- dtree
+
+
+############## PREPROCESSING ###################
+
+html cleaner:
+  label: clean html
+  estimator: clean_html
+  estimator_pkg: pan.preprocess
+
+detwittifier:
+  label: detwittify
+  estimator: detwittify
+  estimator_pkg: pan.preprocess
+
+# duplicate remover:
+#   label: remove duplicates
+#   estimator: remove_duplicates
+#   estimator_pkg: pan.preprocess
+
+
+############ FEATURE TRANSFORMATIONS ######################
+
+# count tokens:
+#   label: count tokens
+#   estimator: CountTokens
+#   estimator_pkg: pan.features
+
+
+# # Gia mono tou C= 10 , kernel=rbf, 0.3916
+# counthash:
+#   label: count hash
+#   estimator: CountHash
+#   estimator_pkg: pan.features
+
+# counturl:
+#   label: count url
+#   estimator: CountURLs
+#   estimator_pkg: pan.features
+
+# countreplies:
+#   label: count repl
+#   estimator: CountReplies
+#   estimator_pkg: pan.features
+
+
+# count_word_lengths:
+#   label: count wlength
+#   estimator: CountWordLength
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     span: [1, 4]
+
+
+
+
+# skLDA:
+#   label: skLDA
+#   estimator: skLDA
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     n_topics: 100
+#     verbose: 1
+#     random_state: 42
+
+# LDA:
+#   label: LDA
+#   estimator: LDA
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     num_topics: 100
+#     lib: 'gensim'
+
+# twcnb:
+#   label: twcnb
+#   estimator: TWCNB
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     max_df: 1.0
+#     min_df: 5
+#     max_features: 5000
+
+# lsi:
+#   label: lsi_model
+#   estimator: LSI_Model
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     num_topics: 200
+
+# skNMF:
+#   label: skNMF
+#   estimator: skNMF
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     n_components: 100
+#     random_state: 42
+#     verbose: 1
+
+
+# feature_selection:
+#   label: select
+#   estimator: SelectKBest
+#   estimator_pkg: sklearn.feature_selection
+#   estimator_params:
+#     score_func: chi2
+#     k: 100
+
+
+
+tfidf:
+  label: 3grams
+  estimator: TfidfVectorizer
+  estimator_pkg: sklearn.feature_extraction.text
+  estimator_params:
+    analyzer: char
+    ngram_range: [3, 3]
+    max_features: 5000
+
+
+# Gia mono tou C= 1 , kernel=rbf, 0.41
+soa:
+  label: soa_model
+  estimator: SOA_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 5
+    tokenizer_var: 'sklearn'
+    max_features: 5000
+
+# soac:
+#   label: soac_model
+#   estimator: SOAC_Model2
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     max_df: 1.0
+#     min_df: 5
+#     tokenizer_var: 'sklearn'
+#     max_features: 5000
+
+# FeatureSelector:
+#   label: FeatureSelector
+#   estimator: FeatureSelector
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     K: 100
+
+
+####################### PREDICTOR ######################
+
+# mvb:
+#   label: mvb
+#   estimator: MultinomialNB
+#   estimator_pkg: sklearn.naive_bayes
+#   estimator_params:
+#     alpha: 1
+#     fit_prior: True
+
+# decision:
+#   label: dtree
+#   estimator: DecisionTreeClassifier
+#   estimator_pkg: sklearn.tree
+#   estimator_params:
+#     class_weight: 'balanced'
+
+# adaensemble:
+#   label: ada
+#   estimator: AdaBoostClassifier
+#   estimator_pkg: sklearn.ensemble
+#   estimator_params:
+#     n_estimators: 100
+
+# max soa:
+#   label: max soa
+#   estimator: SOA_Predict
+#   estimator_pkg: pan.features
+
+
+# xgboost:
+#   label: xgboost
+#   estimator: XGBoostClassifier
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     num_boost_round: 10
+
+svm:
+  label: svm
+  estimator: SVC
+  estimator_pkg: sklearn.svm
+  estimator_params:
+    kernel: rbf
+    # C: 1 gia SOA + PAN15
+    C: 100
+    # 1 or 10 for SOA
+    gamma: 1 
+    class_weight: 'balanced'
+
+############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
+
+# grid_params:
+#   - features__LDA__lib: ['gensim', 'sklearn']
+#     features__LDA__num_topics: [30, 60, 90, 120, 150]
+#     svm__C: [0.01, 0.1, 1, 10, 100]
+#     svm__kernel: [rbf, linear, sigmoid]
+#  - features__soa_model__max_df: [1.0, 0.8]
+#    features__soa_model__tokenizer_var: ['sklearn', '1', '2', '3']
+#  - mvb__fit_prior: [True, False]
+  # - features__twcnb__max_df: [1.0, 0.8]
+    # features__twcnb__min_df: [1, 5, 10]
+    # features__twcnb__max_features: [None, 5000, 10000, 15000]
+#    features__3grams__max_features: [1000, 3000]
+ # - svm__C: [0.01, 0.1, 1, 10, 100]
+   # svm__kernel: [rbf, linear, sigmoid]
+#     svm__kernel: [linear]
+#     svm__class_weight: [auto, null]
+# - svm__C: [0.01, 0.1, 1, 10, 100]
+#   features__lsi_model__num_topics: [100, 150, 200, 300]
+#     svm__kernel: [rbf, sigmoid]
+#  - svm__gamma: [0.001, 0.01, 0.1, 1, 10, 100]
+#     svm__class_weight: [auto, null]
+#     3grams__max_features:  [1000, 3000, 5000, 7500, 10000, null]
+
+
+
+#############  PRINTERS #################
+
+
+# printer:
+#   label: printer
+#   estimator: PrintLen
+#   estimator_pkg: pan.features
+
+# print2:
+#   label: print 2  
+#   estimator: Sentinel
+#   estimator_pkg: tictacs.wrappers
+#   estimator_params:
+#       # only print second row of classifier input
+#       # other options can be disabled if you like
+#       x: 1
+#       # change y to number to see specific element
+#       y: null
+#       # change shape to False if you don't want it printed
+#       shape: True
+#       # change py_type to False if you don't want it printed
+#       py_type: True

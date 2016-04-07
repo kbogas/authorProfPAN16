@@ -1,6 +1,6 @@
 """ accessor for configuration settings of pan """
 import yaml
-import os.path
+import os
 from collections import OrderedDict
 
 # some global strings
@@ -41,6 +41,17 @@ class Config(object):
                             for label, values
                             in self._settings.items()
                             if ONLY_DATA not in values.keys()}
+        
+        # ADDDED ONLY FOR VOTING CLASSIFIER..IF THERE IS A PROBLEM DELETE CODE!!!!
+        ############################ DELETE FROM HERE ########################
+        #import pprint
+        #pprint.pprint(self.recipes)
+        files = os.listdir(recipe_folder)
+        #pprint.pprint(files)
+        for fil in files:
+            self.recipes.update({fil.replace(".yml",""):os.path.join(recipe_folder, fil)})
+        #pprint.pprint(self.recipes)
+        ############################ TILL HERE ########################
 
     def __getitem__(self, key):
         """ Accessor for predictors using key

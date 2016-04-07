@@ -22,7 +22,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-           #- 3grams
+           - 3grams
            # - count hash
            # - count url
            # - count repl
@@ -32,7 +32,6 @@ pipeline:
            #- skNMF
            #- skLDA
            #- LDA
-           - FeatureSelector
            - soa_model
            #- soac_model
            #- lsi_model
@@ -42,6 +41,7 @@ pipeline:
       #- mvb
       #- max soa
       #- ada
+      # - FeatureSelector
       - svm
       #- xgboost
       #- dtree
@@ -66,14 +66,6 @@ detwittifier:
 
 
 ############ FEATURE TRANSFORMATIONS ######################
-
-
-FeatureSelector:
-  label: FeatureSelector
-  estimator: FeatureSelector
-  estimator_pkg: pan.features
-  estimator_params:
-    K: 100
 
 # count tokens:
 #   label: count tokens
@@ -123,7 +115,7 @@ FeatureSelector:
 #   estimator_pkg: pan.features
 #   estimator_params:
 #     num_topics: 100
-#     lib: 'sklearn'
+#     lib: 'gensim'
 
 # twcnb:
 #   label: twcnb
@@ -161,17 +153,17 @@ FeatureSelector:
 
 
 
-# tfidf:
-#   label: 3grams
-#   estimator: TfidfVectorizer
-#   estimator_pkg: sklearn.feature_extraction.text
-#   estimator_params:
-#     analyzer: char
-#     ngram_range: [3, 3]
-#     max_features: 5000
+tfidf:
+  label: 3grams
+  estimator: TfidfVectorizer
+  estimator_pkg: sklearn.feature_extraction.text
+  estimator_params:
+    analyzer: char
+    ngram_range: [3, 3]
+    max_features: 5000
 
 
-# # Gia mono tou C= 1 , kernel=rbf, 0.41
+# Gia mono tou C= 1 , kernel=rbf, 0.41
 soa:
   label: soa_model
   estimator: SOA_Model2
@@ -191,6 +183,13 @@ soa:
 #     min_df: 5
 #     tokenizer_var: 'sklearn'
 #     max_features: 5000
+
+# FeatureSelector:
+#   label: FeatureSelector
+#   estimator: FeatureSelector
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     K: 100
 
 
 ####################### PREDICTOR ######################
@@ -245,6 +244,10 @@ svm:
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 
 # grid_params:
+#   - features__LDA__lib: ['gensim', 'sklearn']
+#     features__LDA__num_topics: [30, 60, 90, 120, 150]
+#     svm__C: [0.01, 0.1, 1, 10, 100]
+#     svm__kernel: [rbf, linear, sigmoid]
 #  - features__soa_model__max_df: [1.0, 0.8]
 #    features__soa_model__tokenizer_var: ['sklearn', '1', '2', '3']
 #  - mvb__fit_prior: [True, False]

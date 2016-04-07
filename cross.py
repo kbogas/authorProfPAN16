@@ -6,6 +6,7 @@ from pan import ProfilingDataset, createDocProfiles, create_target_prof_trainset
 from tictacs import from_recipe
 from json import dumps
 from sklearn.grid_search import GridSearchCV
+from sklearn.cross_validation import StratifiedShuffleSplit
 from sklearn.metrics import confusion_matrix, accuracy_score
 import logging
 logging.basicConfig(filename='example.log',level=logging.DEBUG)

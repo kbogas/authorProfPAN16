@@ -410,3 +410,27 @@ Task:gender, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100,
 Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'sklearn'}]+svm
 Results: en - age, params: {} ,Accuracy_Mean: 0.419724770642
 Task:gender, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'sklearn'}]+svm
+Task:age, Pipeline:clean html+detwittify+soa_model with Params:[{'max_features': 5000, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 5}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'sklearn'}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.419724770642
+Task:gender, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'sklearn'}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.616972477064
+Time: 299.281909943 seconds.
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'sklearn'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'mallet'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.27752293578
+Task:gender, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.591743119266
+Time: 469.429924011 seconds.
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'mallet'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'mallet'}]+svm
+Task:age, Pipeline:clean html+detwittify+LDA with Params:[{'num_topics': 100, 'lib': 'gensim'}]+svm

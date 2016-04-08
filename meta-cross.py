@@ -7,6 +7,8 @@ from pan import ProfilingDataset
 from sklearn.ensemble import VotingClassifier
 from sklearn.grid_search import GridSearchCV
 from json import dumps
+# from metaclassisfier import Metaclassifier
+from sklearn.cross_validation import train_test_split
 # import dill
 # import cPickle as pickle
 # from sklearn.neighbors import KNeighborsClassifier
@@ -14,7 +16,7 @@ from json import dumps
 log = []
 
 
-def cross_val(dataset, task, model, num_folds=4):
+def cross_val(X, y, dataset, task, model, num_folds=4):
     """ train and cross validate a model
 
     :lang: the language
@@ -29,7 +31,7 @@ def cross_val(dataset, task, model, num_folds=4):
     #    X, y = create_target_prof_trainset(docs, task)
     # docs = createDocProfiles(dataset)
     # X, y = create_target_prof_trainset(docs, task)
-    X, y = dataset.get_data(task)
+    #X, y = dataset.get_data(task)
     # y = [yy.lower() for yy in y]
     # get parameters for grid search if it exists - else pass empty dict
     params = model.grid_params if hasattr(model, 'grid_params') else dict()
@@ -85,17 +87,17 @@ if __name__ == '__main__':
     config = dataset.config
     tasks = config.tasks
     print('\n--------------- Thy time of Running ---------------')
-    list_model_names = ['tictac', 'lda', 'voting']
+    list_model_names = ['tictac', 'lda', 'soac', 'voting']
     total_model = {}
     for model_name in list_model_names:
         all_models = {}
-        if model_name != 'voting':
+        if model_name != 'voting' and model_name != 'meta':
             for task in tasks:
                 print('Learning to judge %s with %s' % (task, model_name))
                 # load data
-                #X, y = dataset.get_data(task)
-                #if 'meta' in list_model_names:
-                #    X, X_cv, y, y_cv = train_test_split(X, y, test_size=split, random_state=42, stratify=y)
+                X, y = dataset.get_data(task)
+                if 'meta' in list_model_names:
+                    X, X_cv, y, y_cv = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
                 tictac = from_recipe(config.recipes[task + '-' + model_name])
                 outline = ""
                 for step in tictac.steps:
@@ -113,14 +115,24 @@ if __name__ == '__main__':
                         outline += step[0] + "+"
                 outline = outline[:-1] + "\n"
                 print('Task:{}, Pipeline:{}'.format(task, outline))
-                all_models[task] = cross_val(dataset, task, tictac, num_folds)
+                all_models[task] = cross_val(X, y, dataset, task, tictac, num_folds)
         elif model_name == 'voting':
             for task in tasks:
                 model_list = []
                 print('Learning to judge %s with %s' % (task, model_name))
                 #X, y = dataset.get_data(task)
-                model_list = [(name, all_model[task])for name, all_model in total_model.iteritems() if name != 'ensemble']
-                all_models[task] = cross_val(dataset, task, VotingClassifier(estimators=model_list, voting='hard'), num_folds)
+                X, y = dataset.get_data(task)
+                if 'meta' in list_model_names:
+                    X, X_cv, y, y_cv = train_test_split(X, y, test_size=split, random_state=42, stratify=y)
+                model_list = [(name, all_model[task])for name, all_model in total_model.iteritems() if (name != 'voting' and name != 'ensemble')]
+                all_models[task] = cross_val(X, y, dataset, task, VotingClassifier(estimators=model_list, voting='hard'), num_folds)
+        elif model_name == 'meta':
+            for task in tasks:
+                model_list = []
+                print('Learning to judge %s with %s' % (task, model_name))
+                Meta = Metaclassifier(total_model)
+                Meta.fit(X_cv, y_cv)
+                all_models[task] = cross_val(X, y, dataset, task, Meta, num_folds)
         else:
             print("Can't do anything with this %s model!" % model_name)
         print("Tha swsw to modelo %s!!" % model_name)

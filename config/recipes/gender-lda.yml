@@ -4,19 +4,22 @@ pipeline:
   estimator_pkg: sklearn.pipeline
   estimator_params:
     steps:
-      - clean html
-      - detwittify
+      #- clean html
+      #- detwittify
       - label: features
         estimator: FeatureUnion
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
             #- count 3grams tfidf
-            #- count tokens
+            - count hash
+            - count url
+            - count repl
+            - count tokens
             #- twcnb
             #- skLDA
             #- skNMF
-            - LDA
+            #- LDA
             #- soa_model
             #- soac_model
             #- lsi_model
@@ -30,25 +33,42 @@ pipeline:
 
 ############## PREPROCESSING ###################
 
-html cleaner:
-  label: clean html
-  estimator: clean_html
-  estimator_pkg: pan.preprocess
+# html cleaner:
+#   label: clean html
+#   estimator: clean_html
+#   estimator_pkg: pan.preprocess
 
-detwittifier:
-  label: detwittify
-  estimator: detwittify
-  estimator_pkg: pan.preprocess
+# detwittifier:
+#   label: detwittify
+#   estimator: detwittify
+#   estimator_pkg: pan.preprocess
   
 
 ############ FEATURE TRANSFORMATIONS ######################
 
 
 
-# count tokens:
-#   label: count tokens
-#   estimator: CountTokens
-#   estimator_pkg: pan.features
+count tokens:
+  label: count tokens
+  estimator: CountTokens
+  estimator_pkg: pan.features
+
+
+# Gia mono tou C= 10 , kernel=rbf, 0.3916
+counthash:
+  label: count hash
+  estimator: CountHash
+  estimator_pkg: pan.features
+
+counturl:
+  label: count url
+  estimator: CountURLs
+  estimator_pkg: pan.features
+
+countreplies:
+  label: count repl
+  estimator: CountReplies
+  estimator_pkg: pan.features
 
 
 # tfidf:
@@ -68,7 +88,7 @@ detwittifier:
 #     max_df: 1.0
 #     min_df: 5
 #     tokenizer_var: 'sklearn'
-#     max_features: 5000
+#     max_features: None
 
 # soac:
 #   label: soac_model
@@ -78,17 +98,18 @@ detwittifier:
 #     max_df: 1.0
 #     min_df: 5
 #     tokenizer_var: 'sklearn'
-#     max_features: 5000
+#     max_features: None
 
 
-# twcnb:
-#   label: twcnb
-#   estimator: TWCNB
-#   estimator_pkg: pan.features
-#   estimator_params:
-#     max_df: 1.0
-#     min_df: 5
-#     max_features: 5000
+twcnb:
+  label: twcnb
+  estimator: TWCNB
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 5
+    max_features: None
+    tokenizer_var: 'sklearn'
 
 # skNMF:
 #   label: skNMF
@@ -116,13 +137,13 @@ detwittifier:
 #     num_topics: 200
 
 
-LDA:
-  label: LDA
-  estimator: LDA
-  estimator_pkg: pan.features
-  estimator_params:
-    num_topics: 90
-    lib: 'sklearn'
+# LDA:
+#   label: LDA
+#   estimator: LDA
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     num_topics: 90
+#     lib: 'mallet'
 
 ####################### PREDICTOR ######################
 
@@ -167,20 +188,20 @@ svm:
   estimator: LinearSVC
   estimator_pkg: sklearn.svm
   estimator_params:
-    C: 0.1 
+    C: 1000 
     class_weight: 'balanced'
 
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 
 # grid_params:
-#   - features__LDA__lib: ['gensim', 'sklearn']
+#   - features__LDA__lib: ['gensim', 'mallet']
 #     features__LDA__num_topics: [30, 60, 90, 120, 150]
 #     svm__C: [0.01, 0.1, 1, 10, 100, 1000]
- #- features__twcnb__max_df: [1.0, 0.9, 0.8]
- #  features__twcnb__min_df: [1, 5, 10]
- #  features__twcnb__max_features: [None, 10000, 15000]
-  # - svm__C: [0.01, 0.1, 1, 10, 100]
+ # - features__twcnb__max_df: [1.0, 0.9, 0.8]
+ #   features__twcnb__min_df: [1, 5, 10]
+ #   features__twcnb__max_features: [None, 5000, 10000]
+   # svm__C: [0.01, 0.1, 1, 10, 100]
 #     svm__kernel: [linear]
 #     svm__class_weight: [auto, null]
 #     3grams__max_features:  [1000, 3000, 5000, 7500, 10000, null]

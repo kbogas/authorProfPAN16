@@ -537,7 +537,7 @@ class TWCNB(BaseEstimator, TransformerMixin):
     """ Models that extracts Second Order Attributes
      based on Rennie, Shih, Teevan and Karger </Paper>"""
 
-    def __init__(self, max_df=1.0, min_df=5, max_features=None):
+    def __init__(self, max_df=1.0, min_df=5, tokenizer_var = 'sklearn', max_features=None):
         from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
         
 
@@ -548,8 +548,17 @@ class TWCNB(BaseEstimator, TransformerMixin):
         self.max_df = max_df
         self.min_df = min_df
         self.max_features = max_features
+        self.tokenizer_var = tokenizer_var
         self.term_table = None
         self.labels = None
+        if self.tokenizer_var == '1':
+            self.tokenization = tokenization
+        elif self.tokenizer_var == '2':
+            self.tokenization = tokenization2
+        elif self.tokenizer_var == '3':
+            self.tokenization = _twokenize.tokenizeRawTweetText
+        else:
+            self.tokenization = None
         # self.lsi = None
         # self.dictionary = None
         # self.num_topics = 100
@@ -579,7 +588,7 @@ class TWCNB(BaseEstimator, TransformerMixin):
                 'decode_error': 'ignore',
                 'analyzer': 'word',
                 # 'vocabulary':list(voc),
-                #'tokenizer': tokenization,
+                'tokenizer': self.tokenization,
                 #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
                 #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
                 'max_df': self.max_df,
@@ -883,7 +892,7 @@ class LDA(BaseEstimator, TransformerMixin):
                 if self.lib == 'gensim':
                     self.LDA = models.LdaModel(num_topics=self.num_topics, corpus=self.corpus, id2word=self.dictionary, minimum_probability=0.00)
                 elif self.lib == 'mallet':
-                    self.LDA = models.wrappers.LdaMallet('/home/kostas/Downloads/mallet-2.0.8RC3/bin/mallet', corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
+                    self.LDA = models.wrappers.LdaMallet('/home/kostas/Downloads/mallet-2.0.7/bin/mallet', corpus=self.corpus, num_topics=self.num_topics, id2word=self.dictionary)
             else:
                 parameters = {
                     'input': 'content',

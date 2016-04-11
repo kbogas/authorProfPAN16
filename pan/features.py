@@ -16,6 +16,14 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from misc import _twokenize
 
 
+def logloss(y_true, Y_pred):
+
+    import math
+    import numpy as np
+
+    label2num = dict((name, i) for i, name in enumerate(sorted(set(y_true))))
+    return -1 * sum(math.log(y[label2num[label]]) if y[label2num[label]] > 0 else -np.inf for y, label in zip(Y_pred, y_true)) / len(Y_pred)
+
 def tokenization(text):
 
         import re
@@ -1139,10 +1147,113 @@ class XGBoostClassifier(BaseEstimator, TransformerMixin):
         return self
 
 
-def logloss(y_true, Y_pred):
+class Metaclassifier(BaseEstimator, TransformerMixin):
 
-    import math
-    import numpy as np
+    """ A Linear Weights Metaclassifier """
 
-    label2num = dict((name, i) for i, name in enumerate(sorted(set(y_true))))
-    return -1 * sum(math.log(y[label2num[label]]) if y[label2num[label]] > 0 else -np.inf for y, label in zip(Y_pred, y_true)) / len(Y_pred)
+    def __init__(self, models, C=1.0, weights='balanced'):
+
+        from sklearn.svm import LinearSVC
+        from sklearn.preprocessing import LabelEncoder
+
+        if not models:
+            raise AttributeError('Models expexts a dictonary of models \
+              containg the predictions of y_true for each classifier')
+        self.models = models
+        self.weights = weights
+        self.C = C
+        self.svc = LinearSVC(C=self.C, class_weight=self.weights)
+        self.lab_encoder = LabelEncoder()
+
+    def fit(self, X_cv, y_true=None, weights=None):
+
+        if y_true is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            # import pprint
+            print list(set(y_true))
+            # print len(y_true)
+            y_true = self.lab_encoder.fit_transform(y_true)
+            print self.models.keys()
+            # print self.lab_encoder.classes_
+            # print self.models[self.models.keys()[1]].predict(X_cv)
+            #y_true = self.create_onehot(y_true)
+            # print "Train X shape: " + str(X_cv.shape) + "train y_true " + str(y_true.shape)
+            transformed_y = self.transform_to_y(X_cv)
+            #X = self.oh_encoder.transform(y_pred.T)
+            print transformed_y.shape, y_true.T.shape
+            print "fit true"
+            # print transformed_y
+            # print y_true
+            self.svc.fit(transformed_y, y_true.T)
+            return self
+
+    def predict(self, X):
+
+        # print "PRedict"
+        # print X.shape
+        X = self.transform_to_y(X)
+        # print "PRedict after"
+        # print X.shape
+        # print X.T.shape
+        import pprint
+        # pprint.pprint(X)
+        # pprint.pprint(X.T)
+        print "Predict"
+        y_pred = self.svc.predict(X)
+        pprint.pprint(y_pred)
+        pprint.pprint(self.lab_encoder.inverse_transform(y_pred))
+        return self.lab_encoder.inverse_transform(y_pred)
+
+    def score(self, X, y, sample_weight=None):
+
+        # import numpy
+        # print "Score"
+        # print X.shape, numpy.array(y).shape
+        # transformed_y = self.transform_to_y(X)
+        # print 'edw ok'
+        # print self.svc.predict(transformed_y).shape
+        # print 'Transformed'
+        # print transformed_y.shape
+        from sklearn.metrics import accuracy_score
+        import pprint
+        print "Ture"
+        pprint.pprint(y)
+
+        return accuracy_score(y, self.predict(X), normalize=True)
+        #return self.svc.score(self.transform_to_y(X), y, sample_weight)
+
+    def create_onehot(self, l):
+
+        from numpy import zeros, vstack
+        #print "L:"
+        #from pprint import pprint as pprint
+        #print type(l)
+        # pprint(l)
+        l = list(l)
+        for i, el in enumerate(l):
+            temp = zeros([1, len(self.lab_encoder.classes_)], dtype=float)
+            #print(temp.shape)
+           # pprint(temp)
+            temp[0, el] = 1
+            if i == 0:
+                fin = temp
+            else:
+                fin = vstack((fin, temp))
+        #print "onehot shape" + str(fin.shape)
+        return fin
+
+    def transform_to_y(self, X):
+
+        from numpy import hstack
+
+        # print "Train X shape: " + str(X.shape)
+        for i, model in enumerate(self.models.values()):
+            print self.models.keys()[i]
+            tmp_pred = self.create_onehot(self.lab_encoder.transform(model.predict(X)))
+            if i == 0:
+                y_pred = tmp_pred
+            else:
+                y_pred = hstack((y_pred, tmp_pred))
+        # print "y_pred: " + str(y_pred.shape)
+        return y_pred

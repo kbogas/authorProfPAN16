@@ -114,8 +114,8 @@ detwittifier:
 #   estimator: LDA
 #   estimator_pkg: pan.features
 #   estimator_params:
-#     num_topics: 100
-#     lib: 'gensim'
+#     num_topics: 30
+#     lib: 'sklearn'
 
 # twcnb:
 #   label: twcnb

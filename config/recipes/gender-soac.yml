@@ -17,7 +17,7 @@ pipeline:
             #- skLDA
             #- skNMF
             #- LDA
-            - soa_model
+            #- soa_model
             - soac_model
             #- lsi_model
       #- dtree
@@ -60,15 +60,15 @@ detwittifier:
 #     ngram_range: [3, 3]
 
 
-soa:
-  label: soa_model
-  estimator: SOA_Model2
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    tokenizer_var: 'sklearn'
-    max_features: None
+# soa:
+#   label: soa_model
+#   estimator: SOA_Model2
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     max_df: 1.0
+#     min_df: 5
+#     tokenizer_var: 'sklearn'
+#     max_features: None
 
 soac:
   label: soac_model
@@ -121,8 +121,8 @@ soac:
 #   estimator: LDA
 #   estimator_pkg: pan.features
 #   estimator_params:
-#     num_topics: 100
-#     lib: 'gensim'
+#     num_topics: 150
+#     lib: 'sklearn'
 
 ####################### PREDICTOR ######################
 
@@ -167,7 +167,7 @@ svm:
   estimator: LinearSVC
   estimator_pkg: sklearn.svm
   estimator_params:
-    C: 0.1 
+    C: 1
     class_weight: 'balanced'
 
 

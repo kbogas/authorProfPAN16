@@ -4,23 +4,23 @@ pipeline:
   estimator_pkg: sklearn.pipeline
   estimator_params:
     steps:
-      #- clean html
-      #- detwittify
+      - clean html
+      - detwittify
       - label: features
         estimator: FeatureUnion
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
             #- count 3grams tfidf
-            - count hash
-            - count url
-            - count repl
-            - count tokens
+            # - count hash
+            # - count url
+            # - count repl
+            # - count tokens
             #- twcnb
             #- skLDA
             #- skNMF
             #- LDA
-            #- soa_model
+            - soa_model
             #- soac_model
             #- lsi_model
       #- dtree
@@ -33,42 +33,42 @@ pipeline:
 
 ############## PREPROCESSING ###################
 
-# html cleaner:
-#   label: clean html
-#   estimator: clean_html
-#   estimator_pkg: pan.preprocess
+html cleaner:
+  label: clean html
+  estimator: clean_html
+  estimator_pkg: pan.preprocess
 
-# detwittifier:
-#   label: detwittify
-#   estimator: detwittify
-#   estimator_pkg: pan.preprocess
+detwittifier:
+  label: detwittify
+  estimator: detwittify
+  estimator_pkg: pan.preprocess
   
 
 ############ FEATURE TRANSFORMATIONS ######################
 
 
 
-count tokens:
-  label: count tokens
-  estimator: CountTokens
-  estimator_pkg: pan.features
+# count tokens:
+#   label: count tokens
+#   estimator: CountTokens
+#   estimator_pkg: pan.features
 
 
-# Gia mono tou C= 10 , kernel=rbf, 0.3916
-counthash:
-  label: count hash
-  estimator: CountHash
-  estimator_pkg: pan.features
+# # Gia mono tou C= 10 , kernel=rbf, 0.3916
+# counthash:
+#   label: count hash
+#   estimator: CountHash
+#   estimator_pkg: pan.features
 
-counturl:
-  label: count url
-  estimator: CountURLs
-  estimator_pkg: pan.features
+# counturl:
+#   label: count url
+#   estimator: CountURLs
+#   estimator_pkg: pan.features
 
-countreplies:
-  label: count repl
-  estimator: CountReplies
-  estimator_pkg: pan.features
+# countreplies:
+#   label: count repl
+#   estimator: CountReplies
+#   estimator_pkg: pan.features
 
 
 # tfidf:
@@ -80,15 +80,15 @@ countreplies:
 #     ngram_range: [3, 3]
 
 
-# soa:
-#   label: soa_model
-#   estimator: SOA_Model2
-#   estimator_pkg: pan.features
-#   estimator_params:
-#     max_df: 1.0
-#     min_df: 5
-#     tokenizer_var: 'sklearn'
-#     max_features: None
+soa:
+  label: soa_model
+  estimator: SOA_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 5
+    tokenizer_var: 'sklearn'
+    max_features: None
 
 # soac:
 #   label: soac_model
@@ -101,15 +101,15 @@ countreplies:
 #     max_features: None
 
 
-twcnb:
-  label: twcnb
-  estimator: TWCNB
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    max_features: None
-    tokenizer_var: 'sklearn'
+# twcnb:
+#   label: twcnb
+#   estimator: TWCNB
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     max_df: 1.0
+#     min_df: 5
+#     max_features: None
+#     tokenizer_var: 'sklearn'
 
 # skNMF:
 #   label: skNMF
@@ -188,7 +188,7 @@ svm:
   estimator: LinearSVC
   estimator_pkg: sklearn.svm
   estimator_params:
-    C: 1000 
+    C: 1
     class_weight: 'balanced'
 
 

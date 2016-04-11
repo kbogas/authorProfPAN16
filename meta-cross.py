@@ -7,7 +7,7 @@ from pan import ProfilingDataset
 from sklearn.ensemble import VotingClassifier
 from sklearn.grid_search import GridSearchCV
 from json import dumps
-# from metaclassisfier import Metaclassifier
+from pan.features import Metaclassifier
 from sklearn.cross_validation import train_test_split
 # import dill
 # import cPickle as pickle
@@ -15,6 +15,13 @@ from sklearn.cross_validation import train_test_split
 # from sklearn.metrics import accuracy_score, confusion_matrix
 log = []
 
+
+def test_models(name, model, X, y):
+
+    accuracy = model.score(X, y)
+    log.append('Model %s  with Accuracy : %s' % (name, accuracy))
+    print 'Model %s  with Accuracy : %s' % (name, accuracy)
+    return
 
 def cross_val(X, y, dataset, task, model, num_folds=4):
     """ train and cross validate a model
@@ -35,10 +42,11 @@ def cross_val(X, y, dataset, task, model, num_folds=4):
     # y = [yy.lower() for yy in y]
     # get parameters for grid search if it exists - else pass empty dict
     params = model.grid_params if hasattr(model, 'grid_params') else dict()
-    print params
-    # from collections import Counter
-    # import pprint
-    # pprint.pprint(Counter(y))
+    #print params
+    from collections import Counter
+    import pprint
+    print "Num of samples: " + str(len(y))
+    pprint.pprint(Counter(y))
     print '\nCreating model for %s - %s' % (dataset.lang, task)
     print 'Trainining instances: %s\n' % (len(X))
     print 'Using %s fold validation' % (num_folds)
@@ -59,6 +67,9 @@ def cross_val(X, y, dataset, task, model, num_folds=4):
         log.append('Accuracy mean : %s' % accuracy)
         import pprint
         pprint.pprint(grid_cv.grid_scores_)
+        log.append('Model for task : %s' % task)
+        log.append(grid_cv.grid_scores_)
+        log.append('\n')
         with open('./comb_res/res.txt', 'a') as out:
             out.write('Results: %s - %s, params: %s ,Accuracy_Mean: %s\n' %
                       (dataset.lang, task,
@@ -80,6 +91,7 @@ if __name__ == '__main__':
     infolder = args.infolder
     num_folds = args.num_folds
     time_start = time.time()
+    split = 0.4
     print('Loading dataset->Grouping User texts.\n')
     dataset = ProfilingDataset(infolder)
     print('Loaded {} users...\n'.format(len(dataset.entries)))
@@ -97,7 +109,7 @@ if __name__ == '__main__':
                 # load data
                 X, y = dataset.get_data(task)
                 if 'meta' in list_model_names:
-                    X, X_cv, y, y_cv = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+                    X, X_cv, y, y_cv = train_test_split(X, y, test_size=split, random_state=42, stratify=y)
                 tictac = from_recipe(config.recipes[task + '-' + model_name])
                 outline = ""
                 for step in tictac.steps:
@@ -115,7 +127,8 @@ if __name__ == '__main__':
                         outline += step[0] + "+"
                 outline = outline[:-1] + "\n"
                 print('Task:{}, Pipeline:{}'.format(task, outline))
-                all_models[task] = cross_val(X, y, dataset, task, tictac, num_folds)
+                all_models[task] = tictac
+                #all_models[task] = cross_val(X, y, dataset, task, tictac, num_folds)
         elif model_name == 'voting':
             for task in tasks:
                 model_list = []
@@ -128,11 +141,37 @@ if __name__ == '__main__':
                 all_models[task] = cross_val(X, y, dataset, task, VotingClassifier(estimators=model_list, voting='hard'), num_folds)
         elif model_name == 'meta':
             for task in tasks:
-                model_list = []
+                model_dic = {}
+                for name, all_model in total_model.iteritems():
+                    if (name != 'voting' and name != 'meta'):
+                        model_dic[name] = all_model[task]
                 print('Learning to judge %s with %s' % (task, model_name))
-                Meta = Metaclassifier(total_model)
+                Meta = Metaclassifier(models=model_dic, C=1.0, weights='balanced')
+                X, y = dataset.get_data(task)
+                X, X_cv, y, y_cv = train_test_split(X, y, test_size=split, random_state=42, stratify=y)
+                X_cv, X_test, y_cv, y_test = train_test_split(X_cv, y_cv, test_size=0.5, random_state=42, stratify=y_cv)
+                print "Len X: " + str(len(X))
+                print "Len X_cv: " + str(len(X_cv))
+                print "Len X_test: " + str(len(X_test))
+                #params = {'C': [0.01, 0.1, 1, 10, 100, 1000]}
+                #from sklearn import grid_search
+                #clf = grid_search.GridSearchCV(Meta, params)
+                #clf.fit(X_cv, y_cv)
                 Meta.fit(X_cv, y_cv)
-                all_models[task] = cross_val(X, y, dataset, task, Meta, num_folds)
+                #model_dic['meta'] = Meta
+                import pprint
+                print "Meta coeff:"
+                pprint.pprint(Meta.svc.coef_)
+                print "Meta intercept"
+                pprint.pprint(Meta.svc.intercept_)
+                for name in model_dic.keys():
+                    test_models(name, model_dic[name], X_test, y_test)
+                print "Models"
+                print Meta.models.keys()
+                #test_models('Meta', clf, X_test, y_test)
+                test_models('Meta', Meta, X_test, y_test)
+                test_models('voting', total_model['voting'][task], X_test, y_test)
+                #all_models[task] = cross_val(X_test, y_test, dataset, task, Meta, num_folds)
         else:
             print("Can't do anything with this %s model!" % model_name)
         print("Tha swsw to modelo %s!!" % model_name)

@@ -23,16 +23,16 @@ pipeline:
         estimator_params:
           transformer_list:
            #- 3grams
-           - count hash
-           - count url
-           - count repl
+           #- count hash
+           #- count url
+           #- count repl
            #- count wlength
-           - count tokens
+           #- count tokens
            #- twcnb
            #- skNMF
            #- skLDA
            #- LDA
-           #- soa_model
+           - soa_model
            #- soac_model
            #- lsi_model
       #- select
@@ -67,27 +67,27 @@ pipeline:
 
 ############ FEATURE TRANSFORMATIONS ######################
 
-count tokens:
-  label: count tokens
-  estimator: CountTokens
-  estimator_pkg: pan.features
+# count tokens:
+#   label: count tokens
+#   estimator: CountTokens
+#   estimator_pkg: pan.features
 
 
-# Gia mono tou C= 10 , kernel=rbf, 0.3916
-counthash:
-  label: count hash
-  estimator: CountHash
-  estimator_pkg: pan.features
+# # Gia mono tou C= 10 , kernel=rbf, 0.3916
+# counthash:
+#   label: count hash
+#   estimator: CountHash
+#   estimator_pkg: pan.features
 
-counturl:
-  label: count url
-  estimator: CountURLs
-  estimator_pkg: pan.features
+# counturl:
+#   label: count url
+#   estimator: CountURLs
+#   estimator_pkg: pan.features
 
-countreplies:
-  label: count repl
-  estimator: CountReplies
-  estimator_pkg: pan.features
+# countreplies:
+#   label: count repl
+#   estimator: CountReplies
+#   estimator_pkg: pan.features
 
 
 # count_word_lengths:
@@ -165,15 +165,15 @@ countreplies:
 
 
 # # Gia mono tou C= 1 , kernel=rbf, 0.41
-# soa:
-#   label: soa_model
-#   estimator: SOA_Model2
-#   estimator_pkg: pan.features
-#   estimator_params:
-#     max_df: 1.0
-#     min_df: 5
-#     tokenizer_var: 'sklearn'
-#     max_features: None
+soa:
+  label: soa_model
+  estimator: SOA_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 5
+    tokenizer_var: 'sklearn'
+    max_features: None
 
 # soac:
 #   label: soac_model

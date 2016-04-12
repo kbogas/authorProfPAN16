@@ -161,6 +161,7 @@ class ProfilingDataset(DatasetLoader):
             # temp fix for 65-xx and 65-XX in data..
             #if name=='age' :
             #    ap_attrs[name] = values[column].lower()
+        # Temp Fix for dutch dataset filenames being interpreted as floats
         filename = os.path.join(self.folder, ap_attrs[Pan.ID_LABEL])
         xmlfile = filename + '.xml'
         # open file to get dataset - usually texts
@@ -194,8 +195,12 @@ class ProfilingDataset(DatasetLoader):
 
         """
         for entry in self.entries:
+            if entry.lang == 'nl':
+                entry.userid = str(int(entry.userid))
             filename = os.path.join(folder,
-                                    entry.lang + '-' + entry.userid) + '.xml'
+                                    entry.lang + '-' + str(entry.userid)) + '.xml'
+            # Temp Fix for dutch dataset filenames being interpreted as floats
+            print entry
             with open(filename, 'w') as output:
                 output.write(entry.to_xml())
 

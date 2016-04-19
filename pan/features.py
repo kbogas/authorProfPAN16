@@ -257,6 +257,15 @@ class CountTokens(BaseEstimator, TransformerMixin):
 
     """ Model that extracts a counter of capital words from text. """
 
+    def __init__(self):
+        self.l = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+                  'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+                  'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3',
+                  '4', '5', '6', '7', '8', '9', '!', '.', ':', '?']
+                  #';', ',', ')', '(', '-', '%', '$', '#', '@', '^',
+                  #'&', '*', '=', '+', '/', '"', "'", '<', '>', '|',
+                  #'~', '`']
+
     def fit(self, X, y=None):
         return self
 
@@ -267,13 +276,7 @@ class CountTokens(BaseEstimator, TransformerMixin):
         :returns: list of counts for each text
 
         """
-        l = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-             'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3',
-             '4', '5', '6', '7', '8', '9', '!', '.', ':', '?',
-             ';', ',', ')', '(', '-', '%', '$', '#', '@', '^',
-             '&', '*', '=', '+', '/', '"', "'", '<', '>', '|',
-             '~', '`']
+        l = self.l
         return [[text.lower().count(token) for token in l]
                 for text in texts]
 

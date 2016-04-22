@@ -139,7 +139,7 @@ class CountHash(BaseEstimator, TransformerMixin):
         :returns: list of counts for each text
 
         """
-        return [[len(CountHash.pat.findall(text))] for text in texts]
+        return [[len(CountHash.pat.findall(text)) / float(len(text))] for text in texts]
 
 
 class CountReplies(BaseEstimator, TransformerMixin):
@@ -158,7 +158,7 @@ class CountReplies(BaseEstimator, TransformerMixin):
         :returns: list of counts for each text
 
         """
-        return [[len(CountReplies.pat.findall(text))] for text in texts]
+        return [[len(CountReplies.pat.findall(text)) / float(len(text))] for text in texts]
 
 
 class CountURLs(BaseEstimator, TransformerMixin):
@@ -177,7 +177,7 @@ class CountURLs(BaseEstimator, TransformerMixin):
         :returns: list of counts for each text
 
         """
-        return [[len(CountURLs.pat.findall(text))] for text in texts]
+        return [[len(CountURLs.pat.findall(text)) / float(len(text))] for text in texts]
 
 
 class CountCaps(BaseEstimator, TransformerMixin):
@@ -277,7 +277,7 @@ class CountTokens(BaseEstimator, TransformerMixin):
 
         """
         l = self.l
-        return [[text.lower().count(token) for token in l]
+        return [[text.lower().count(token)/float(len(text)) for token in l]
                 for text in texts]
 
 # class SOA_Model2(object):

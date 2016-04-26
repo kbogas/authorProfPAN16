@@ -284,7 +284,7 @@ class CountTokens(BaseEstimator, TransformerMixin):
 
 class SOAC_Model2(BaseEstimator, TransformerMixin):
 
-    """ Complementary of SOA model"""
+    """ Complementary of SOA model 22"""
 
     def __init__(self, max_df=1.0, min_df=5,
                  tokenizer_var='sklearn', max_features=None):
@@ -301,6 +301,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
         self.tokenizer_var = tokenizer_var
         self.term_table = None
         self.labels = None
+        self.prior_row = None
         if self.tokenizer_var == '1':
             self.tokenization = tokenization
         elif self.tokenizer_var == '2':
@@ -319,7 +320,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
 
         import numpy
-
+        from sklearn.preprocessing import normalize
         print "We are fitting!"
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
@@ -342,25 +343,57 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             doc_term = self.counter.fit_transform(X)
             target_profiles = sorted(list(set(y)))
             self.labels = target_profiles
-            doc_prof = numpy.zeros([doc_term.shape[0], len(target_profiles)])
+            from collections import Counter
+            dd = Counter(y)
+            self.prior_row = numpy.zeros([1, len(target_profiles)])
+            for i, key in enumerate(sorted(dd.keys())):
+                dd[key] = dd[key]/float(len(y))
+                self.prior_row[0, i] = 1/dd[key]
+            print self.prior_row
+            # Gia to palio. Na vgalw kai doc_prof apo to transform
+            #self.prior_row = numpy.ones([1, len(target_profiles)])
+            doc_prof = numpy.tile(self.prior_row, (doc_term.shape[0], 1))
+            #print "Doc_PROF1"
+            #print doc_prof
+            #doc_prof = numpy.ones([doc_term.shape[0], len(target_profiles)])
             for i in range(0, doc_term.shape[0]):
-                tmp = numpy.ones([1, len(target_profiles)])
-                tmp[0, target_profiles.index(y[i])] = 0
-                doc_prof[i, :] = tmp
+                doc_prof[i, target_profiles.index(y[i])] = 0
+                #tmp = numpy.ones([1, len(target_profiles)])
+                #tmp[0, target_profiles.index(y[i])] = 0
+                #doc_prof[i, :] = tmp
+            #doc_prof = doc_prof / doc_prof.sum(axis=0)
+            import random
+            #print "example"
+            # print doc_prof[random.randint(1, 10), :]
+            #import pprint
+            #print "VOcab"
+            #pprint.pprint(self.counter.vocabulary_)
+            #print "doc_prof"
+            #pprint.pprint(doc_prof)
+            #print "doc_term"
+            #pprint.pprint(doc_term.transpose().toarray())
             doc_term.data = numpy.log2(doc_term.data + 1)
             term_prof = doc_term.transpose().dot(doc_prof)
+            #print "term_table"
+            #pprint.pprint(term_prof)
             # normalize against words
             term_prof = term_prof / term_prof.sum(axis=0)
+            # normalize(term_prof, norm='l1', axis=0, copy=False)
             # normalize across profiles
             term_prof = term_prof / \
                 numpy.reshape(
                    term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
+            # normalize(term_prof, norm='l1', axis=1, copy=False)
             self.term_table = term_prof
+            import pprint
+            #print "term_table"
+            #pprint.pprint(self.term_table)
             return self
 
     def transform(self, X, y=None):
 
         import numpy
+        from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
         print "We are transforming!"
         if self.labels is None:
@@ -371,13 +404,21 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             doc_prof = numpy.zeros(
                 [doc_term.shape[0], self.term_table.shape[1]])
             doc_prof = doc_term.dot(self.term_table)
-            return -doc_prof
+            print 'Doc_prof'
+            print doc_prof.shape, type(doc_prof)
+            # fake norm
+            for i in range(0, doc_prof.shape[0]):
+                doc_prof[i, :] = doc_prof[i, :] - doc_prof[i, :].min()
+            #print doc_prof
+            #from sklearn.preprocessing import normalize
+            #normalize(doc_prof, norm='l1', axis=1, copy=False)
+            return doc_prof
 
 
 class SOA_Model2(BaseEstimator, TransformerMixin):
 
     """ Models that extracts Second Order Attributes
-     (SOA) base on PAN 2013-2015 Winners"""
+     (SOA) base on PAN 2013-2015 Winners asd"""
 
     def __init__(self, max_df=1.0, min_df=5,
                  tokenizer_var='sklearn', max_features=None):
@@ -412,7 +453,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
 
         import numpy
-        from sklearn.preprocessing import StandardScaler, normalize
+        from sklearn.preprocessing import normalize
 
         print "We are fitting!"
         if y is None:
@@ -471,10 +512,12 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             print term_prof.shape, type(term_prof)
             # normalize against words
             term_prof = term_prof / term_prof.sum(axis=0)
+            # normalize(term_prof, norm='l1', axis=0, copy=False)
             # normalize across profiles
             term_prof = term_prof / \
                 numpy.reshape(
                    term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
+            # normalize(term_prof, norm='l1', axis=0, copy=False)
             print "Random Term_Prof"
             print term_prof[0,:]
             # term_prof = term_prof / \
@@ -511,6 +554,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             # print type(doc_prof)
             print 'Doc_prof'
             print doc_prof.shape, type(doc_prof)
+            print doc_prof[0,:]
             print "Len Voc: %s" % (str(len(self.counter.vocabulary_)))
             # import pprint
             # pprint.pprint(self.counter.vocabulary_)
@@ -540,6 +584,8 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             # c = numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))
             # print c.shape
             # return numpy.hstack((doc_prof, numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))))
+            #from sklearn.preprocessing import normalize
+            #normalize(doc_prof, norm='l1', axis=1, copy=False)
             return doc_prof
 
 

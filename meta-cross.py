@@ -91,7 +91,7 @@ if __name__ == '__main__':
     infolder = args.infolder
     num_folds = args.num_folds
     time_start = time.time()
-    split = 0.4
+    split = 0.3
     print('Loading dataset->Grouping User texts.\n')
     dataset = ProfilingDataset(infolder)
     print('Loaded {} users...\n'.format(len(dataset.entries)))
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     config = dataset.config
     tasks = config.tasks
     print('\n--------------- Thy time of Running ---------------')
-    list_model_names = ['tictac', 'lda', 'soac', 'voting']
+    list_model_names = ['tictac', 'soac', 'voting']
     total_model = {}
     for model_name in list_model_names:
         all_models = {}
@@ -138,7 +138,7 @@ if __name__ == '__main__':
                 if 'meta' in list_model_names:
                     X, X_cv, y, y_cv = train_test_split(X, y, test_size=split, random_state=42, stratify=y)
                 model_list = [(name, all_model[task])for name, all_model in total_model.iteritems() if (name != 'voting' and name != 'ensemble')]
-                all_models[task] = cross_val(X, y, dataset, task, VotingClassifier(estimators=model_list, voting='hard'), num_folds)
+                all_models[task] = cross_val(X, y, dataset, task, VotingClassifier(estimators=model_list, voting='soft'), num_folds)
         elif model_name == 'meta':
             for task in tasks:
                 model_dic = {}

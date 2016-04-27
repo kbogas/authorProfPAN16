@@ -76,7 +76,7 @@ soac:
   estimator_pkg: pan.features
   estimator_params:
     max_df: 1.0
-    min_df: 5
+    min_df: 1
     tokenizer_var: 'sklearn'
     max_features: None
 
@@ -162,14 +162,26 @@ soac:
 #   estimator_params:
 #     num_boost_round: 10
 
+# svm:
+#   label: svm
+#   estimator: LinearSVC
+#   estimator_pkg: sklearn.svm
+#   estimator_params:
+#     C: 10
+#     class_weight: 'balanced'
+
 svm:
   label: svm
-  estimator: LinearSVC
+  estimator: SVC
   estimator_pkg: sklearn.svm
   estimator_params:
-    C: 1
+    kernel: rbf
+    # C: 1 gia SOA + PAN15
+    C: 0.1
+    # 1 or 10 for SOA
+    gamma: 1 
     class_weight: 'balanced'
-
+    probability: True
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 

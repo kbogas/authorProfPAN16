@@ -32,7 +32,7 @@ pipeline:
            #- skNMF
            #- skLDA
            #- LDA
-           - soa_model
+           #- soa_model
            - soac_model
            #- lsi_model
       #- select
@@ -164,15 +164,15 @@ detwittifier:
 
 
 # Gia mono tou C= 1 , kernel=rbf, 0.41
-soa:
-  label: soa_model
-  estimator: SOA_Model2
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    tokenizer_var: 'sklearn'
-    max_features: None
+# soa:
+#   label: soa_model
+#   estimator: SOA_Model2
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     max_df: 1.0
+#     min_df: 5
+#     tokenizer_var: 'sklearn'
+#     max_features: None
 
 soac:
   label: soac_model
@@ -180,7 +180,7 @@ soac:
   estimator_pkg: pan.features
   estimator_params:
     max_df: 1.0
-    min_df: 5
+    min_df: 1
     tokenizer_var: 'sklearn'
     max_features: None
 
@@ -240,6 +240,7 @@ svm:
     # 1 or 10 for SOA
     gamma: 1 
     class_weight: 'balanced'
+    probability: True
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 

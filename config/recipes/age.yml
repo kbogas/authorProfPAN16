@@ -22,7 +22,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-           - 3grams
+           #- 3grams
            #- count hash
            #- count url
            #- count repl
@@ -32,8 +32,8 @@ pipeline:
            #- skNMF
            #- skLDA
            # - LDA
-           - soa_model
-           #- soac_model
+           #- soa_model
+           - soac_model
            #- lsi_model
       #- scaler
       #- select
@@ -155,36 +155,36 @@ detwittifier:
 
 
 
-tfidf:
-  label: 3grams
-  estimator: TfidfVectorizer
-  estimator_pkg: sklearn.feature_extraction.text
-  estimator_params:
-    analyzer: char
-    ngram_range: [3, 3]
-    max_features: 5000
+# tfidf:
+#   label: 3grams
+#   estimator: TfidfVectorizer
+#   estimator_pkg: sklearn.feature_extraction.text
+#   estimator_params:
+#     analyzer: char
+#     ngram_range: [3, 3]
+#     max_features: 5000
 
 
-# Gia mono tou C= 1 , kernel=rbf, 0.41
-soa:
-  label: soa_model
-  estimator: SOA_Model2
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    tokenizer_var: 'sklearn'
-    max_features: None
-
-# soac:
-#   label: soac_model
-#   estimator: SOAC_Model2
+# # Gia mono tou C= 1 , kernel=rbf, 0.41
+# soa:
+#   label: soa_model
+#   estimator: SOA_Model2
 #   estimator_pkg: pan.features
 #   estimator_params:
 #     max_df: 1.0
-#     min_df: 1
+#     min_df: 5
 #     tokenizer_var: 'sklearn'
 #     max_features: None
+
+soac:
+  label: soac_model
+  estimator: SOAC_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 1
+    tokenizer_var: 'sklearn'
+    max_features: None
 
 # FeatureSelector:
 #   label: FeatureSelector
@@ -248,7 +248,7 @@ svm:
     # 1 or 10 for SOA
     gamma: 1 
     class_weight: 'balanced'
-    probability: True
+#    probability: True
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 

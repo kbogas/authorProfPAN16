@@ -911,3 +911,4 @@ Time: 17.8607499599 seconds.
 Task:age, Pipeline:clean html+detwittify+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
 Results: es - age, params: {} ,Accuracy_Mean: 0.356
 Task:gender, Pipeline:clean html+detwittify+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Task:age, Pipeline:clean html+detwittify+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm

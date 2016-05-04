@@ -11,7 +11,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            - count 3grams tfidf
+            #- count 3grams tfidf
             # - count hash
             # - count url
             # - count repl
@@ -20,8 +20,8 @@ pipeline:
             #- skLDA
             #- skNMF
             #- LDA
-            - soa_model
-            #- soac_model
+            #- soa_model
+            - soac_model
             #- lsi_model
       #- dtree
       #- scaler
@@ -72,34 +72,34 @@ detwittifier:
 #   estimator_pkg: pan.features
 
 
-tfidf:
-  label: count 3grams tfidf
-  estimator: TfidfVectorizer
-  estimator_pkg: sklearn.feature_extraction.text
-  estimator_params:
-    analyzer: char
-    ngram_range: [3, 3]
+# tfidf:
+#   label: count 3grams tfidf
+#   estimator: TfidfVectorizer
+#   estimator_pkg: sklearn.feature_extraction.text
+#   estimator_params:
+#     analyzer: char
+#     ngram_range: [3, 3]
 
 
-soa:
-  label: soa_model
-  estimator: SOA_Model2
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    tokenizer_var: 'sklearn'
-    max_features: None
-
-# soac:
-#   label: soac_model
-#   estimator: SOAC_Model2
+# soa:
+#   label: soa_model
+#   estimator: SOA_Model2
 #   estimator_pkg: pan.features
 #   estimator_params:
 #     max_df: 1.0
-#     min_df: 1
+#     min_df: 5
 #     tokenizer_var: 'sklearn'
 #     max_features: None
+
+soac:
+  label: soac_model
+  estimator: SOAC_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 1
+    tokenizer_var: 'sklearn'
+    max_features: None
 
 
 # twcnb:
@@ -189,27 +189,27 @@ soa:
 #   estimator: MinMaxScaler
 #   estimator_pkg: sklearn.preprocessing
 
-svm:
-  label: svm
-  estimator: SVC
-  estimator_pkg: sklearn.svm
-  estimator_params:
-    kernel: rbf
-    # C: 1 gia SOA + PAN15
-    C: 0.1
-    # 1 or 10 for SOA
-    gamma: 1 
-    class_weight: 'balanced'
-    probability: True
-
 # svm:
 #   label: svm
-#   estimator: LinearSVC
+#   estimator: SVC
 #   estimator_pkg: sklearn.svm
 #   estimator_params:
+#     kernel: rbf
+#     # C: 1 gia SOA + PAN15
 #     C: 0.1
+#     # 1 or 10 for SOA
+#     gamma: 1 
 #     class_weight: 'balanced'
 #     probability: True
+
+svm:
+  label: svm
+  estimator: LinearSVC
+  estimator_pkg: sklearn.svm
+  estimator_params:
+    C: 0.1
+    class_weight: 'balanced'
+    probability: True
 
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$

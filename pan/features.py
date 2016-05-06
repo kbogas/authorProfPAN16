@@ -17,20 +17,20 @@ from misc import _twokenize
 
 
 def cleaned(term_prof, thres = 0.1):
-    
+
     import numpy
-    
+
     k = 0
     for i in range(0, term_prof.shape[0]):
         tmp = list(term_prof[i, :])
         minim = min(tmp)
         for prob in tmp:
-            if prob!=minim:
-                if abs(prob-minim) < thres:
-                    term_prof[i, :] = 100*numpy.ones([1, term_prof.shape[1]])
+            if prob != minim:
+                if abs(prob - minim) < thres:
+                    term_prof[i, :] = 100 * numpy.ones([1, term_prof.shape[1]])
                     k += 1
                     break
-    print("We cleared " + str(k) + "  terms! This is the " + str(100*k/float(term_prof.shape[0])) + " percent.")
+    print("We cleared " + str(k) + "  terms! This is the " + str(100 * k / float(term_prof.shape[0])) + " percent.")
     return term_prof
 
 

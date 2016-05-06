@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 import time
 from argparse import ArgumentParser
@@ -6,14 +6,10 @@ from pan import ProfilingDataset, createDocProfiles, create_target_prof_trainset
 from tictacs import from_recipe
 from json import dumps
 from sklearn.grid_search import GridSearchCV
-from sklearn.cross_validation import StratifiedShuffleSplit
-from sklearn.metrics import confusion_matrix, accuracy_score
 import logging
-import multiprocessing
 logging.basicConfig(filename='example.log',level=logging.DEBUG)
 
 log = []
-
 
 
 def cross_val(dataset, task, model, num_folds=4):
@@ -35,13 +31,13 @@ def cross_val(dataset, task, model, num_folds=4):
     # y = [yy.lower() for yy in y]
     # get parameters for grid search if it exists - else pass empty dict
     params = model.grid_params if hasattr(model, 'grid_params') else dict()
-    #print params
+    print params
     # from collections import Counter
     # import pprint
     # pprint.pprint(Counter(y))
-    print('\nCreating model for %s - %s' % (dataset.lang, task))
-    print('Trainining instances: %s\n' % (len(X)))
-    print('Using %s fold validation' % (num_folds))
+    print '\nCreating model for %s - %s' % (dataset.lang, task)
+    print 'Trainining instances: %s\n' % (len(X))
+    print 'Using %s fold validation' % (num_folds)
     # get data
     log.append('\nResults for %s - %s with classifier %s' %
                (dataset.lang, task, model.__class__.__name__))
@@ -70,9 +66,6 @@ def cross_val(dataset, task, model, num_folds=4):
         raise KeyError('task %s was not found in task list!' % task)
 
 if __name__ == '__main__':
-
-    #mp.set_start_method('forkserver')
-    multiprocessing.set_start_method('forkserver')
     parser = ArgumentParser(description='Train a model with crossvalidation'
                             ' on pan dataset - used for testing purposes ')
     parser.add_argument('-i', '--input', type=str,

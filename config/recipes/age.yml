@@ -23,7 +23,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-           - 3grams
+           #- 3grams
            #- count hash
            #- count url
            #- count repl
@@ -171,7 +171,7 @@ tfidf:
     max_features: 3000
 
 
-# #Gia mono tou C= 1 , kernel=rbf, 0.41
+# # Gia mono tou C= 1 , kernel=rbf, 0.41
 # soa:
 #   label: soa_model
 #   estimator: SOA_Model2

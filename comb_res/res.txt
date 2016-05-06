@@ -911,6 +911,7 @@ Time: 17.8607499599 seconds.
 Task:age, Pipeline:clean html+detwittify+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
 Results: es - age, params: {} ,Accuracy_Mean: 0.356
 Task:gender, Pipeline:clean html+detwittify+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+<<<<<<< HEAD
 Task:age, Pipeline:clean html+detwittify+3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 5000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 5}]+svm
 Results: en - age, params: {} ,Accuracy_Mean: 0.433486238532
 Task:gender, Pipeline:clean html+detwittify+count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 5}]+svm
@@ -1208,3 +1209,6 @@ Results: en - age, params: {"features__soac_model__min_df": 1, "features__soac_m
 Task:gender, Pipeline:preprocess+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
 Results: en - gender, params: {} ,Accuracy_Mean: 0.76376146789
 Time: 632.746553898 seconds.
+=======
+Task:age, Pipeline:clean html+detwittify+soac_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+>>>>>>> 40143e9b194945fa5180cf1cf1f0fa9683a57761

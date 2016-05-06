@@ -85,7 +85,6 @@ preprocess:
 #     analyzer: char
 #     ngram_range: [3, 3]
 
-
 # soa:
 #   label: soa_model
 #   estimator: SOA_Model2
@@ -210,9 +209,12 @@ soac:
 #   estimator: SVC
 #   estimator_pkg: sklearn.svm
 #   estimator_params:
-#     kernel: linear
+#     kernel: rbf
 #     # C: 1 gia SOA + PAN15
 #     C: 0.1
+#     # 1 or 10 for SOA
+#     gamma: 1 
+#     class_weight: 'balanced'
 #     probability: True
 #     # 1 or 10 for SOA
 #     gamma: 1 
@@ -225,7 +227,6 @@ svm:
   estimator_params:
     C: 0.1
     class_weight: 'balanced'
-
 
 ############## GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 # grid_params:

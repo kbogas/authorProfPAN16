@@ -198,9 +198,9 @@ class ProfilingDataset(DatasetLoader):
             if entry.lang == 'nl':
                 entry.userid = str(int(entry.userid))
             filename = os.path.join(folder,
-                                    entry.lang + '-' + str(entry.userid)) + '.xml'
+                                    entry.lang + '-' + str(entry.userid) + '.xml')
             # Temp Fix for dutch dataset filenames being interpreted as floats
-            print entry
+            #print entry
             with open(filename, 'w') as output:
                 output.write(entry.to_xml())
 

@@ -4,8 +4,9 @@ pipeline:
   estimator_pkg: sklearn.pipeline
   estimator_params:
     steps:
-      - clean html
-      - detwittify
+      - preprocess
+      #- clean html
+      #- detwittify
       - label: features
         estimator: FeatureUnion
         estimator_pkg: sklearn.pipeline
@@ -30,16 +31,20 @@ pipeline:
 
 ############## PREPROCESSING ###################
 
-html cleaner:
-  label: clean html
-  estimator: clean_html
-  estimator_pkg: pan.preprocess
+# html cleaner:
+#   label: clean html
+#   estimator: clean_html
+#   estimator_pkg: pan.preprocess
 
-detwittifier:
-  label: detwittify
-  estimator: detwittify
-  estimator_pkg: pan.preprocess
-  
+# detwittifier:
+#   label: detwittify
+#   estimator: detwittify
+#   estimator_pkg: pan.preprocess
+
+preprocess:
+  label: preprocess
+  estimator: preprocess
+  estimator_pkg: pan.preprocess  
 
 ############ FEATURE TRANSFORMATIONS ######################
 
@@ -167,7 +172,7 @@ soac:
 #   estimator: LinearSVC
 #   estimator_pkg: sklearn.svm
 #   estimator_params:
-#     C: 10
+#     C: 0.01
 #     class_weight: 'balanced'
 
 svm:
@@ -175,13 +180,13 @@ svm:
   estimator: SVC
   estimator_pkg: sklearn.svm
   estimator_params:
-    kernel: rbf
+    kernel: linear
     # C: 1 gia SOA + PAN15
     C: 0.1
+    probability: True
     # 1 or 10 for SOA
     gamma: 1 
     class_weight: 'balanced'
-    probability: True
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 

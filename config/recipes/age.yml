@@ -4,8 +4,9 @@ pipeline:
   estimator_pkg: sklearn.pipeline
   estimator_params:
     steps:
-      - clean html
-      - detwittify
+      - preprocess
+      #- clean html
+      #- detwittify
       #- printer_1
       #- label: print-entry
       #  estimator: Sentinel
@@ -32,8 +33,8 @@ pipeline:
            #- skNMF
            #- skLDA
            # - LDA
-           - soa_model
-           #- soac_model
+           #- soa_model
+           - soac_model
            #- lsi_model
       #- scaler
       #- select
@@ -50,14 +51,19 @@ pipeline:
 
 ############## PREPROCESSING ###################
 
-html cleaner:
-  label: clean html
-  estimator: clean_html
-  estimator_pkg: pan.preprocess
+# html cleaner:
+#   label: clean html
+#   estimator: clean_html
+#   estimator_pkg: pan.preprocess
 
-detwittifier:
-  label: detwittify
-  estimator: detwittify
+# detwittifier:
+#   label: detwittify
+#   estimator: detwittify
+#   estimator_pkg: pan.preprocess
+
+preprocess:
+  label: preprocess
+  estimator: preprocess
   estimator_pkg: pan.preprocess
 
 # duplicate remover:
@@ -162,29 +168,30 @@ tfidf:
   estimator_params:
     analyzer: char
     ngram_range: [3, 3]
-    max_features: 5000
+    max_features: 3000
 
 
-# Gia mono tou C= 1 , kernel=rbf, 0.41
-soa:
-  label: soa_model
-  estimator: SOA_Model2
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    tokenizer_var: 'sklearn'
-    max_features: None
-
-# soac:
-#   label: soac_model
-#   estimator: SOAC_Model2
+# #Gia mono tou C= 1 , kernel=rbf, 0.41
+# soa:
+#   label: soa_model
+#   estimator: SOA_Model2
 #   estimator_pkg: pan.features
 #   estimator_params:
 #     max_df: 1.0
-#     min_df: 1
+#     min_df: 5
 #     tokenizer_var: 'sklearn'
 #     max_features: None
+
+soac:
+  label: soac_model
+  estimator: SOAC_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 1
+    tokenizer_var: 'sklearn'
+    max_features: None
+    thres: 0.1
 
 # FeatureSelector:
 #   label: FeatureSelector
@@ -229,7 +236,17 @@ soa:
 #   estimator: XGBoostClassifier
 #   estimator_pkg: pan.features
 #   estimator_params:
-#     num_boost_round: 10
+#     num_boost_round: 100
+#     learning_rate : 0.5
+#     max_depth: 4
+#     min_child_weight: 8
+#     gamma: 0
+#     subsample: 0.6
+#     colsample_bytree: 0.6
+#     objective: 'multi:softprob'
+#     nthread: -1
+#     scale_pos_weight: 1
+#     seed: 27
 
 # scaler:
 #   label: scaler
@@ -248,22 +265,37 @@ svm:
     # 1 or 10 for SOA
     gamma: 1 
     class_weight: 'balanced'
-    probability: True
+    #probability: True
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 
 # grid_params:
+# - features__3grams__max_features: [1000, 3000, 5000, 7500, 10000]
+#   features__3grams__analyzer: ['char', 'word']
+#   svm__C: [0.01, 0.1, 1, 10, 100]
+
+
+# - xgboost__num_boost_round: [100, 500, 1000]
+#   xgboost__learning_rate: [0.5, 0.6, 0.7, 0.8]
+ #- xgboost__max_depth: [4, 6, 8]
+ #  xgboost__min_child_weight: [1, 4, 6, 8]
+   # - xgboost__gamma: [0, 0.2, 0.4, 0.6]
+ # - xgboost__subsample: [0, 6, 0.7, 0.8]
+ #   xgboost__colsample_bytree: [0.6, 0.7, 0.8]
+   # xgboost__learning_rate: [0.1, 0.3, 0.5]
+   # xgboost__reg_alpha: [0.0001, 0.01, 1, 100]
+
 #   - features__LDA__lib: ['gensim', 'mallet']
 #     features__LDA__num_topics: [30, 60, 90, 120, 150]
-#grid_params:
-#   - features__LDA__lib: ['gensim', 'sklearn']
-#     features__LDA__num_topics: [30, 60, 90, 120, 150]
-#     svm__C: [0.01, 0.1, 1, 10, 100]
-#     svm__kernel: [rbf, linear, sigmoid]
- # - features__soa_model__max_df: [1.0, 0.8]
- #   features__soa_model__max_features: [None, 5000, 10000]
- #- features__soac_model__max_df: [1.0, 0.8]
- #- svm__C: [0.01, 0.1, 1, 10, 100]
+# grid_params:
+# #   - features__LDA__lib: ['gensim', 'sklearn']
+# #     features__LDA__num_topics: [30, 60, 90, 120, 150]
+# #     svm__C: [0.01, 0.1, 1, 10, 100]
+# #     svm__kernel: [rbf, linear, sigmoid]
+#  - features__soac_model__max_df: [1.0, 0.9, 0.8]
+#    features__soac_model__max_features: [None, 5000, 10000]
+#    features__soac_model__min_df: [1, 3, 5]
+ # - svm__C: [0.01, 0.1, 1, 10, 100]
  #  features__soac_model__min_df: [1, 5, 10]
  #  features__soac_model__max_features: [None, 5000, 10000]
  #  svm__C: [0.01, 0.1, 1, 10, 100]

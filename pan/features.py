@@ -16,6 +16,24 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from misc import _twokenize
 
 
+def cleaned(term_prof, thres = 0.1):
+    
+    import numpy
+    
+    k = 0
+    for i in range(0, term_prof.shape[0]):
+        tmp = list(term_prof[i, :])
+        minim = min(tmp)
+        for prob in tmp:
+            if prob!=minim:
+                if abs(prob-minim) < thres:
+                    term_prof[i, :] = 100*numpy.ones([1, term_prof.shape[1]])
+                    k += 1
+                    break
+    print("We cleared " + str(k) + "  terms! This is the " + str(100*k/float(term_prof.shape[0])) + " percent.")
+    return term_prof
+
+
 def logloss(y_true, Y_pred):
 
     import math
@@ -286,8 +304,8 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
 
     """ Complementary of SOA model 22"""
 
-    def __init__(self, max_df=1.0, min_df=5,
-                 tokenizer_var='sklearn', max_features=None):
+    def __init__(self, max_df=1.0, min_df=1,
+                 tokenizer_var='sklearn', max_features=None, thres = 0.1):
         from sklearn.feature_extraction.text import TfidfVectorizer
 
         # stop_list = []
@@ -299,6 +317,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
         self.min_df = min_df
         self.max_features = max_features
         self.tokenizer_var = tokenizer_var
+        self.thres = thres 
         self.term_table = None
         self.labels = None
         self.prior_row = None
@@ -384,6 +403,8 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
                 numpy.reshape(
                    term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
             # normalize(term_prof, norm='l1', axis=1, copy=False)
+            # clean term_prof
+            # term_prof = cleaned(term_prof, self.thres)
             self.term_table = term_prof
             import pprint
             #print "term_table"
@@ -401,8 +422,8 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
              Probably model was not fitted first. Run model.fit(X,y)!')
         else:
             doc_term = self.counter.transform(X)
-            doc_prof = numpy.zeros(
-                [doc_term.shape[0], self.term_table.shape[1]])
+            #doc_prof = numpy.zeros(
+            #    [doc_term.shape[0], self.term_table.shape[1]])
             doc_prof = doc_term.dot(self.term_table)
             print 'Doc_prof'
             print doc_prof.shape, type(doc_prof)
@@ -905,8 +926,8 @@ class SOA_Predict(object):
         # print type(doc_prof)
         #pprint.pprint(doc_prof)
         for i in range(0, doc_prof.shape[0]):
-            y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
-            # y_pred.append(self.labels[numpy.argmin(doc_prof[i, :])])
+            # y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
+            y_pred.append(self.labels[numpy.argmin(doc_prof[i, :])])
             if i == 0:
                 print y_pred
                 print doc_prof[i, :]
@@ -1138,25 +1159,45 @@ class skNMF(BaseEstimator, TransformerMixin):
 
 class XGBoostClassifier(BaseEstimator, TransformerMixin):
 
-    def __init__(self, num_boost_round=10, **params):
+    def __init__(self, **params):
 
         self.clf = None
-        self.num_boost_round = 100
+        # self.num_boost_round = 100
         self.labels = None
-        self.params = params
+        self.params = params.copy()
+        for name, label in params.iteritems():
+            setattr(self, name, label)
 
     def fit(self, X, y, num_boost_round=None):
 
         import xgboost as xgb
 
         num_boost_round = num_boost_round or self.num_boost_round
+        print self.params
+        print self.__dict__
+        print num_boost_round
         self.label2num = dict((label, i) for i, label in enumerate(sorted(set(y))))
-        self.params.update({'objective': 'multi:softprob', 'num_class': len(set(y)), 'eval_metric': 'merror', 'nthread': -1})
+        self.params.update({'num_class': len(set(y))})
+        print type(self.params)
+        print self.params
+        # self.params.update({'objective': 'multi:softprob', 
+        #                     'num_class': len(set(y)), 
+        #                     'eval_metric': 'merror', 
+        #                     'nthread': -1, 
+        #                     'learning_rate': 0.1, 
+        #                     'n_estimators': 140, 
+        #                     'max_depth': 5,
+        #                     'min_child_weight': 1, 
+        #                     'gamma': 0, 
+        #                     'subsample': 0.8, 
+        #                     'colsample_bytree': 0.8,
+        #                     'scale_pos_weight': 1, 
+        #                     'seed': 27})
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
         else:
             dtrain = xgb.DMatrix(X, label=[self.label2num[label] for label in y])
-            self.clf = xgb.train(params=self.params, dtrain=dtrain, num_boost_round=num_boost_round)
+            self.clf = xgb.train(params=self.params, dtrain=dtrain, num_boost_round=self.num_boost_round)
 
     def predict(self, X):
 

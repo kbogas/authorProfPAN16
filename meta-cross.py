@@ -99,7 +99,7 @@ if __name__ == '__main__':
     config = dataset.config
     tasks = config.tasks
     print('\n--------------- Thy time of Running ---------------')
-    list_model_names = ['tictac', 'soac', 'voting']
+    list_model_names = ['tictac', 'soac', 'lda', 'voting', 'meta']
     total_model = {}
     for model_name in list_model_names:
         all_models = {}
@@ -124,11 +124,12 @@ if __name__ == '__main__':
                             # outline += step[0] + " with Params:[" + str(step[1].get_params()) + "]+"
                         # else:
                             # outline += step[0]+ "+"
-                        outline += step[0] + "+"
+                        #outline += step[0] + "+"
+                        outline += step[0] +" with Params:[" + str(step[1].get_params()) + "]+"
                 outline = outline[:-1] + "\n"
                 print('Task:{}, Pipeline:{}'.format(task, outline))
-                all_models[task] = tictac
-                #all_models[task] = cross_val(X, y, dataset, task, tictac, num_folds)
+                #all_models[task] = tictac
+                all_models[task] = cross_val(X, y, dataset, task, tictac, num_folds)
         elif model_name == 'voting':
             for task in tasks:
                 model_list = []
@@ -137,7 +138,7 @@ if __name__ == '__main__':
                 X, y = dataset.get_data(task)
                 if 'meta' in list_model_names:
                     X, X_cv, y, y_cv = train_test_split(X, y, test_size=split, random_state=42, stratify=y)
-                model_list = [(name, all_model[task])for name, all_model in total_model.iteritems() if (name != 'voting' and name != 'ensemble')]
+                model_list = [(name, all_model[task])for name, all_model in total_model.iteritems() if (name != 'voting' and name != 'meta')]
                 all_models[task] = cross_val(X, y, dataset, task, VotingClassifier(estimators=model_list, voting='soft'), num_folds)
         elif model_name == 'meta':
             for task in tasks:

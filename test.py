@@ -2,6 +2,7 @@
 
 from argparse import ArgumentParser
 import math
+import os
 from sklearn.metrics import accuracy_score, confusion_matrix, mean_squared_error
 from pan import ProfilingDataset
 from sklearn.externals import joblib
@@ -55,7 +56,18 @@ if __name__ == '__main__':
     print('Loaded {} users...\n'.format(len(dataset.entries)))
     config = dataset.config
     tasks = config.tasks
-    all_models = joblib.load(model)
+    # This part for tira-io
+    modelfile = os.path.join(model, '%s.bin' % dataset.lang)
+    print('InputRun: %s' % model)
+    print('ModelPath: %s' % modelfile)
+    import pprint
+    pprint.pprint('Directory:')
+    pprint.pprint(os.listdir(model))
+    all_models = joblib.load(modelfile)
+    ######
+    # This part for home usage
+    # all_models = joblib.load(model)
+    ######
     if not all(task in tasks for task in all_models.keys()):
         print("The models you are using aren't all specified in config file")
         print('Did you change the config file after training???!')

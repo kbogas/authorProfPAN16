@@ -4,14 +4,15 @@ pipeline:
   estimator_pkg: sklearn.pipeline
   estimator_params:
     steps:
-      - clean html
-      - detwittify
+      - preprocess
+      #- clean html
+      #- detwittify
       - label: features
         estimator: FeatureUnion
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            - count 3grams tfidf
+            #- count 3grams tfidf
             # - count hash
             # - count url
             # - count repl
@@ -20,8 +21,8 @@ pipeline:
             #- skLDA
             #- skNMF
             #- LDA
-            - soa_model
-            #- soac_model
+            #- soa_model
+            - soac_model
             #- lsi_model
       #- dtree
       #- scaler
@@ -34,16 +35,20 @@ pipeline:
 
 ############## PREPROCESSING ###################
 
-html cleaner:
-  label: clean html
-  estimator: clean_html
-  estimator_pkg: pan.preprocess
+# html cleaner:
+#   label: clean html
+#   estimator: clean_html
+#   estimator_pkg: pan.preprocess
 
-detwittifier:
-  label: detwittify
-  estimator: detwittify
-  estimator_pkg: pan.preprocess
+# detwittifier:
+#   label: detwittify
+#   estimator: detwittify
+#   estimator_pkg: pan.preprocess
   
+preprocess:
+  label: preprocess
+  estimator: preprocess
+  estimator_pkg: pan.preprocess
 
 ############ FEATURE TRANSFORMATIONS ######################
 
@@ -72,34 +77,35 @@ detwittifier:
 #   estimator_pkg: pan.features
 
 
-tfidf:
-  label: count 3grams tfidf
-  estimator: TfidfVectorizer
-  estimator_pkg: sklearn.feature_extraction.text
-  estimator_params:
-    analyzer: char
-    ngram_range: [3, 3]
+# tfidf:
+#   label: count 3grams tfidf
+#   estimator: TfidfVectorizer
+#   estimator_pkg: sklearn.feature_extraction.text
+#   estimator_params:
+#     analyzer: char
+#     ngram_range: [3, 3]
 
 
-soa:
-  label: soa_model
-  estimator: SOA_Model2
-  estimator_pkg: pan.features
-  estimator_params:
-    max_df: 1.0
-    min_df: 5
-    tokenizer_var: 'sklearn'
-    max_features: None
-
-# soac:
-#   label: soac_model
-#   estimator: SOAC_Model2
+# soa:
+#   label: soa_model
+#   estimator: SOA_Model2
 #   estimator_pkg: pan.features
 #   estimator_params:
 #     max_df: 1.0
-#     min_df: 1
+#     min_df: 5
 #     tokenizer_var: 'sklearn'
 #     max_features: None
+
+soac:
+  label: soac_model
+  estimator: SOAC_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 1.0
+    min_df: 1
+    tokenizer_var: 'sklearn'
+    max_features: None
+    thres: 0.1
 
 
 # twcnb:
@@ -182,39 +188,60 @@ soa:
 #   estimator: XGBoostClassifier
 #   estimator_pkg: pan.features
 #   estimator_params:
-#     num_boost_round: 10
+#     num_boost_round: 100
+#     learning_rate : 0.5
+#     max_depth: 4
+#     min_child_weight: 8
+#     gamma: 0
+#     subsample: 0.6
+#     colsample_bytree: 0.6
+#     objective: 'multi:softprob'
+#     nthread: -1
+#     scale_pos_weight: 1
+#     seed: 27
 
 # scaler:
 #   label: scaler
 #   estimator: MinMaxScaler
 #   estimator_pkg: sklearn.preprocessing
 
-svm:
-  label: svm
-  estimator: SVC
-  estimator_pkg: sklearn.svm
-  estimator_params:
-    kernel: rbf
-    # C: 1 gia SOA + PAN15
-    C: 0.1
-    # 1 or 10 for SOA
-    gamma: 1 
-    class_weight: 'balanced'
-    probability: True
-
 # svm:
 #   label: svm
-#   estimator: LinearSVC
+#   estimator: SVC
 #   estimator_pkg: sklearn.svm
 #   estimator_params:
+#     kernel: linear
+#     # C: 1 gia SOA + PAN15
 #     C: 0.1
-#     class_weight: 'balanced'
 #     probability: True
+#     # 1 or 10 for SOA
+#     gamma: 1 
+#     class_weight: 'balanced'
+
+svm:
+  label: svm
+  estimator: LinearSVC
+  estimator_pkg: sklearn.svm
+  estimator_params:
+    C: 0.1
+    class_weight: 'balanced'
 
 
-############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
-
+############## GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
+# grid_params:
+# #   - features__LDA__lib: ['gensim', 'sklearn']
+# #     features__LDA__num_topics: [30, 60, 90, 120, 150]
+# #     svm__C: [0.01, 0.1, 1, 10, 100]
+# #     svm__kernel: [rbf, linear, sigmoid]
+#  - features__soac_model__max_df: [1.0, 0.9, 0.8]
+#    features__soac_model__max_features: [None, 5000, 10000]
+#    features__soac_model__min_df: [1, 3, 5]
+# grid_params:
+#  - features__soac_model__thres: [0, 0.03, 0.06, 0.09, 0.15]
 #grid_params:
+# - xgboost__num_boost_round: [100]
+#   xgboost__learning_rate: [0.1, 0.2, 0.3, 0.5]
+# grid_params:
 #  - svm__C: [0.01, 0.1, 1, 10, 100]
 # - features__soac_model__max_df: [1.0, 0.8]
 #   features__soac_model__min_df: [1, 5, 10]

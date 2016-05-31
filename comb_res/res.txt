@@ -1249,3 +1249,32 @@ Time: 11.7753989697 seconds.
 Task:gender, Pipeline:preprocess+count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soa_model with Params:[{'max_features': 'None', 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 5}]+svm
 Results: nl - gender, params: {} ,Accuracy_Mean: 0.755208333333
 Time: 15.3312840462 seconds.
+Task:age, Pipeline:preprocess+3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 3000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+svm
+Results: en - age, params: {"svm__C": 100} ,Accuracy_Mean: 0.461009174312
+Task:gender, Pipeline:preprocess+count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+svm
+Results: en - gender, params: {"svm__C": 1} ,Accuracy_Mean: 0.745412844037
+Time: 202.719113111 seconds.
+Task:age, Pipeline:preprocess+3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 3000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+svm
+Results: es - age, params: {"svm__C": 100} ,Accuracy_Mean: 0.452
+Task:gender, Pipeline:preprocess+count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+svm
+Results: es - gender, params: {"svm__C": 10} ,Accuracy_Mean: 0.696
+Time: 141.643191099 seconds.
+Task:gender, Pipeline:preprocess+count 3grams tfidf with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': None, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+svm
+Results: nl - gender, params: {"svm__C": 100} ,Accuracy_Mean: 0.770833333333
+Time: 30.2442829609 seconds.
+Task:gender, Pipeline:preprocess+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Results: nl - gender, params: {} ,Accuracy_Mean: 0.721354166667
+Time: 11.18309021 seconds.
+Task:age, Pipeline:preprocess+3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 3000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Results: en - age, params: {} ,Accuracy_Mean: 0.5
+Task:gender, Pipeline:preprocess+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Results: en - gender, params: {} ,Accuracy_Mean: 0.76376146789
+Time: 70.0918409824 seconds.
+Task:age, Pipeline:preprocess+3grams with Params:[{'binary': False, 'lowercase': True, 'stop_words': None, 'decode_error': u'strict', 'vocabulary': None, 'tokenizer': None, 'encoding': u'utf-8', 'dtype': <type 'numpy.int64'>, 'smooth_idf': True, 'analyzer': 'char', 'use_idf': True, 'ngram_range': [3, 3], 'max_df': 1.0, 'min_df': 1, 'max_features': 3000, 'input': u'content', 'sublinear_tf': False, 'strip_accents': None, 'token_pattern': u'(?u)\\b\\w\\w+\\b', 'norm': u'l2', 'preprocessor': None}]+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Results: es - age, params: {"svm__C": 0.1} ,Accuracy_Mean: 0.496
+Task:gender, Pipeline:preprocess+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Results: es - gender, params: {"svm__C": 0.01} ,Accuracy_Mean: 0.708
+Time: 139.102070093 seconds.
+Task:gender, Pipeline:preprocess+soac_model with Params:[{'max_features': 'None', 'thres': 0.1, 'tokenizer_var': 'sklearn', 'max_df': 1.0, 'min_df': 1}]+svm
+Results: nl - gender, params: {"svm__C": 0.01} ,Accuracy_Mean: 0.747395833333
+Time: 20.907102108 seconds.

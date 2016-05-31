@@ -340,7 +340,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
 
         import numpy
         from sklearn.preprocessing import normalize
-        print "We are fitting!"
+        #print "We are fitting!"
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
         else:
@@ -368,7 +368,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             for i, key in enumerate(sorted(dd.keys())):
                 dd[key] = dd[key]/float(len(y))
                 self.prior_row[0, i] = 1/dd[key]
-            print self.prior_row
+            #print self.prior_row
             # Gia to palio. Na vgalw kai doc_prof apo to transform
             #self.prior_row = numpy.ones([1, len(target_profiles)])
             doc_prof = numpy.tile(self.prior_row, (doc_term.shape[0], 1))
@@ -416,7 +416,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
         import numpy
         from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
-        print "We are transforming!"
+        #print "We are transforming!"
         if self.labels is None:
             raise AttributeError('term_table was no found! \
              Probably model was not fitted first. Run model.fit(X,y)!')
@@ -425,8 +425,8 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             #doc_prof = numpy.zeros(
             #    [doc_term.shape[0], self.term_table.shape[1]])
             doc_prof = doc_term.dot(self.term_table)
-            print 'Doc_prof'
-            print doc_prof.shape, type(doc_prof)
+            #print 'Doc_prof'
+            #print doc_prof.shape, type(doc_prof)
             # fake norm
             for i in range(0, doc_prof.shape[0]):
                 doc_prof[i, :] = doc_prof[i, :] - doc_prof[i, :].min()
@@ -476,7 +476,7 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
         import numpy
         from sklearn.preprocessing import normalize
 
-        print "We are fitting!"
+        #print "We are fitting!"
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
         else:
@@ -509,8 +509,8 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             # st_scaler = StandardScaler(copy=False)
             # st_scaler.fit_transform(doc_term)
             #normalize(doc_term, norm='l1', axis=0, copy=False)
-            print "Doc_Terms"
-            print doc_term.shape
+            #print "Doc_Terms"
+            #print doc_term.shape
             target_profiles = sorted(list(set(y)))
             self.labels = target_profiles
             doc_prof = numpy.zeros([doc_term.shape[0], len(target_profiles)])
@@ -518,19 +518,19 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 tmp = numpy.zeros([1, len(target_profiles)])
                 tmp[0, target_profiles.index(y[i])] = 1
                 doc_prof[i, :] = tmp
-            print "Doc_Prof"
-            print doc_prof.shape, type(doc_prof)
+            #print "Doc_Prof"
+            #print doc_prof.shape, type(doc_prof)
             doc_term.data = numpy.log2(doc_term.data + 1)
             #doc_term.transpose
-            print "Doc_Term"
-            print doc_term.shape, type(doc_term)
+            #print "Doc_Term"
+            #print doc_term.shape, type(doc_term)
             term_prof = doc_term.transpose().dot(doc_prof)
             #term_prof = numpy.zeros([doc_term.shape[1], len(target_profiles)])
             #term_prof = numpy.log2(doc_term.transpose.data
             #term_prof = numpy.dot(
             #    numpy.log2(doc_term.toarray().astype('float', casting='unsafe').T + 1), doc_prof)
-            print "Term_Prof"
-            print term_prof.shape, type(term_prof)
+            #print "Term_Prof"
+            #print term_prof.shape, type(term_prof)
             # normalize against words
             term_prof = term_prof / term_prof.sum(axis=0)
             # normalize(term_prof, norm='l1', axis=0, copy=False)
@@ -539,21 +539,21 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
                 numpy.reshape(
                    term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
             # normalize(term_prof, norm='l1', axis=0, copy=False)
-            print "Random Term_Prof"
-            print term_prof[0,:]
+            #print "Random Term_Prof"
+            #print term_prof[0,:]
             # term_prof = term_prof / \
             #    numpy.reshape(
             #        term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
             # term_prof = term_prof / term_prof.sum(axis=0)
             self.term_table = term_prof
-            print "SOA Model Fitted!"
+            #print "SOA Model Fitted!"
             return self
 
     def transform(self, X, y=None):
 
         import numpy
 
-        print "We are transforming!"
+        #print "We are transforming!"
         if self.labels is None:
             raise AttributeError('term_table was no found! \
              Probably model was not fitted first. Run model.fit(X,y)!')
@@ -561,8 +561,8 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             #doc_term = numpy.zeros(
             #    [len(X), self.term_table.shape[0]])
             doc_term = self.counter.transform(X)
-            print "Doc_Terms"
-            print doc_term.shape, type(doc_term)
+            #print "Doc_Terms"
+            #print doc_term.shape, type(doc_term)
             doc_prof = numpy.zeros(
                 [doc_term.shape[0], self.term_table.shape[1]])
             # print "Term_Prof"
@@ -571,12 +571,12 @@ class SOA_Model2(BaseEstimator, TransformerMixin):
             # doc_prof = numpy.dot(
             #    doc_term.toarray().astype('float', casting='unsafe'),
             #    self.term_table)
-            print "SOA Transform:"
+            #print "SOA Transform:"
             # print type(doc_prof)
-            print 'Doc_prof'
-            print doc_prof.shape, type(doc_prof)
-            print doc_prof[0,:]
-            print "Len Voc: %s" % (str(len(self.counter.vocabulary_)))
+            #print 'Doc_prof'
+            #print doc_prof.shape, type(doc_prof)
+            #print doc_prof[0,:]
+            #print "Len Voc: %s" % (str(len(self.counter.vocabulary_)))
             # import pprint
             # pprint.pprint(self.counter.vocabulary_)
             # LSI
@@ -763,7 +763,7 @@ class TWCNB(BaseEstimator, TransformerMixin):
             # print type(doc_prof)
             # print 'Doc_prof'
             # print doc_prof.shape, type(doc_prof)
-            print "Len Voc: %s\n" % (str(doc_term.shape[1]))
+            #print "Len Voc: %s\n" % (str(doc_term.shape[1]))
             #import pprint
             #pprint.pprint(self.counter.vocabulary_)
             # LSI
@@ -1003,9 +1003,9 @@ class LDA(BaseEstimator, TransformerMixin):
             if self.lib == 'sklearn':
                 doc_term = self.counter.transform(X)
                 doc_topics = self.LDA.transform(doc_term)
-                print("\nTopics in LDA model:")
+                #print("\nTopics in LDA model:")
                 tf_feature_names = self.counter.get_feature_names()
-                print_top_words(self.LDA, tf_feature_names, 10)
+                #print_top_words(self.LDA, tf_feature_names, 10)
             else:
                 X = [text.lower().split() for text in X]
                 test_corpus = [self.dictionary.doc2bow(text) for text in X]
@@ -1016,8 +1016,8 @@ class LDA(BaseEstimator, TransformerMixin):
                 doc_topics1 = self.LDA[test_corpus]
                 doc_topics1 = [[topic[1] for topic in doc] for doc in doc_topics1]
                 doc_topics = numpy.array(doc_topics1)
-                print("\nTopics in LDA model:")
-                self.LDA.print_topics(self.num_topics, 10)
+                #print("\nTopics in LDA model:")
+                #self.LDA.print_topics(self.num_topics, 10)
             return doc_topics
 
 

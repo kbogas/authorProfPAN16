@@ -23,7 +23,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-           - 3grams
+           #- 3grams
            #- count hash
            #- count url
            #- count repl
@@ -269,10 +269,10 @@ svm:
 
 ############# GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 
-# grid_params:
-# - features__3grams__max_features: [1000, 3000, 5000, 7500, 10000]
-#   features__3grams__analyzer: ['char', 'word']
-#   svm__C: [0.01, 0.1, 1, 10, 100]
+#grid_params:
+# # - features__3grams__max_features: [1000, 3000, 5000, 7500, 10000]
+# #   features__3grams__analyzer: ['char', 'word']
+#  - svm__C: [0.01, 0.1, 1, 10, 100]
 
 
 # - xgboost__num_boost_round: [100, 500, 1000]

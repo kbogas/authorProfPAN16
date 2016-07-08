@@ -359,7 +359,10 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
                 'max_features': self.max_features
             }
             self.counter.set_params(**parameters)
+            import time
+            time_start = time.time()
             doc_term = self.counter.fit_transform(X)
+            #print "To tf-idf completed in %0.2f sec" % (time.time() - time_start)
             target_profiles = sorted(list(set(y)))
             self.labels = target_profiles
             from collections import Counter
@@ -381,7 +384,8 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
                 #tmp[0, target_profiles.index(y[i])] = 0
                 #doc_prof[i, :] = tmp
             #doc_prof = doc_prof / doc_prof.sum(axis=0)
-            import random
+            #print "Created doc_prof matrix in %0.2f sec" % (time.time() - time_start)
+            #import random
             #print "example"
             # print doc_prof[random.randint(1, 10), :]
             #import pprint
@@ -391,18 +395,29 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             #pprint.pprint(doc_prof)
             #print "doc_term"
             #pprint.pprint(doc_term.transpose().toarray())
+            #print "Type doc_term"
+            #print type(doc_term)
+            #print doc_term.shape
+            #print type(doc_term.data)
+            #print "Type doc_prof"
+            #print type(doc_prof)
+            #print doc_prof.shape
             doc_term.data = numpy.log2(doc_term.data + 1)
+            #print "To tf-idf + log completed in %0.2f sec" % (time.time() - time_start)
             term_prof = doc_term.transpose().dot(doc_prof)
+            #print "Completed dot product in %0.2f sec" % (time.time()- time_start)
             #print "term_table"
             #pprint.pprint(term_prof)
             # normalize against words
             term_prof = term_prof / term_prof.sum(axis=0)
-            # normalize(term_prof, norm='l1', axis=0, copy=False)
+            #print "Normalization per collumn product in %0.2f sec" % (time.time()- time_start)
+            #normalize(term_prof, norm='l1', axis=0, copy=False)
             # normalize across profiles
             term_prof = term_prof / \
                 numpy.reshape(
                    term_prof.sum(axis=1), (term_prof.sum(axis=1).shape[0], 1))
-            # normalize(term_prof, norm='l1', axis=1, copy=False)
+            #print "Normalization per collumn product in %0.2f sec" % (time.time()- time_start)
+            #normalize(term_prof, norm='l1', axis=1, copy=False)
             # clean term_prof
             # term_prof = cleaned(term_prof, self.thres)
             self.term_table = term_prof
@@ -414,13 +429,15 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
     def transform(self, X, y=None):
 
         import numpy
-        from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
         #print "We are transforming!"
         if self.labels is None:
             raise AttributeError('term_table was no found! \
              Probably model was not fitted first. Run model.fit(X,y)!')
         else:
+            #print 'DIAVAZW'
+            #print type(X)
+            #print X
             doc_term = self.counter.transform(X)
             #doc_prof = numpy.zeros(
             #    [doc_term.shape[0], self.term_table.shape[1]])
@@ -429,8 +446,8 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             #print doc_prof.shape, type(doc_prof)
             # fake norm
             for i in range(0, doc_prof.shape[0]):
-                doc_prof[i, :] = doc_prof[i, :] - doc_prof[i, :].min()
-            #print doc_prof
+                doc_prof[i, :] = doc_prof[i, :] #- doc_prof[i, :].min()
+            # print doc_prof
             #from sklearn.preprocessing import normalize
             #normalize(doc_prof, norm='l1', axis=1, copy=False)
             return doc_prof
@@ -1347,3 +1364,153 @@ class Metaclassifier(BaseEstimator, TransformerMixin):
                 y_pred = hstack((y_pred, tmp_pred))
         # print "y_pred: " + str(y_pred.shape)
         return y_pred
+
+
+class Metaclassifier2(BaseEstimator, TransformerMixin):
+
+    """ A Linear Weights Metaclassifier based on the neighborhood of each sample.
+        The neighborhood is different per base model. For each sample we have
+        [N, N*k] votes, with N the number of base classifiers and k the number
+        of neighbors to look for. """
+
+    def __init__(self, models, C=1.0, weights='balanced', k=3):
+
+        from sklearn.svm import LinearSVC
+        from sklearn.preprocessing import LabelEncoder
+
+        if not models:
+            raise AttributeError('Models expexts a dictonary of models \
+              containg the predictions of y_true for each classifier')
+        self.models = models
+        self.weights = weights
+        self.C = C
+        self.k = 3
+        self.svc = LinearSVC(C=self.C, class_weight=self.weights)
+        self.lab_encoder = LabelEncoder()
+
+    def fit(self, X_cv, y_true=None, weights=None):
+
+        if y_true is None:
+            raise ValueError('we need y labels to supervise-fit!')
+        else:
+            # import pprint
+            #print list(set(y_true))
+            # print len(y_true)
+            y_true = self.lab_encoder.fit_transform(y_true)
+            #print self.models.keys()
+            print self.lab_encoder.classes_
+            # print self.models[self.models.keys()[1]].predict(X_cv)
+            #y_true = self.create_onehot(y_true)
+            # print "Train X shape: " + str(X_cv.shape) + "train y_true " + str(y_true.shape)
+            transformed_y = self.transform_to_y(X_cv)
+            #X = self.oh_encoder.transform(y_pred.T)
+            #print transformed_y.shape, y_true.T.shape
+            #print "fit true"
+            # print transformed_y
+            # print y_true
+            self.svc.fit(transformed_y, y_true.T)
+            return self
+
+    def predict(self, X):
+
+        # print "PRedict"
+        # print X.shape
+        X = self.transform_to_y(X)
+        # print "PRedict after"
+        # print X.shape
+        # print X.T.shape
+        import pprint
+        # pprint.pprint(X)
+        # pprint.pprint(X.T)
+        # print "Predict"
+        y_pred = self.svc.predict(X)
+        # pprint.pprint(y_pred)
+        # pprint.pprint(self.lab_encoder.inverse_transform(y_pred)) 
+        return self.lab_encoder.inverse_transform(y_pred)
+
+    def score(self, X, y, sample_weight=None):
+
+        # import numpy
+        # print "Score"
+        # print X.shape, numpy.array(y).shape
+        # transformed_y = self.transform_to_y(X)
+        # print 'edw ok'
+        # print self.svc.predict(transformed_y).shape
+        # print 'Transformed'
+        # print transformed_y.shape
+        from sklearn.metrics import accuracy_score
+        # import pprint
+        # print "Ture"
+        # pprint.pprint(y)
+
+        return accuracy_score(y, self.predict(X), normalize=True)
+        #return self.svc.score(self.transform_to_y(X), y, sample_weight)
+
+    def create_onehot(self, l):
+
+        from numpy import zeros, vstack
+        #print "L:"
+        #from pprint import pprint as pprint
+        #print type(l)
+        # pprint(l)
+        l = list(l)
+        for i, el in enumerate(l):
+            temp = zeros([1, len(self.lab_encoder.classes_)], dtype=float)
+            #print(temp.shape)
+           # pprint(temp)
+            temp[0, el] = 1
+            if i == 0:
+                fin = temp
+            else:
+                fin = vstack((fin, temp))
+        #print "onehot shape" + str(fin.shape)
+        return fin
+
+    def transform_to_y(self, X):
+
+        from numpy import hstack
+
+        #print "Train X shape: " + str(X.shape)
+        for i, model in enumerate(self.models.values()):
+            #print self.models.keys()[i]
+            predict = model.predict(X)
+            #print type(predict)
+            #print predict.shape
+            #print predict
+            tmp_pred = self.create_onehot(self.lab_encoder.transform(predict))
+            #print type(tmp_pred)
+            if i == 0:
+                y_pred = tmp_pred
+            else:
+                y_pred = hstack((y_pred, tmp_pred))
+            predictions_n = self.neigh_model_pred(model, X, predict)
+            #print 'Num Pred'
+            #print len(predictions_n[0])
+            for neigh_dist in xrange(self.k):
+                tmp_pred_n = self.create_onehot(self.lab_encoder.transform(predictions_n[:, neigh_dist]))
+                y_pred = hstack((y_pred, tmp_pred_n))
+            #print "y_pred: " + str(y_pred.shape)
+        #print "y_pred: " + str(y_pred.shape)
+        #print len(self.lab_encoder.classes_)
+        #print y_pred
+        return y_pred
+
+
+    def neigh_model_pred(self, modle, X, pred):
+
+        from sklearn.neighbors import BallTree
+        import numpy
+
+        # Expects a pipeline with two steps. Transform and Predict.
+        transf = model.steps[0][1].transform(X)
+        if hasattr(transf, "toarray"):
+            # print 'Exei'
+            representations = transf.toarray()
+        else:
+            representations = transf
+        ModelTree = BallTree(representations)
+        predictions = []
+        for i in xrange(representations.shape[0]):
+            _, neig_ind = ModelTree.query(representations[i,:].reshape(1,-1), self.k)
+            predictions.extend([pred[n_i] for n_i in neig_ind])
+        return numpy.array(predictions)

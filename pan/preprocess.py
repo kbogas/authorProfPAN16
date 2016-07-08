@@ -231,15 +231,15 @@ def stopwords(X):
     return [[word for word in text if word not in stopwords and len(word)>3] for text in X]
 
 def preprocess(X):
-    print '    -Cleaning html'
+    # print '    -Cleaning html'
     X=clean_html2(X)
-    print '    -Detwittifying'
+    # print '    -Detwittifying'
     X=detwittify2(X)
-    print '    -Removing Numbers'
+    # print '    -Removing Numbers'
     X=remove_numbers(X)
-    print '    -Removing Punctuation'
+    # print '    -Removing Punctuation'
     X=remove_punctuation(X)
-    print '    -Removing Links'
+    # print '    -Removing Links'
     X=remove_links(X)
     #print '    -Tokenizing'
     #X=tokenization(X)

@@ -6,7 +6,7 @@ from sklearn.externals import joblib
 from tictacs import from_recipe
 from pan import ProfilingDataset
 # import dill
-# import cPickle as pickle
+#import cPickle as pickle
 # from sklearn.neighbors import KNeighborsClassifier
 # from sklearn.metrics import accuracy_score, confusion_matrix
 
@@ -61,6 +61,6 @@ if __name__ == '__main__':
     #print modelfile
     #dill.dump(all_models, fo, protocol=pickle.HIGHEST_PROTOCOL)
     #fo.close()
-    # pickle.dump(all_models, modelfile)
+    #pickle.dump(all_models, modelfile)
     # dill.dump(all_models, modelfile)
     joblib.dump(all_models, modelfile, compress=3)

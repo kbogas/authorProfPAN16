@@ -6,6 +6,7 @@ import os
 from sklearn.metrics import accuracy_score, confusion_matrix, mean_squared_error
 from pan import ProfilingDataset
 from sklearn.externals import joblib
+import pprint
 
 
 def test_data(dataset, model, task):
@@ -60,7 +61,6 @@ if __name__ == '__main__':
     modelfile = os.path.join(model, '%s.bin' % dataset.lang)
     print('InputRun: %s' % model)
     print('ModelPath: %s' % modelfile)
-    import pprint
     pprint.pprint('Directory:')
     pprint.pprint(os.listdir(model))
     all_models = joblib.load(modelfile)

@@ -3,6 +3,7 @@
 import time
 from argparse import ArgumentParser
 from pan import ProfilingDataset, createDocProfiles, create_target_prof_trainset
+from sklearn.cross_validation import train_test_split
 from tictacs import from_recipe
 from json import dumps
 from sklearn.grid_search import GridSearchCV
@@ -25,9 +26,11 @@ def cross_val(dataset, task, model, num_folds=4):
     # else:
     #    docs = createDocProfiles(dataset)
     #    X, y = create_target_prof_trainset(docs, task)
-    # docs = createDocProfiles(dataset)
-    # X, y = create_target_prof_trainset(docs, task)
-    X, y = dataset.get_data(task)
+    docs = createDocProfiles(dataset)
+    X, y = create_target_prof_trainset(docs, task)
+    X, _, y, _ = train_test_split(X, y, train_size=100000, stratify=y, random_state=100)
+    #X, y = X[:20000], y[:20000]
+    #X, y = dataset.get_data(task)
     # y = [yy.lower() for yy in y]
     # get parameters for grid search if it exists - else pass empty dict
     params = model.grid_params if hasattr(model, 'grid_params') else dict()

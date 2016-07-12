@@ -402,9 +402,20 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
             #print "Type doc_prof"
             #print type(doc_prof)
             #print doc_prof.shape
-            doc_term.data = numpy.log2(doc_term.data + 1)
+            try:
+                doc_term.data = numpy.log2(doc_term.data + 1)
+            except Exception, e:
+                print "Error in log2"
+                print e
+            try:
+                term_prof = doc_term.transpose().dot(doc_prof)
+            except Exception, e:
+                print "Error in product"
+                print e
+
+            #doc_term.data = numpy.log2(doc_term.data + 1)
             #print "To tf-idf + log completed in %0.2f sec" % (time.time() - time_start)
-            term_prof = doc_term.transpose().dot(doc_prof)
+            #term_prof = doc_term.transpose().dot(doc_prof)
             #print "Completed dot product in %0.2f sec" % (time.time()- time_start)
             #print "term_table"
             #pprint.pprint(term_prof)
@@ -945,9 +956,6 @@ class SOA_Predict(object):
         for i in range(0, doc_prof.shape[0]):
             # y_pred.append(self.labels[numpy.argmax(doc_prof[i, :])])
             y_pred.append(self.labels[numpy.argmin(doc_prof[i, :])])
-            if i == 0:
-                print y_pred
-                print doc_prof[i, :]
         return y_pred
 
 

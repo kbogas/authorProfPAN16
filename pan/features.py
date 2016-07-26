@@ -842,7 +842,7 @@ class LSI_Model(BaseEstimator, TransformerMixin):
 
         from gensim import corpora, models
 
-        print "We are fitting!"
+        #print "We are fitting!"
         if y is None:
             raise ValueError('we need y labels to supervise-fit!')
         else:
@@ -850,8 +850,8 @@ class LSI_Model(BaseEstimator, TransformerMixin):
             self.dictionary = corpora.Dictionary(texts)
             corpus = [self.dictionary.doc2bow(text) for text in texts]
             self.lsi = models.LsiModel(corpus, id2word=self.dictionary, num_topics=self.num_topics)
-            print "LSI Model Fitted!"
-            print "Dict len: %s" % (len(self.dictionary.values()))
+            #print "LSI Model Fitted!"
+            #print "Dict len: %s" % (len(self.dictionary.values()))
             # import pprint
             # print "Dict:"
             # pprint.pprint(sorted(self.dictionary.values()))
@@ -861,7 +861,7 @@ class LSI_Model(BaseEstimator, TransformerMixin):
 
         import numpy
 
-        print "We are transforming!"
+        #print "We are transforming!"
         if self.lsi is None:
             raise AttributeError('lsi_model was no found! \
              Probably model was not fitted first. Run model.fit(X,y)!')
@@ -889,8 +889,8 @@ class LSI_Model(BaseEstimator, TransformerMixin):
             # print numpy.array(lsi_list).shape
             # print len(lsi_list)
             temp_z = numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))
-            print "LSI Transform:"
-            print temp_z.shape
+            #print "LSI Transform:"
+            #print temp_z.shape
             # print len(lsi_list[0])
             # for Naive Bayes to have only semi-positive values
             return temp_z + abs(temp_z.min())

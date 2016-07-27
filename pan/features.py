@@ -334,7 +334,7 @@ class SOAC_Model2(BaseEstimator, TransformerMixin):
         # self.dictionary = None
         # self.num_topics = 100
         # self.counter = CountVectorizer()
-        self.counter = TfidfVectorizer(use_idf=False)
+        self.counter = TfidfVectorizer(use_idf=True)
 
     def fit(self, X, y=None):
 

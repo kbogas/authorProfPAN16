@@ -1286,18 +1286,18 @@ class Metaclassifier(BaseEstimator, TransformerMixin):
             raise ValueError('we need y labels to supervise-fit!')
         else:
             # import pprint
-            print list(set(y_true))
+            #print list(set(y_true))
             # print len(y_true)
             y_true = self.lab_encoder.fit_transform(y_true)
-            print self.models.keys()
+            #print self.models.keys()
             # print self.lab_encoder.classes_
             # print self.models[self.models.keys()[1]].predict(X_cv)
             #y_true = self.create_onehot(y_true)
             # print "Train X shape: " + str(X_cv.shape) + "train y_true " + str(y_true.shape)
             transformed_y = self.transform_to_y(X_cv)
             #X = self.oh_encoder.transform(y_pred.T)
-            print transformed_y.shape, y_true.T.shape
-            print "fit true"
+            # print transformed_y.shape, y_true.T.shape
+            #print "fit true"
             # print transformed_y
             # print y_true
             self.svc.fit(transformed_y, y_true.T)
@@ -1314,10 +1314,10 @@ class Metaclassifier(BaseEstimator, TransformerMixin):
         import pprint
         # pprint.pprint(X)
         # pprint.pprint(X.T)
-        print "Predict"
+        #print "Predict"
         y_pred = self.svc.predict(X)
-        pprint.pprint(y_pred)
-        pprint.pprint(self.lab_encoder.inverse_transform(y_pred))
+        #pprint.pprint(y_pred)
+        #pprint.pprint(self.lab_encoder.inverse_transform(y_pred))
         return self.lab_encoder.inverse_transform(y_pred)
 
     def score(self, X, y, sample_weight=None):
@@ -1332,8 +1332,8 @@ class Metaclassifier(BaseEstimator, TransformerMixin):
         # print transformed_y.shape
         from sklearn.metrics import accuracy_score
         import pprint
-        print "Ture"
-        pprint.pprint(y)
+        #print "Ture"
+        #pprint.pprint(y)
 
         return accuracy_score(y, self.predict(X), normalize=True)
         #return self.svc.score(self.transform_to_y(X), y, sample_weight)
@@ -1364,7 +1364,7 @@ class Metaclassifier(BaseEstimator, TransformerMixin):
 
         # print "Train X shape: " + str(X.shape)
         for i, model in enumerate(self.models.values()):
-            print self.models.keys()[i]
+            # print self.models.keys()[i]
             tmp_pred = self.create_onehot(self.lab_encoder.transform(model.predict(X)))
             if i == 0:
                 y_pred = tmp_pred

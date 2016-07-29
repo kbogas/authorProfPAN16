@@ -23,7 +23,7 @@ pipeline:
             #- LDA
             #- soa_model
             - soac_model
-            #- lsi_model
+            - lsi_model
       #- dtree
       #- scaler
       - svm
@@ -135,12 +135,12 @@ soac:
 #     verbose: 1
 #     random_state: 100
 
-# lsi:
-#   label: lsi_model
-#   estimator: LSI_Model
-#   estimator_pkg: pan.features
-#   estimator_params:
-#     num_topics: 200
+lsi:
+  label: lsi_model
+  estimator: LSI_Model
+  estimator_pkg: pan.features
+  estimator_params:
+    num_topics: 100
 
 
 # LDA:
@@ -230,7 +230,9 @@ svm:
 
 
 ############## GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
-#grid_params:
+grid_params:
+  - features__lsi_model__num_topics: [25,50,100, 150]
+    svm__C: [0.01, 0.1, 1, 10, 100]
 # # - features__3grams__max_features: [1000, 3000, 5000, 7500, 10000]
 # #   features__3grams__analyzer: ['char', 'word']
 #  - svm__C: [0.01, 0.1, 1, 10, 100]

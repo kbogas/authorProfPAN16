@@ -12,7 +12,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            # - count 3grams tfidf
+            - count 3grams tfidf
             # - count hash
             # - count url
             # - count repl
@@ -23,7 +23,7 @@ pipeline:
             #- LDA
             #- soa_model
             - soac_model
-            - lsi_model
+            #- lsi_model
       #- dtree
       #- scaler
       - svm
@@ -77,13 +77,14 @@ preprocess:
 #   estimator_pkg: pan.features
 
 
-# tfidf:
-#   label: count 3grams tfidf
-#   estimator: TfidfVectorizer
-#   estimator_pkg: sklearn.feature_extraction.text
-#   estimator_params:
-#     analyzer: char
-#     ngram_range: [3, 3]
+tfidf:
+  label: count 3grams tfidf
+  estimator: TfidfVectorizer
+  estimator_pkg: sklearn.feature_extraction.text
+  estimator_params:
+    analyzer: word
+    ngram_range: [1, 1]
+    max_features: 3000
 
 # soa:
 #   label: soa_model
@@ -100,8 +101,8 @@ soac:
   estimator: SOAC_Model2
   estimator_pkg: pan.features
   estimator_params:
-    max_df: 1.0
-    min_df: 1
+    max_df: 0.9 
+    min_df: 5
     tokenizer_var: 'sklearn'
     max_features: None
     thres: 0.1
@@ -135,12 +136,12 @@ soac:
 #     verbose: 1
 #     random_state: 100
 
-lsi:
-  label: lsi_model
-  estimator: LSI_Model
-  estimator_pkg: pan.features
-  estimator_params:
-    num_topics: 100
+# lsi:
+#   label: lsi_model
+#   estimator: LSI_Model
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     num_topics: 100
 
 
 # LDA:
@@ -225,14 +226,14 @@ svm:
   estimator: LinearSVC
   estimator_pkg: sklearn.svm
   estimator_params:
-    C: 0.1
+    C: 100
     class_weight: 'balanced'
 
 
 ############## GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
-grid_params:
-  - features__lsi_model__num_topics: [25,50,100, 150]
-    svm__C: [0.01, 0.1, 1, 10, 100]
+# grid_params:
+#   - features__lsi_model__num_topics: [25,50,100, 150]
+#     svm__C: [0.01, 0.1, 1, 10, 100]
 # # - features__3grams__max_features: [1000, 3000, 5000, 7500, 10000]
 # #   features__3grams__analyzer: ['char', 'word']
 #  - svm__C: [0.01, 0.1, 1, 10, 100]

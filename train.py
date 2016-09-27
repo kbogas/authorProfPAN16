@@ -4,7 +4,7 @@ import os
 from argparse import ArgumentParser
 from sklearn.externals import joblib
 from tictacs import from_recipe
-from pan import ProfilingDataset
+from pan import ProfilingDataset, createDocProfiles, create_target_prof_trainset
 # import dill
 #import cPickle as pickle
 # from sklearn.neighbors import KNeighborsClassifier
@@ -34,7 +34,9 @@ if __name__ == '__main__':
     for task in tasks:
         print('Learning to judge %s..' % task)
         # load data
-        X, y = dataset.get_data(task)
+        #X, y = dataset.get_data(task)
+        docs = createDocProfiles(dataset)
+        X, y = create_target_prof_trainset(docs, task)
         tictac = from_recipe(config.recipes[task])
         outline = ""
         for step in tictac.steps:
@@ -53,7 +55,7 @@ if __name__ == '__main__':
         outline = outline[:-1] + "\n"
         print('Task:{}, Pipeline:{}'.format(task, outline))
         all_models[task] = tictac.fit(X, y)
-    modelfile = os.path.join(outfolder, '%s.bin' % dataset.lang)
+    modelfile = os.path.join(outfolder, '%s_instance.bin' % dataset.lang)
     print('Writing model to {}'.format(modelfile))
     #fo = open(modelfile,  'wb')
     #import pprint

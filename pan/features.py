@@ -828,34 +828,54 @@ class TWCNB(BaseEstimator, TransformerMixin):
 class LSI_Model(BaseEstimator, TransformerMixin):
     """ Model that extracts LSI features"""
 
-    def __init__(self, num_topics=100):
+    def __init__(self, num_topics=100, max_df = 0.9, min_df = 2, max_features= None):
 
         # stop_list = []
         # with open(stopwords_path, 'r') as stop_inp:
         # for w in stop_inp:
         # stop_list.append(w.replace("\n", ""))
+        
+        from sklearn.feature_extraction.text import CountVectorizer
+        
+        self.vect = CountVectorizer()
         self.lsi = None
         self.dictionary = None
         self.num_topics = num_topics
+        self.max_df = max_df
+        self.min_df = min_df
+        self.max_features = max_features
 
     def fit(self, X, y=None):
 
         from gensim import corpora, models
+        from gensim.corpora.dictionary import Dictionary
+        from gensim.matutils import Sparse2Corpus
+        from gensim.models import LsiModel
+        
+        parameters = {
+                'input': 'content',
+                'encoding': 'utf-8',
+                'decode_error': 'ignore',
+                'analyzer': 'word',
+                # 'vocabulary':list(voc),
+                # 'tokenizer': tokenization,
+                #'tokenizer': _twokenize.tokenizeRawTweetText,  # self.tokenization,
+                #'tokenizer': lambda text: _twokenize.tokenizeRawTweetText(nonan.sub(po_re.sub('', text))),
+                'max_df': self.max_df,
+                'min_df': self.min_df,
+                'max_features': self.max_features
+            }
+        self.vect.set_params(**parameters)
+        X_tr1 = self.vect.fit_transform(X)
 
-        #print "We are fitting!"
-        if y is None:
-            raise ValueError('we need y labels to supervise-fit!')
-        else:
-            texts = [tokenization(text) for text in X]
-            self.dictionary = corpora.Dictionary(texts)
-            corpus = [self.dictionary.doc2bow(text) for text in texts]
-            self.lsi = models.LsiModel(corpus, id2word=self.dictionary, num_topics=self.num_topics)
-            #print "LSI Model Fitted!"
-            #print "Dict len: %s" % (len(self.dictionary.values()))
-            # import pprint
-            # print "Dict:"
-            # pprint.pprint(sorted(self.dictionary.values()))
-            return self
+        # Sparse vectors to gensim format. 
+        corpus = Sparse2Corpus(X_tr1, documents_columns=False)
+
+        self.dictionary = Dictionary.from_corpus(corpus,
+                            id2word=dict((id, word) for word, id in self.vect.vocabulary_.items()))
+
+        self.lsi = LsiModel(corpus, id2word=self.dictionary, num_topics=self.num_topics)
+        return self
 
     def transform(self, X, y=None):
 
@@ -863,37 +883,28 @@ class LSI_Model(BaseEstimator, TransformerMixin):
 
         #print "We are transforming!"
         if self.lsi is None:
-            raise AttributeError('lsi_model was no found! \
-             Probably model was not fitted first. Run model.fit(X,y)!')
+            raise AttributeError('lsi_model was no fitted!')
         else:
             # LSI
-            texts = [tokenization(text) for text in X]
-            corpus = [self.dictionary.doc2bow(text) for text in texts]
-            transform_lsi = self.lsi[corpus]
-            lsi_list = []
-            dummy_empty_list = [0 for i in range(0, self.num_topics)]
-            # c = 0
-            for i, doc in enumerate(transform_lsi):
-                if not doc:  # list is empty
-                    lsi_list.append(dummy_empty_list)
-                else:
-                    lsi_list.append(list(zip(*doc)[1]))
-                    if len(lsi_list[-1]) != self.num_topics:
-                        # c += 1
-                        # print c
-                        # print texts[i]
-                        # print len(lsi_list[-1])
-                        # print lsi_list[-1]
-                        lsi_list[-1] = dummy_empty_list
-            # lsi_list = [list(zip(*doc)[1]) for doc in transform_lsi]
-            # print numpy.array(lsi_list).shape
-            # print len(lsi_list)
-            temp_z = numpy.reshape(numpy.array(lsi_list), (len(lsi_list), self.num_topics))
-            #print "LSI Transform:"
-            #print temp_z.shape
-            # print len(lsi_list[0])
-            # for Naive Bayes to have only semi-positive values
-            return temp_z + abs(temp_z.min())
+            X_tr_cv = self.vect.transform(X)
+            docs = []
+            for i in xrange(X_tr_cv.shape[0]):
+                tmp = X_tr_cv[i,:].toarray()
+                #print tmp.shape
+            #numpy.where(tmp>0)[1]
+                ind = numpy.where(tmp>0)[1]
+                vals = tmp[0, ind]
+                doc = []
+                for i, k in enumerate(ind):
+                    doc.append((k, vals[i]))
+                docs.append(doc)
+            kk = self.lsi[docs]
+            l = numpy.zeros([X_tr_cv.shape[0], self.num_topics])
+            for i, k in enumerate(kk):
+                #print k
+                for tuple_topic in k:
+                    l[i, tuple_topic[0]]= tuple_topic[1]
+            return l
 
 """ 
     def predict(self, X, y=None):
@@ -987,7 +998,7 @@ class LDA(BaseEstimator, TransformerMixin):
         else:
             target_profiles = sorted(list(set(y)))
             self.labels = target_profiles
-            if self.LDA is None:
+            if self.LDA is None or self.lib == 'gensim' or self.lib == 'mallet':
                 from gensim import corpora, models
                 X = [text.lower().split() for text in X]
                 self.dictionary = corpora.Dictionary(X)

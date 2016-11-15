@@ -55,7 +55,7 @@ if __name__ == '__main__':
         outline = outline[:-1] + "\n"
         print('Task:{}, Pipeline:{}'.format(task, outline))
         all_models[task] = tictac.fit(X, y)
-    modelfile = os.path.join(outfolder, '%s_instance.bin' % dataset.lang)
+    modelfile = os.path.join(outfolder, '%s_fin.bin' % dataset.lang)
     print('Writing model to {}'.format(modelfile))
     #fo = open(modelfile,  'wb')
     #import pprint

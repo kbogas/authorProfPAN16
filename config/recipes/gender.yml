@@ -12,7 +12,7 @@ pipeline:
         estimator_pkg: sklearn.pipeline
         estimator_params:
           transformer_list:
-            #- count 3grams tfidf
+            - count 3grams tfidf
             # - count hash
             # - count url
             # - count repl
@@ -23,7 +23,7 @@ pipeline:
             #- LDA
             #- soa_model
             - soac_model
-            - lsi_model
+            #- lsi_model
       #- dtree
       #- scaler
       - svm
@@ -77,14 +77,14 @@ preprocess:
 #   estimator_pkg: pan.features
 
 
-# tfidf:
-#   label: count 3grams tfidf
-#   estimator: TfidfVectorizer
-#   estimator_pkg: sklearn.feature_extraction.text
-#   estimator_params:
-#     analyzer: word
-#     ngram_range: [1, 1]
-#     max_features: 3000
+tfidf:
+  label: count 3grams tfidf
+  estimator: TfidfVectorizer
+  estimator_pkg: sklearn.feature_extraction.text
+  estimator_params:
+    analyzer: word
+    ngram_range: [1, 1]
+    max_features: 3000
 
 # soa:
 #   label: soa_model
@@ -96,16 +96,16 @@ preprocess:
 #     tokenizer_var: 'sklearn'
 #     max_features: None
 
-# soac:
-#   label: soac_model
-#   estimator: SOAC_Model2
-#   estimator_pkg: pan.features
-#   estimator_params:
-#     max_df: 0.9 
-#     min_df: 5
-#     tokenizer_var: 'sklearn'
-#     max_features: None
-#     thres: 0.1
+soac:
+  label: soac_model
+  estimator: SOAC_Model2
+  estimator_pkg: pan.features
+  estimator_params:
+    max_df: 0.9 
+    min_df: 5
+    tokenizer_var: 'sklearn'
+    max_features: None
+    thres: 0.1
 
 
 # twcnb:
@@ -136,15 +136,15 @@ preprocess:
 #     verbose: 1
 #     random_state: 100
 
-lsi:
-  label: lsi_model
-  estimator: LSI_Model
-  estimator_pkg: pan.features
-  estimator_params:
-    num_topics: 100
-    max_df: 0.9
-    min_df: 2
-    max_features: None
+# lsi:
+#   label: lsi_model
+#   estimator: LSI_Model
+#   estimator_pkg: pan.features
+#   estimator_params:
+#     num_topics: 100
+#     max_df: 0.9
+#     min_df: 2
+#     max_features: None
 
 
 # LDA:
@@ -235,24 +235,24 @@ svm:
 
 ############## GRID PARAMS $$$$$$$$$$$$$$$$$$$$$$$$$
 grid_params:
-  - features__lsi_model__num_topics: [25,50,100, 150]
-    features__lsi_model__max_df: [1.0, 0.9, 0.8]
-    features__lsi_model__max_features: [None, 5000, 10000]
-    features__lsi_model__min_df: [1, 3, 5]
-    svm__C: [0.01, 0.1, 1, 10, 100]
-    svm__C: ['rbf', 'linear']
+#   - features__lsi_model__num_topics: [25,50,100, 150]
+#     features__lsi_model__max_df: [1.0, 0.9, 0.8]
+#     features__lsi_model__max_features: [None, 5000, 10000]
+#     features__lsi_model__min_df: [1, 3, 5]
+#     svm__C: [0.01, 0.1, 1, 10, 100]
+#     svm__C: ['rbf', 'linear']
 #     svm__C: [0.01, 0.1, 1, 10, 100]
 # # - features__3grams__max_features: [1000, 3000, 5000, 7500, 10000]
 # #   features__3grams__analyzer: ['char', 'word']
-#  - svm__C: [0.01, 0.1, 1, 10, 100]
+ - svm__C: [0.01, 0.1, 1, 10, 100]
 # grid_params:
 # #   - features__LDA__lib: ['gensim', 'sklearn']
 # #     features__LDA__num_topics: [30, 60, 90, 120, 150]
-# #     svm__C: [0.01, 0.1, 1, 10, 100]
-# #     svm__kernel: [rbf, linear, sigmoid]
-#  - features__soac_model__max_df: [1.0, 0.9, 0.8]
-#    features__soac_model__max_features: [None, 5000, 10000]
-#    features__soac_model__min_df: [1, 3, 5]
+#   - svm__C: [0.01, 0.1, 1, 10, 100]
+# #    svm__kernel: [rbf, linear]
+#     features__soac_model__max_df: [1.0, 0.9, 0.8]
+#     features__soac_model__max_features: [None, 5000, 10000]
+#     features__soac_model__min_df: [1, 3, 5]
 # grid_params:
 #  - features__soac_model__thres: [0, 0.03, 0.06, 0.09, 0.15]
 #grid_params:

@@ -61,12 +61,12 @@ if __name__ == '__main__':
     modelfile = os.path.join(model, '%s.bin' % dataset.lang)
     print('InputRun: %s' % model)
     print('ModelPath: %s' % modelfile)
-    pprint.pprint('Directory:')
-    pprint.pprint(os.listdir(model))
-    all_models = joblib.load(modelfile)
+    #pprint.pprint('Directory:')
+    #pprint.pprint(os.listdir(model))
+    #all_models = joblib.load(modelfile)
     ######
     # This part for home usage
-    # all_models = joblib.load(model)
+    all_models = joblib.load(model)
     ######
     if not all(task in tasks for task in all_models.keys()):
         print("The models you are using aren't all specified in config file")

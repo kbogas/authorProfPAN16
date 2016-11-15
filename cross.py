@@ -35,6 +35,7 @@ def cross_val(dataset, task, model, num_folds=4):
     # get parameters for grid search if it exists - else pass empty dict
     params = model.grid_params if hasattr(model, 'grid_params') else dict()
     print params
+    print model
     # from collections import Counter
     # import pprint
     # pprint.pprint(Counter(y))
@@ -86,9 +87,12 @@ if __name__ == '__main__':
     dataset = ProfilingDataset(infolder)
     print('Loaded %s users...\n' % len(dataset.entries))
     config = dataset.config
+    #print config
+    #print type(config)
+    #exit(1)
     tasks = config.tasks
     print('\n--------------- Thy time of Running ---------------')
-    for task in tasks:
+    for task in ['gender']:
         tictac = from_recipe(config.recipes[task])
         outline = ""
         for step in tictac.steps:
